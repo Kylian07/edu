@@ -55,7 +55,7 @@ Phase 04 — CryoEM & Structural Biology
 
 The foundation everything else rests on. You will leave Phase 01 fluent in PyTorch tensors, comfortable loading DICOM and TIFF medical images, and able to design and apply filters in both the spatial and frequency domains. The final module introduces hand-crafted geometric features and classical classifiers — still the right choice whenever labelled data is scarce.
 
-➜ [`Phase01_ComputationalSignalBase/`](Phase01_ComputationalSignalBase/)
+➜ [`ComputationalSignalBase/`](ComputationalSignalBase/)
 
 ---
 
@@ -64,7 +64,7 @@ The foundation everything else rests on. You will leave Phase 01 fluent in PyTor
 
 Phase 02 is about understanding *where things are* and *what shape they have*. You will compress high-dimensional images with PCA, train a YOLOv5 object detector on a custom dataset, track cells across 3-D time-lapse volumes, segment structures with both classical algorithms and U-Net, and align image pairs using both iterative optimisation and a conditional GAN.
 
-➜ [`Phase02_SpatialPerceptionAnalysis/`](Phase02_SpatialPerceptionAnalysis/)
+➜ [`SpatialPerceptionAnalysis/`](SpatialPerceptionAnalysis/)
 
 ---
 
@@ -73,7 +73,7 @@ Phase 02 is about understanding *where things are* and *what shape they have*. Y
 
 The phase where individual building blocks converge into complete clinical-grade systems. You will train a 3-D U-Net on the Medical Segmentation Decathlon spleen benchmark, work through the full spectrum of multimodal registration from classical SimpleITK to deep VoxelMorph-style networks, synthesise missing imaging modalities using Schrödinger Bridge Conditional Flow Matching, and probe state-of-the-art foundation models (BiomedCLIP, BLIP-2, LLaVA-1.5) with real medical images.
 
-➜ [`Phase03_AdvancedMedicalAI/`](Phase03_AdvancedMedicalAI/)
+➜ [`AdvancedMedicalAI/`](AdvancedMedicalAI/)
 
 ---
 
@@ -82,7 +82,16 @@ The phase where individual building blocks converge into complete clinical-grade
 
 An end-to-end computational treatment of cryo-electron microscopy. Module 01 builds the 2-D signal-processing intuition (CTF simulation, denoising, particle picking, class averaging, FRC resolution). Module 02 extends everything to 3-D: the Fourier Slice Theorem, trilinear back-projection, and expectation-maximisation pose estimation. Module 03 is a full hands-on practical using IMOD/Etomo on a real published tilt series from EMPIAR.
 
-➜ [`Phase04_CryoEM_StructuralBiology/`](Phase04_CryoEM_StructuralBiology/)
+➜ [`cryoem/`](../../cryoem/readme.md)
+
+---
+
+### Phase 05 — Robotic Lab Automation & VLA Models
+**Level: Advanced / Specialist** · Requires Phase 01 and Phase 02.
+
+An end-to-end treatment of robotic lab automation. Module 01 covers the AutoBio simulation framework (Lan et al., 2025), physics plugins for detents and screw-caps, success metrics, and baseline VLA model evaluations. Module 02 builds computer vision tasks inspired by AutoBio (tube localization, slot symmetry indexing, liquid-level estimation, closed-loop dial panel control) using synthetic toy data.
+
+➜ [`RoboticLabAutomation/`](RoboticLabAutomation/)
 
 ---
 
@@ -137,34 +146,34 @@ jupyter lab
 ## Folder Structure
 
 ```
-Tutorials/
+tutorial/
 ├── README.md                          ← You are here
-├── Phase01_ComputationalSignalBase/
+├── ComputationalSignalBase/
 │   ├── README.md
-│   ├── 01_PyTorchTensorBasic/
-│   ├── 02_FrequencyFiltering/
-│   ├── 03_ClassicalFeatureExtract/
-│   ├── 04_GeometryBasedClassification/
-│   ├── 05_CornerDetection/
-│   └── 06_SpatialTransformations/
-├── Phase02_SpatialPerceptionAnalysis/
+│   ├── PyTorchTensorBasic/
+│   ├── FrequencyFiltering/
+│   ├── ClassicalFeatureExtract/
+│   ├── GeometryBasedClassification/
+│   ├── CornerDetection/
+│   └── SpatialTransformations/
+├── SpatialPerceptionAnalysis/
 │   ├── README.md
-│   ├── 01_DimensionReductionLatentSpace/
-│   ├── 02_ObjectDetectTracking/
-│   ├── 03_ImageSegmentation/
-│   └── 04_ImageAlignmentRegister/
-├── Phase03_AdvancedMedicalAI/
-│   ├── Phase03_README.md
-│   ├── 01_Volume3DSegmentation/
-│   ├── 02_MultimodalRegistration/
-│   ├── 03_MedicalGenerativeModel/
-│   ├── 04_MedicalVisionLanguage/
-│   └── 05_ClinicalDiagnosticAssistant/
-└── Phase04_CryoEM_StructuralBiology/
-    ├── Phase04_README.md
-    ├── 01_LowSNRNoiseProcessing/
-    ├── 02_3DCryoEMReconstruction/
-    └── 03_TomogramDiagnosisBuild/
+│   ├── DimensionReductionLatentSpace/
+│   ├── ObjectDetectTracking/
+│   ├── ImageSegmentation/
+│   ├── ImageAlignmentRegister/
+│   └── StereoVision/
+├── AdvancedMedicalAI/
+│   ├── README.md
+│   ├── Volume3DSegmentation/
+│   ├── MultimodalRegistration/
+│   ├── MedicalGenerativeModel/
+│   ├── MedicalVisionLanguage/
+│   └── ClinicalDiagnosticAssistant/
+└── RoboticLabAutomation/
+    ├── README.md
+    ├── AutoBioBenchmark/
+    └── AutoBioComputerVision/
 ```
 
 ---
