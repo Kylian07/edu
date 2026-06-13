@@ -44,6 +44,11 @@ Phase 04 — CryoEM & Structural Biology
   ├─ 01 Low-SNR Noise Processing & Particle Picking
   ├─ 02 3-D CryoEM Reconstruction
   └─ 03 Build & Diagnose a Real Cryo-ET Tomogram (EMPIAR-10164)
+
+Phase 05 — Robotic Lab Automation & VLA Models
+  ├─ 01 AutoBio Simulator & Benchmark
+  ├─ 02 AutoBio Computer Vision & Closed-Loop Control
+  └─ 03 RLBench Simulator & Benchmark
 ```
 
 ---
@@ -89,7 +94,7 @@ An end-to-end computational treatment of cryo-electron microscopy. Module 01 bui
 ### Phase 05 — Robotic Lab Automation & VLA Models
 **Level: Advanced / Specialist** · Requires Phase 01 and Phase 02.
 
-An end-to-end treatment of robotic lab automation. Module 01 covers the AutoBio simulation framework (Lan et al., 2025), physics plugins for detents and screw-caps, success metrics, and baseline VLA model evaluations. Module 02 builds computer vision tasks inspired by AutoBio (tube localization, slot symmetry indexing, liquid-level estimation, closed-loop dial panel control) using synthetic toy data.
+An end-to-end treatment of robotic lab automation. Module 01 covers the AutoBio simulation framework (Lan et al., 2025), physics plugins for detents and screw-caps, success metrics, and baseline VLA model evaluations. Module 02 builds computer vision tasks inspired by AutoBio (tube localization, slot symmetry indexing, liquid-level estimation, closed-loop dial panel control) using synthetic toy data. Module 03 introduces the RLBench simulator, its six core design principles, action/observation spaces, and waypoint-based motion planning.
 
 ➜ [`RoboticLabAutomation/`](RoboticLabAutomation/)
 
@@ -173,7 +178,8 @@ tutorial/
 └── RoboticLabAutomation/
     ├── README.md
     ├── AutoBioBenchmark/
-    └── AutoBioComputerVision/
+    ├── AutoBioComputerVision/
+    └── RLBench/
 ```
 
 ---

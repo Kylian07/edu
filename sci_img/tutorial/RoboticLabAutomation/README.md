@@ -12,6 +12,7 @@ Phase 05 moves beyond static medical scans and image-processing pipelines to foc
 |---|-----------|-----------|-----------|-------------|
 | 1 | [`AutoBioBenchmark`](AutoBioBenchmark/) | AutoBio simulator architecture, detent/thread physics plugins, SR/SSR metrics, VLA baselines | `AutoBio_Tutorial.ipynb` | No |
 | 2 | [`AutoBioComputerVision`](AutoBioComputerVision/) | Multi-view reasoning, tube localization, slot symmetry, liquid-level sensing, closed-loop UI control | `autobio_cv.ipynb` | No |
+| 3 | [`RLBench`](RLBench/) | RLBench simulator architecture, design principles, waypoints & motion planning, observation & action spaces, standard RL loop, and few-shot challenges | `RLBench_Tutorial.ipynb` | No |
 
 ---
 
@@ -37,6 +38,16 @@ You will implement color-based tube localization and evaluate its robustness to 
 
 ---
 
+### Module 03 — RLBench Simulator & Environment
+
+Teaching robots general manipulation requires benchmarks that scale. This module introduces **RLBench** (James et al., 2019), a robot learning benchmark built in V-REP/CoppeliaSim using the PyRep API.
+
+You will study the 6 design properties of RLBench, explore the hierarchical relationship between Tasks, Variations, and Episodes, analyze the 6 observation modalities (stereo + monocular wrist cameras providing RGB-D and segmentation), and examine the 7 action spaces. You will also understand how waypoints combined with OMPL motion planning enable the generation of infinite expert demonstrations to train RL/IL policies.
+
+**Key skills:** Robot simulation design, action/observation spaces, waypoint-based motion planning, sparse reward evaluation, few-shot policy benchmark analysis.
+
+---
+
 ## Learning Goals
 
 After completing Phase 05 you will be able to:
@@ -47,6 +58,11 @@ After completing Phase 05 you will be able to:
 - Build synthetic lab scenes and implement localization, slot assignment, and liquid-level estimation pipelines
 - Explain the difference between open-loop and closed-loop visual feedback control for digital instrument displays
 - Walk through the evaluation of foundation VLA models on multi-step experimental protocols
+- Describe the key design principles of the RLBench robot learning benchmark
+- Explain the hierarchy of Task, Variation, and Episode in robot manipulation
+- Map the cameras (over-the-shoulder stereo and eye-in-hand monocular) and image types (RGB, Depth, Segmentation) to their use cases
+- Compare the 7 joint and end-effector action modes
+- Explain how OMPL and waypoints generate infinite demonstration trajectories
 
 ---
 
