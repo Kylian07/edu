@@ -96,7 +96,7 @@ An end-to-end computational treatment of cryo-electron microscopy. Module 01 bui
 
 An end-to-end treatment of robotic lab automation. Module 01 covers the AutoBio simulation framework (Lan et al., 2025), physics plugins for detents and screw-caps, success metrics, and baseline VLA model evaluations. Module 02 builds computer vision tasks inspired by AutoBio (tube localization, slot symmetry indexing, liquid-level estimation, closed-loop dial panel control) using synthetic toy data. Module 03 introduces the RLBench simulator, its six core design principles, action/observation spaces, and waypoint-based motion planning.
 
-➜ [`RoboticLabAutomation/`](RoboticLabAutomation/)
+➜ [`RoboticLabAutomation/`](../../al/tutorial/)
 
 ---
 

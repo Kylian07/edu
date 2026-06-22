@@ -10,9 +10,10 @@ Phase 05 moves beyond static medical scans and image-processing pipelines to foc
 
 | # | Subfolder | Core topic | Notebooks | GPU needed? |
 |---|-----------|-----------|-----------|-------------|
-| 1 | [`AutoBioBenchmark`](AutoBioBenchmark/) | AutoBio simulator architecture, detent/thread physics plugins, SR/SSR metrics, VLA baselines | `AutoBio_Tutorial.ipynb` | No |
+| 1 | [`AutoBioBenchmark`](AutoBioBenchmark/) | AutoBio simulator architecture, detent/thread physics plugins, SR/SSR metrics, VLA baselines | `AutoBio_Tutorial.ipynb`<br>`AutoBio_Threading_Physics_for_VLAs.ipynb` | No |
 | 2 | [`AutoBioComputerVision`](AutoBioComputerVision/) | Multi-view reasoning, tube localization, slot symmetry, liquid-level sensing, closed-loop UI control | `autobio_cv.ipynb` | No |
-| 3 | [`RLBench`](RLBench/) | RLBench simulator architecture, design principles, waypoints & motion planning, observation & action spaces, standard RL loop, and few-shot challenges | `RLBench_Tutorial.ipynb` | No |
+| 3 | [`RLBench`](RLBench/) | RLBench simulator architecture, design principles, waypoints & motion planning, observation & action spaces, standard RL loop, and few-shot challenges | `RLBench_Tutorial.ipynb`<br>`RLBench_Research_Improvements.ipynb` | No |
+| 4 | [`DiffusionPolicy`](DiffusionPolicy/) | Diffusion Policy architecture, action diffusion models, noise scheduling, and bimanual visuomotor policy training | `diffusion_policy_tutorial.ipynb` | Yes |
 
 ---
 
