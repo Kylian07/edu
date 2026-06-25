@@ -14,6 +14,7 @@ Phase 05 moves beyond static medical scans and image-processing pipelines to foc
 | 2 | [`AutoBioComputerVision`](AutoBioComputerVision/) | Multi-view reasoning, tube localization, slot symmetry, liquid-level sensing, closed-loop UI control | `autobio_cv.ipynb` | No |
 | 3 | [`RLBench`](RLBench/) | RLBench simulator architecture, design principles, waypoints & motion planning, observation & action spaces, standard RL loop, and few-shot challenges | `RLBench_Tutorial.ipynb`<br>`RLBench_Research_Improvements.ipynb` | No |
 | 4 | [`DiffusionPolicy`](DiffusionPolicy/) | Diffusion Policy architecture, action diffusion models, noise scheduling, and bimanual visuomotor policy training | `diffusion_policy_tutorial.ipynb` | Yes |
+| 5 | [`CALVIN`](CALVIN/) | CALVIN simulator architecture, language-conditioned policy, unstructured play data, goal relabeling, and long-horizon chaining metric | `calvin_tutorial.ipynb` | No |
 
 ---
 
@@ -49,6 +50,22 @@ You will study the 6 design properties of RLBench, explore the hierarchical rela
 
 ---
 
+### Module 04 — Diffusion Policy
+
+This module introduces **Diffusion Policy** (Chi et al., 2023), a framework that formulates robot action generation as a conditional denoising diffusion process. You will explore how diffusion models handle multi-modal action distributions, learn about noise scheduling and conditional action prediction, and study bimanual visuomotor policy training.
+
+**Key skills:** Denoising diffusion probabilistic models, action sequences, noise scheduling, classifier-free guidance, bimanual policy networks.
+
+---
+
+### Module 05 — CALVIN Benchmark
+
+This module introduces **CALVIN** (Mees et al., 2022), a language-conditioned long-horizon robot manipulation benchmark. You will study how language instructions are grounded to actions, how policies are trained using unstructured "play" data via goal relabeling, and how the long-horizon chaining metric evaluates performance.
+
+**Key skills:** Language-conditioned imitation learning, unstructured play data, goal relabeling (MCIL), action chunking, contrastive language alignment, hybrid action spaces.
+
+---
+
 ## Learning Goals
 
 After completing Phase 05 you will be able to:
@@ -64,6 +81,9 @@ After completing Phase 05 you will be able to:
 - Map the cameras (over-the-shoulder stereo and eye-in-hand monocular) and image types (RGB, Depth, Segmentation) to their use cases
 - Compare the 7 joint and end-effector action modes
 - Explain how OMPL and waypoints generate infinite demonstration trajectories
+- Describe the Diffusion Policy architecture and how action diffusion models predict multi-modal action trajectories
+- Explain goal relabeling on unstructured play data for language-conditioned robot manipulation
+- Calculate the long-horizon chaining metric to measure sequential task completion and compounding errors
 
 ---
 
