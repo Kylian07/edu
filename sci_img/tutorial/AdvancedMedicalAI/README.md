@@ -27,6 +27,8 @@ Case Study (Module 05 — clinical diagnostic assistant)
 | 3 | [`MedicalGenerativeModel`](MedicalGenerativeModel/) | T1→T2 MRI synthesis via Schrödinger Bridge CFM | `SB_CFM_Medical_Synthesis.ipynb` | Yes |
 | 4 | [`MedicalVisionLanguage`](MedicalVisionLanguage/) | BiomedCLIP, BLIP-2, LLaVA-1.5 on real medical images + Gradio demo | `multimodal_medical_imaging_tutorial.ipynb` | Yes |
 | 5 | [`ClinicalDiagnosticAssistant`](ClinicalDiagnosticAssistant/) | Simulated Transformer patch embedding and reasoning case study | `AI-Driven Clinical Diagnostic Assistant.ipynb` | No |
+| 6 | [`MultimodalDeepLearning`](MultimodalDeepLearning/) | Image + clinical/tabular early, late, and cross-attention fusion baselines | `Multimodal_Deep_Learning_Medical_Imaging_Tutorial.ipynb` | No |
+| 7 | [`PromptableSegmentation`](PromptableSegmentation/) | Coordinate point/box prompt representation and MedSAM-guided lesion segmentation | `promptable_biomedical_lesion_segmentation.ipynb` | No |
 
 ---
 
@@ -116,6 +118,22 @@ This module is a comprehensive case study bridging traditional computer vision a
 
 ---
 
+### Module 06 — Multimodal Deep Learning (Fusion & Contrastive Pretraining)
+
+This module covers the architectures and fusion strategies used when combining visual data with tabular or clinical features (e.g. lab values, vitals, patient demographics). You will implement three core fusion strategies: early fusion (concatenation at input), late fusion (fusion of logits or features near output), and cross-attention fusion (intermediate transformer-style attention query). Additionally, you will build a toy implementation of CLIP-style contrastive pretraining to align image and clinical text embeddings and test the robustness of the fusion architectures when certain modalities are noisy or missing.
+
+**Key skills:** Early/late/cross-attention fusion architectures, multi-head attention, contrastive loss, unimodal vs. multimodal baselines, noise robustness.
+
+---
+
+### Module 07 — Promptable Biomedical Lesion Segmentation (MedSAM-inspired)
+
+This module introduces promptable foundation models for medical image segmentation (like SAM and MedSAM). Unlike traditional automatic segmentation (e.g., U-Net), promptable models accept user prompts (such as bounding boxes or point coordinates) to select and segment a specific lesion. You will learn to represent points as Gaussian peak channels and boxes as binary channels, build a lightweight prompt-conditioned segmentation network, and train it on synthetic lesion images. You will also perform ablation studies and stress-test the model against noisy or imperfect prompts.
+
+**Key skills:** Prompt-guided segmentation, bounding box & point prompt channel encoding, MedSAM-inspired architecture, Dice/IoU/sensitivity/specificity metrics, stress-testing.
+
+---
+
 ## Learning Goals
 
 After completing Phase 03 you will be able to:
@@ -125,6 +143,8 @@ After completing Phase 03 you will be able to:
 - Apply rigid, affine, and deformable registration using SimpleITK and ANTs, and compare to a trained deep-learning registration network on the same dataset
 - Derive the Conditional Flow Matching objective, understand what the Schrödinger Bridge modification adds in terms of trajectory efficiency, and train a synthesis model on paired 2-D MRI slices
 - Run BiomedCLIP zero-shot classification, BLIP-2 captioning, and LLaVA VQA on medical images; evaluate generated text quantitatively; and manage multiple large models within a 16 GB VRAM budget
+- Explain early, late, and cross-attention fusion strategies for multi-modal medical datasets
+- Implement and train a promptable, MedSAM-inspired 2-D lesion segmentation model conditioned on box and point prompts
 
 ---
 
@@ -146,6 +166,9 @@ All notebooks target **Google Colab with a T4 GPU (16 GB VRAM)**.
 | 02 — Registration | ~4 GB | Deep-learning section only; classical sections are CPU |
 | 03 — Generative Model | ~6 GB | 2-D slices keep memory manageable |
 | 04 — Vision-Language | ~14 GB peak | **Load and unload one model at a time** — see teardown pattern below |
+| 05 — Clinical Assistant | CPU | Runs fully on CPU |
+| 06 — Multimodal Fusion | CPU / GPU | Fast, runnable on CPU or Google Colab free tier |
+| 07 — Promptable Seg | CPU / GPU | Fast, runnable on CPU or Google Colab free tier |
 
 **Module 04 teardown pattern (mandatory):**
 
@@ -179,24 +202,29 @@ Volume3DSegmentation
 MultimodalRegistration
          ↓
 MedicalGenerativeModel    ←→    MedicalVisionLanguage
-                                           ↓
+         ↓                              ↓
+MultimodalDeepLearning    ←→    PromptableSegmentation
+                                        ↓
                                ClinicalDiagnosticAssistant
 ```
 
-Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Module 05 acts as a final case study bridging the gap between traditional processing and vision-language concepts.
+Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Similarly, Modules 06 and 07 cover multi-modal fusion and promptable foundation concepts, which prepare you for the sequence representation logic in Module 05.
 
 ---
 
 ## How the Modules Connect in Practice
 
-The four modules address the same clinical challenge from different angles:
+The modules address the same clinical challenge from different angles:
 
 1. A 3-D scan arrives → **Module 01** delineates the structure of interest automatically
 2. Serial scans from different sessions arrive → **Module 02** aligns them into a common space
 3. A scan in the needed modality is missing → **Module 03** synthesises it from an available modality, enabling monomodal registration with MSE (simpler and faster than multimodal MI)
 4. A clinician wants to query the processed data in natural language → **Module 04** answers zero-shot, without task-specific fine-tuning
+5. Interactive or targeted segmentation is required → **Module 07** handles promptable, human-in-the-loop segmentation
+6. Multiple diagnostic modalities (imaging + lab values) need to be combined → **Module 06** fuses them into unified representations
+7. A clinician wants a complete assistant to explain predictions and generate reports → **Module 05** acts as the clinical reasoning sequence case study
 
-Together they cover the three core paradigms of modern medical vision AI: discriminative models (segmentation), transformation models (registration + synthesis), and generative + language models (VLMs).
+Together they cover the paradigms of modern medical vision AI: discriminative, transformation, promptable, generative, multimodal fusion, and sequence reasoning.
 
 ---
 
@@ -209,3 +237,5 @@ Together they cover the three core paradigms of modern medical vision AI: discri
 - BiomedCLIP (Zhang et al., 2023): https://arxiv.org/abs/2303.00915
 - BLIP-2 (Li et al., 2023): https://arxiv.org/abs/2301.12597
 - LLaVA-1.5 (Liu et al., 2023): https://arxiv.org/abs/2310.03744
+- MedSAM (Ma et al., 2024): https://arxiv.org/abs/2304.12306
+- Multimodal Fusion (Liang et al., 2022): https://arxiv.org/abs/2209.03430

@@ -38,7 +38,9 @@ Phase 03 — Advanced Medical AI
   ├─ 02 Multimodal Image Registration
   ├─ 03 Medical Generative Models (Schrödinger Bridge CFM)
   ├─ 04 Medical Vision-Language Models (BiomedCLIP, BLIP-2, LLaVA)
-  └─ 05 Clinical Diagnostic Assistant Case Study
+  ├─ 05 Clinical Diagnostic Assistant Case Study
+  ├─ 06 Multimodal Deep Learning (Fusion & Contrastive Pretraining)
+  └─ 07 Promptable Biomedical Lesion Segmentation (MedSAM-inspired)
 
 Phase 04 — CryoEM & Structural Biology
   ├─ 01 Low-SNR Noise Processing & Particle Picking
@@ -48,7 +50,9 @@ Phase 04 — CryoEM & Structural Biology
 Phase 05 — Robotic Lab Automation & VLA Models
   ├─ 01 AutoBio Simulator & Benchmark
   ├─ 02 AutoBio Computer Vision & Closed-Loop Control
-  └─ 03 RLBench Simulator & Benchmark
+  ├─ 03 RLBench Simulator & Benchmark
+  ├─ 04 Diffusion Policy Visuomotor Training
+  └─ 05 CALVIN Language-Conditioned Long-Horizon Manipulation
 ```
 
 ---
@@ -94,7 +98,7 @@ An end-to-end computational treatment of cryo-electron microscopy. Module 01 bui
 ### Phase 05 — Robotic Lab Automation & VLA Models
 **Level: Advanced / Specialist** · Requires Phase 01 and Phase 02.
 
-An end-to-end treatment of robotic lab automation. Module 01 covers the AutoBio simulation framework (Lan et al., 2025), physics plugins for detents and screw-caps, success metrics, and baseline VLA model evaluations. Module 02 builds computer vision tasks inspired by AutoBio (tube localization, slot symmetry indexing, liquid-level estimation, closed-loop dial panel control) using synthetic toy data. Module 03 introduces the RLBench simulator, its six core design principles, action/observation spaces, and waypoint-based motion planning.
+An end-to-end treatment of robotic lab automation. Module 01 covers the AutoBio simulation framework (Lan et al., 2025), physics plugins for detents and screw-caps, success metrics, and baseline VLA model evaluations. Module 02 builds computer vision tasks inspired by AutoBio (tube localization, slot symmetry indexing, liquid-level estimation, closed-loop dial panel control) using synthetic toy data. Module 03 introduces the RLBench simulator, its six core design principles, action/observation spaces, and waypoint-based motion planning. Module 04 covers the Diffusion Policy framework for visuomotor control, and Module 05 teaches language-conditioned, long-horizon robot manipulation using the CALVIN benchmark.
 
 ➜ [`RoboticLabAutomation/`](../../al/tutorial/)
 
@@ -174,12 +178,16 @@ tutorial/
 │   ├── MultimodalRegistration/
 │   ├── MedicalGenerativeModel/
 │   ├── MedicalVisionLanguage/
-│   └── ClinicalDiagnosticAssistant/
+│   ├── ClinicalDiagnosticAssistant/
+│   ├── MultimodalDeepLearning/
+│   └── PromptableSegmentation/
 └── RoboticLabAutomation/
     ├── README.md
     ├── AutoBioBenchmark/
     ├── AutoBioComputerVision/
-    └── RLBench/
+    ├── RLBench/
+    ├── DiffusionPolicy/
+    └── CALVIN/
 ```
 
 ---
