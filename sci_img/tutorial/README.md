@@ -55,7 +55,8 @@ Phase 05 — Robotic Lab Automation & VLA Models
   ├─ 03 RLBench Simulator & Benchmark
   ├─ 04 Diffusion Policy Visuomotor Training
   ├─ 05 CALVIN Language-Conditioned Long-Horizon Manipulation
-  └─ 06 AI-Driven Quality Control for Opentrons OT-2
+  ├─ 06 CartPole DQN: Deep Q-Learning from Raw Pixels
+  └─ 07 AI-Driven Quality Control for Opentrons OT-2
 ```
 
 ---
@@ -192,6 +193,7 @@ tutorial/
     ├── RLBench/
     ├── DiffusionPolicy/
     ├── CALVIN/
+    ├── CartPoleDQN/
     └── OpentronsOT2/
 ```
 
