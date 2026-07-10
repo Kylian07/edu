@@ -14,7 +14,8 @@ Phase 05 moves beyond static medical scans and image-processing pipelines to foc
 | 2 | [`AutoBioComputerVision`](AutoBioComputerVision/) | Multi-view reasoning, tube localization, slot symmetry, liquid-level sensing, closed-loop UI control | `autobio_cv.ipynb` | No |
 | 3 | [`RLBench`](RLBench/) | RLBench simulator architecture, design principles, waypoints & motion planning, observation & action spaces, standard RL loop, and few-shot challenges | `RLBench_Tutorial.ipynb`<br>`RLBench_Research_Improvements.ipynb` | No |
 | 4 | [`DiffusionPolicy`](DiffusionPolicy/) | Diffusion Policy architecture, action diffusion models, noise scheduling, and bimanual visuomotor policy training | `diffusion_policy_tutorial.ipynb` | Yes |
-| 5 | [`CALVIN`](CALVIN/) | CALVIN simulator architecture, language-conditioned policy, unstructured play data, goal relabeling, and long-horizon chaining metric | `calvin_tutorial.ipynb` | No |
+| 5 | [`CALVIN`](CALVIN/) | CALVIN simulator architecture, language-conditioned policy, unstructured play data, goal relabeling, and long-horizon chaining metric | `calvin_tutorial.ipynb`<br>`calvin_tutorial_improved.ipynb` | No |
+| 6 | [`OpentronsOT2`](OpentronsOT2/) | Computer vision-based quality control pipeline for pipette tip detection, liquid volume regression, and closed-loop control | `ot2_qc_tutorial.ipynb` | No |
 
 ---
 
@@ -66,6 +67,16 @@ This module introduces **CALVIN** (Mees et al., 2022), a language-conditioned lo
 
 ---
 
+### Module 06 — Opentrons OT-2 Quality Control
+
+This module covers computer vision-based quality control (QC) for automated liquid handling systems like the Opentrons OT-2. You will study how external GPU-based server nodes can run real-time inference tasks to assist low-compute onboard Raspberry Pi nodes.
+
+You will train a compact CNN to detect pipette-tip presence and liquid fill levels from synthetic camera feedback. You will also implement geometric algorithms for locating missing tips, fit non-linear volume regressions, simulate a full 96-well plate protocol, and explore advanced self-healing recovery routines and segmentation-based volume measurements.
+
+**Key skills:** Client-server offloaded vision architecture, pipette tip detection, geometric coordinate localization, polynomial volume regression, closed-loop simulation, self-healing retries.
+
+---
+
 ## Learning Goals
 
 After completing Phase 05 you will be able to:
@@ -84,6 +95,9 @@ After completing Phase 05 you will be able to:
 - Describe the Diffusion Policy architecture and how action diffusion models predict multi-modal action trajectories
 - Explain goal relabeling on unstructured play data for language-conditioned robot manipulation
 - Calculate the long-horizon chaining metric to measure sequential task completion and compounding errors
+- Explain client-server offloading for robot computer vision tasks
+- Implement geometric tip-localization and non-linear polynomial volume regression
+- Simulate closed-loop robot control and design self-healing recovery routines
 
 ---
 

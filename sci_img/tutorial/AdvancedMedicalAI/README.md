@@ -23,8 +23,8 @@ Case Study (Module 05 — clinical diagnostic assistant)
 | # | Subfolder | Core topic | Notebook | GPU needed? |
 |---|-----------|-----------|---------|-------------|
 | 1 | [`Volume3DSegmentation`](Volume3DSegmentation/) | 3-D U-Net spleen segmentation with MONAI on MSD | `3D_Medical_Image_Segmentation_MONAI.ipynb` | Yes |
-| 2 | [`MultimodalRegistration`](MultimodalRegistration/) | Classical (SimpleITK, ANTs) + deep (VoxelMorph-style) registration | `multimodal_image_registration.ipynb` | Yes (deep section) |
-| 3 | [`MedicalGenerativeModel`](MedicalGenerativeModel/) | T1→T2 MRI synthesis via Schrödinger Bridge CFM | `SB_CFM_Medical_Synthesis.ipynb` | Yes |
+| 2 | [`MultimodalRegistration`](MultimodalRegistration/) | Classical (SimpleITK, ANTs) + deep (VoxelMorph-style) registration | `multimodal_image_registration.ipynb`<br>`biomedical_image_registration_and_deformation.ipynb` | Yes (deep section) |
+| 3 | [`MedicalGenerativeModel`](MedicalGenerativeModel/) | T1→T2 MRI synthesis via Schrödinger Bridge CFM & Diffusion Foundations | `SB_CFM_Medical_Synthesis.ipynb`<br>`Diffusion_for_Medical_Imaging.ipynb` | Yes |
 | 4 | [`MedicalVisionLanguage`](MedicalVisionLanguage/) | BiomedCLIP, BLIP-2, LLaVA-1.5 on real medical images + Gradio demo | `multimodal_medical_imaging_tutorial.ipynb` | Yes |
 | 5 | [`ClinicalDiagnosticAssistant`](ClinicalDiagnosticAssistant/) | Simulated Transformer patch embedding and reasoning case study | `AI-Driven Clinical Diagnostic Assistant.ipynb` | No |
 | 6 | [`MultimodalDeepLearning`](MultimodalDeepLearning/) | Image + clinical/tabular early, late, and cross-attention fusion baselines | `Multimodal_Deep_Learning_Medical_Imaging_Tutorial.ipynb` | No |

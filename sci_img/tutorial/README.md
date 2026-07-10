@@ -31,12 +31,14 @@ Phase 02 — Spatial Perception & Analysis
   ├─ 01 Dimensionality Reduction & Latent Space (PCA)
   ├─ 02 Object Detection & Tracking (YOLOv5 + LAP)
   ├─ 03 Image Segmentation (Watershed → U-Net)
-  └─ 04 Image Alignment & Registration (SimpleITK + Pix2Pix)
+  ├─ 04 Image Alignment & Registration (SimpleITK + Pix2Pix)
+  ├─ 05 Stereo Vision & Depth Estimation
+  └─ 06 Self-Supervised Bioimage Denoising (Noise2Void / Noise2Self)
 
 Phase 03 — Advanced Medical AI
   ├─ 01 3-D Volumetric Segmentation with MONAI
   ├─ 02 Multimodal Image Registration
-  ├─ 03 Medical Generative Models (Schrödinger Bridge CFM)
+  ├─ 03 Medical Generative Models (Schrödinger Bridge CFM & Diffusion Foundations)
   ├─ 04 Medical Vision-Language Models (BiomedCLIP, BLIP-2, LLaVA)
   ├─ 05 Clinical Diagnostic Assistant Case Study
   ├─ 06 Multimodal Deep Learning (Fusion & Contrastive Pretraining)
@@ -52,7 +54,8 @@ Phase 05 — Robotic Lab Automation & VLA Models
   ├─ 02 AutoBio Computer Vision & Closed-Loop Control
   ├─ 03 RLBench Simulator & Benchmark
   ├─ 04 Diffusion Policy Visuomotor Training
-  └─ 05 CALVIN Language-Conditioned Long-Horizon Manipulation
+  ├─ 05 CALVIN Language-Conditioned Long-Horizon Manipulation
+  └─ 06 AI-Driven Quality Control for Opentrons OT-2
 ```
 
 ---
@@ -171,7 +174,8 @@ tutorial/
 │   ├── ObjectDetectTracking/
 │   ├── ImageSegmentation/
 │   ├── ImageAlignmentRegister/
-│   └── StereoVision/
+│   ├── StereoVision/
+│   └── BioimageDenoising/
 ├── AdvancedMedicalAI/
 │   ├── README.md
 │   ├── Volume3DSegmentation/
@@ -187,7 +191,8 @@ tutorial/
     ├── AutoBioComputerVision/
     ├── RLBench/
     ├── DiffusionPolicy/
-    └── CALVIN/
+    ├── CALVIN/
+    └── OpentronsOT2/
 ```
 
 ---

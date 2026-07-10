@@ -32,6 +32,7 @@ This module covers the concepts, architectures, and research extension opportuni
 | File | Description |
 |------|-------------|
 | [`calvin_tutorial.ipynb`](calvin_tutorial.ipynb) | A self-learning notebook explaining the CALVIN observation and action spaces, play data goal relabeling, baseline MCIL training, and proposed research improvements with working code implementations. |
+| [`calvin_tutorial_improved.ipynb`](calvin_tutorial_improved.ipynb) | An improved and optimized version of the CALVIN tutorial notebook incorporating advanced play-data goal relabeling and training enhancements. |
 
 ---
 
