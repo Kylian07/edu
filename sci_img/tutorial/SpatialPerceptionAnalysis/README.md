@@ -15,6 +15,7 @@ Phase 01 gave you the vocabulary: tensors, filters, features. Phase 02 is about 
 | 3 | [`ImageSegmentation`](ImageSegmentation/) | Thresholding, GMM, watershed, U-Net | `segmentation_geo_modified.ipynb`, `segmentation_deep.ipynb` | Yes (U-Net) |
 | 4 | [`ImageAlignmentRegister`](ImageAlignmentRegister/) | SimpleITK registration, Pix2Pix GAN translation | `Image_Registration.ipynb`, `image_translation.ipynb` | Yes (Pix2Pix) |
 | 5 | [`StereoVision`](StereoVision/) | Stereo geometry, DLT triangulation, block matching (SAD/SSD/NCC), rectification | `stereo.ipynb` | No |
+| 6 | [`BioimageDenoising`](BioimageDenoising/) | Self-supervised denoising, Noise2Void, Noise2Self, classical baselines | `Self-Supervised Bioimage Denoising.ipynb` | Yes |
 
 All GPU-using notebooks fall back to CPU automatically — training will be slower but the pipeline still runs.
 
@@ -88,6 +89,18 @@ You will derive the mathematical inverse relationship between depth and disparit
 
 ---
 
+### Module 06 — Bioimage Denoising
+
+This module addresses the trade-off between exposure/phototoxicity and noise in biological microscopy. You will implement self-supervised learning algorithms that can denoise microscopy images directly from noisy observations without clean ground-truth targets.
+
+You will study the theoretical foundations of **Noise2Void** and **Noise2Self**, implement classical filtering baselines (Gaussian, Median, Wiener, Bandpass), and train a self-supervised blind-spot neural network. You will also learn how to evaluate denoising results with Fourier Ring Correlation (FRC) and ensure biological structures are preserved without hallucinated features.
+
+**Key skills:** Noise2Void blind-spot masking, Noise2Self J-invariance, classical filtering baselines, PyTorch self-supervised training loop, structural preservation validation, FRC.
+
+**Connects to:** Phase 04, Module 01 (Noise2Void is the leading self-supervised denoiser for low-SNR cryoEM micrographs).
+
+---
+
 ## Learning Goals
 
 After completing Phase 02 you will be able to:
@@ -104,6 +117,9 @@ After completing Phase 02 you will be able to:
 - Derive the relationship between depth and disparity, and triangulate 3-D points from 2-D matches using DLT
 - Explain how stereo rectification simplifies correspondence searches to 1D scanlines
 - Implement stereo block matching using SAD, SSD, and NCC, and analyze window size trade-offs and repeated pattern failures
+- Create a controlled low-light microscopy denoising experiment and apply classical filtering baselines
+- Implement Noise2Void structured masking and Noise2Self J-invariant masking in PyTorch
+- Train a self-supervised blind-spot neural network and evaluate whether denoising preserves biological structures
 
 ---
 
