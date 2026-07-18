@@ -144,12 +144,15 @@ For each applied notebook, identify:
 
 Do the cryo-EM section after the image-processing and ML foundations:
 
-| Order | Tutorial                         | What to learn                     |
-| ----: | -------------------------------- | --------------------------------- |
-|    20 | `build_and_diagnose_tomogram.md` | Building and diagnosing tomograms |
-|    21 | `cryoem_low_snr_tutorial.ipynb`  | Low-SNR cryo-EM data and analysis |
+| Order | Tutorial                               | What to learn                                                      |
+| ----: | -------------------------------------- | ------------------------------------------------------------------ |
+|    20 | `cryoem_low_snr_tutorial.ipynb`        | Low-SNR cryo-EM data, CTF simulation, and 2-D class averaging      |
+|    21 | `lowdose_em_denoising_tutorial.ipynb`  | Self-supervised denoising (Noise2Void) on low-dose EM images       |
+|    22 | `cryoem_reconstruction_tutorial.ipynb` | 3-D Fourier Slice Theorem, back-projection, and EM pose estimation |
+|    23 | `build_and_diagnose_tomogram.md`       | Hands-on cryo-ET tilt-series alignment and tomogram reconstruction |
+|    24 | `subtomogram_averaging_tutorial.ipynb` | 3-D sub-tomogram averaging and particle picking for cryo-ET        |
 
-The `cryoem/tutorial` folder currently lists these two files. ([GitHub][4])
+The `cryoem/tutorial` folder contains these five files. ([GitHub][4])
 
 **Goal after Phase 7:**
 You should understand why cryo-EM data are difficult, why low signal-to-noise ratio matters, and how image-processing concepts such as filtering, alignment, reconstruction, and frequency-domain thinking help.
@@ -166,7 +169,7 @@ You should understand why cryo-EM data are difficult, why low signal-to-noise ra
 |    4 | Segmentation/detection/tracking | `segmentation_geo_modified`, `segmentation_deep`, `object_detection`, `LAP_LapTrack`             |
 |    5 | ML for images                   | `introduction_to_pytorch`, `dimension_reduction_reconstruction`, `geometry_based_classification` |
 |    6 | Medical AI                      | `AI-Driven Clinical Diagnostic Assistant`, `SB_CFM_Medical_Synthesis`                            |
-|    7 | Cryo-EM                         | `build_and_diagnose_tomogram`, `cryoem_low_snr_tutorial`                                         |
+|    7 | Cryo-EM                         | `cryoem_low_snr_tutorial`, `lowdose_em_denoising_tutorial`, `cryoem_reconstruction_tutorial`, `build_and_diagnose_tomogram`, `subtomogram_averaging_tutorial` |
 
 ---
 

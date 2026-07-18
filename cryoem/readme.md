@@ -10,11 +10,12 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 
 | Subfolder | Topic | Files |
 |-----------|-------|-------|
-| [`LowSNRNoiseProcessing`](tutorial/LowSNRNoiseProcessing/) | SNR intuition, CTF simulation, classical denoising, particle picking, 2-D class averaging, FRC, Noise2Void | `cryoem_low_snr_tutorial.ipynb` |
+| [`LowSNRNoiseProcessing`](tutorial/LowSNRNoiseProcessing/) | SNR intuition, CTF simulation, classical denoising, particle picking, 2-D class averaging, FRC, Noise2Void | `cryoem_low_snr_tutorial.ipynb`, `lowdose_em_denoising_tutorial.ipynb` |
 | [`3DCryoEMReconstruction`](tutorial/3DCryoEMReconstruction/) | Forward model, CTF correction, Fourier Slice Theorem, trilinear back-projection, EM pose estimation, NeRF-style reconstruction | `cryoem_reconstruction_tutorial.ipynb` |
 | [`TomogramDiagnosisBuild`](tutorial/TomogramDiagnosisBuild/) | Hands-on cryo-ET workflow on EMPIAR-10164: tilt-series stacking, fiducial alignment, WBP and SIRT reconstruction, tomogram diagnosis | `build_and_diagnose_tomogram.md` |
+| [`SubtomogramAveraging`](tutorial/SubtomogramAveraging/) | Sub-tomogram averaging (STA) and 3D particle picking for Cryo-ET, missing wedge effects, 3-D template matching (NCC), orientation alignment, Fourier Shell Correlation (FSC), multi-reference classification | `subtomogram_averaging_tutorial.ipynb` |
 
-Modules 01 and 02 are CPU-only Jupyter notebooks and run on Google Colab. Module 03 is a local software practical requiring IMOD/Etomo on Linux or macOS.
+Modules 01, 02, and 04 are CPU-only Jupyter notebooks and run on Google Colab. Module 03 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 
 ---
 
@@ -62,6 +63,16 @@ Four diagnostic questions require written answers and 3dmod screenshots: alignme
 
 ---
 
+### Module 04 — Sub-tomogram Averaging & 3D Particle Picking
+
+Once a 3-D tomogram is reconstructed (using WBP or SIRT as in Module 03), the next task is to identify and extract the individual macromolecular structures contained within it to obtain high-resolution models. This module introduces the concepts and computational pipeline of **Sub-tomogram Averaging (STA)**. 
+
+You will explore the geometry and impact of the missing wedge in 3-D Fourier space, simulate a realistic multi-particle tomogram, and implement 3-D template matching using normalized cross-correlation (NCC) to pick particles. You will align and average these sub-volumes to cancel noise and combat the missing wedge, resolve conformational heterogeneity using multi-reference classification, and measure the resolution using the 3-D **Fourier Shell Correlation (FSC)**.
+
+**Key skills:** Missing wedge geometry in 3-D Fourier space, 3-D template matching, sub-volume extraction and coordinate tracking, 3-D rotation alignment, Fourier Shell Correlation (FSC) calculation, multi-reference K-means classification in 3-D.
+
+---
+
 ## Learning Goals
 
 After finishing this phase you will be able to:
@@ -74,6 +85,9 @@ After finishing this phase you will be able to:
 - Understand how the EM algorithm jointly estimates particle orientations and the 3-D reconstruction, and implement a simplified version from scratch
 - Use IMOD/Etomo to align a real cryo-ET tilt series with gold fiducials and reconstruct both WBP and SIRT tomograms
 - Identify the missing-wedge artefact in a real tomogram and explain its origin in Fourier space
+- Explain the sub-tomogram averaging pipeline and why Z-axis alignment requires handling the missing wedge in 3-D Fourier space
+- Implement 3-D template matching (NCC) and compute the 3-D Fourier Shell Correlation (FSC) for resolution estimation
+- Describe how multi-reference classification resolves conformational heterogeneity in 3-D particle datasets
 
 ---
 
@@ -92,6 +106,7 @@ After finishing this phase you will be able to:
 | 01 — Low-SNR Processing | CPU only | All NumPy/SciPy; Colab free tier is sufficient |
 | 02 — 3-D Reconstruction | CPU (most sections), GPU optional | The NeRF section benefits from GPU but falls back to CPU |
 | 03 — Tomogram Practical | Local machine with IMOD | Colab-incompatible; Linux or macOS required (WSL2 on Windows) |
+| 04 — Sub-tomogram Averaging | CPU only | All NumPy/SciPy/scikit-image; Colab free tier is sufficient |
 
 ---
 
@@ -124,6 +139,8 @@ LowSNRNoiseProcessing
 3DCryoEMReconstruction
          ↓
 TomogramDiagnosisBuild
+         ↓
+SubtomogramAveraging
 ```
 
 The order is strict. Module 03 exposes you to real data and production software; every Etomo setting and every result it produces maps directly to a concept introduced computationally in Modules 01 and 02. Starting Module 03 without that background makes the software difficult to interpret and the diagnostic questions impossible to answer from principle.
