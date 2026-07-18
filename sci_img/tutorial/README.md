@@ -47,7 +47,8 @@ Phase 03 — Advanced Medical AI
 Phase 04 — CryoEM & Structural Biology
   ├─ 01 Low-SNR Noise Processing & Particle Picking
   ├─ 02 3-D CryoEM Reconstruction
-  └─ 03 Build & Diagnose a Real Cryo-ET Tomogram (EMPIAR-10164)
+  ├─ 03 Build & Diagnose a Real Cryo-ET Tomogram (EMPIAR-10164)
+  └─ 04 Sub-tomogram Averaging & 3D Particle Picking (Cryo-ET)
 
 Phase 05 — Robotic Lab Automation & VLA Models
   ├─ 01 AutoBio Simulator & Benchmark
@@ -93,7 +94,7 @@ The phase where individual building blocks converge into complete clinical-grade
 ### Phase 04 — CryoEM & Structural Biology
 **Level: Specialist** · Requires Phase 01 Module 02 (Fourier analysis) + NumPy/SciPy fluency.
 
-An end-to-end computational treatment of cryo-electron microscopy. Module 01 builds the 2-D signal-processing intuition (CTF simulation, denoising, particle picking, class averaging, FRC resolution). Module 02 extends everything to 3-D: the Fourier Slice Theorem, trilinear back-projection, and expectation-maximisation pose estimation. Module 03 is a full hands-on practical using IMOD/Etomo on a real published tilt series from EMPIAR.
+An end-to-end computational treatment of cryo-electron microscopy. Module 01 builds the 2-D signal-processing intuition (CTF simulation, denoising, particle picking, class averaging, FRC resolution). Module 02 extends everything to 3-D: the Fourier Slice Theorem, trilinear back-projection, and expectation-maximisation pose estimation. Module 03 is a full hands-on practical using IMOD/Etomo on a real published tilt series from EMPIAR. Module 04 covers 3-D sub-tomogram averaging (STA) and particle picking for cryo-ET.
 
 ➜ [`cryoem/`](../../cryoem/readme.md)
 
