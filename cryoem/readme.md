@@ -10,12 +10,13 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 
 | Subfolder | Topic | Files |
 |-----------|-------|-------|
-| [`LowSNRNoiseProcessing`](tutorial/LowSNRNoiseProcessing/) | SNR intuition, CTF simulation, classical denoising, particle picking, 2-D class averaging, FRC, Noise2Void | `cryoem_low_snr_tutorial.ipynb`, `lowdose_em_denoising_tutorial.ipynb` |
+| [`LowSNRNoiseProcessing`](tutorial/LowSNRNoiseProcessing/) | SNR intuition, CTF simulation, classical denoising, particle picking, 2-D class averaging, FRC, Noise2Void | `cryoem_low_snr_tutorial.ipynb`, `lowdose_em_denoising_tutorial.ipynb`, `particle_picking_tutorial.ipynb` |
 | [`3DCryoEMReconstruction`](tutorial/3DCryoEMReconstruction/) | Forward model, CTF correction, Fourier Slice Theorem, trilinear back-projection, EM pose estimation, NeRF-style reconstruction | `cryoem_reconstruction_tutorial.ipynb` |
 | [`TomogramDiagnosisBuild`](tutorial/TomogramDiagnosisBuild/) | Hands-on cryo-ET workflow on EMPIAR-10164: tilt-series stacking, fiducial alignment, WBP and SIRT reconstruction, tomogram diagnosis | `build_and_diagnose_tomogram.md` |
 | [`SubtomogramAveraging`](tutorial/SubtomogramAveraging/) | Sub-tomogram averaging (STA) and 3D particle picking for Cryo-ET, missing wedge effects, 3-D template matching (NCC), orientation alignment, Fourier Shell Correlation (FSC), multi-reference classification | `subtomogram_averaging_tutorial.ipynb` |
+| [`TomogramSegmentation`](tutorial/TomogramSegmentation/) | Prompt-based interactive 3D tomogram segmentation, Segment Anything (SAM), CryoSAM cross-plane self-prompting propagation | `interactive_cryoet_tomogram_segmentation.ipynb` |
 
-Modules 01, 02, and 04 are CPU-only Jupyter notebooks and run on Google Colab. Module 03 is a local software practical requiring IMOD/Etomo on Linux or macOS.
+Modules 01, 02, 04, and 05 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 03 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 
 ---
 
@@ -73,6 +74,14 @@ You will explore the geometry and impact of the missing wedge in 3-D Fourier spa
 
 ---
 
+### Module 05 — Interactive Tomogram Segmentation
+
+This module implements a human-in-the-loop 3D segmentation pipeline for Cryo-ET tomograms based on prompt propagation, drawing on the concepts from the Segment Anything Model (SAM) and CryoSAM. Slicing through noisy experimental 3D volumes is tedious, and fully automated networks often struggle with local artifacts and crowded environments. You will explore how a single 2D user-placed prompt (a point inside a ribosome or membrane) can generate a local mask that propagates slice by slice to reconstruct a full 3D object. You will design propagation stopping criteria based on bounding box shifts and area overlap, inspect the reconstructed 3D mask from XY/XZ/YZ planes, and interactively correct segmentation errors on the fly.
+
+**Key skills:** 3D tomogram slice manipulation, promptable 2D segmentation, automated prompt generation from masks, bidirectional slice propagation, propagation stopping criteria (centroid shift, area thresholds), interactive human-in-the-loop mask correction, 3D volume/centroid measurements.
+
+---
+
 ## Learning Goals
 
 After finishing this phase you will be able to:
@@ -88,6 +97,11 @@ After finishing this phase you will be able to:
 - Explain the sub-tomogram averaging pipeline and why Z-axis alignment requires handling the missing wedge in 3-D Fourier space
 - Implement 3-D template matching (NCC) and compute the 3-D Fourier Shell Correlation (FSC) for resolution estimation
 - Describe how multi-reference classification resolves conformational heterogeneity in 3-D particle datasets
+- Segment a 3D tomogram from a single user-placed point prompt on a seed slice
+- Implement bidirectional slice propagation of 2D masks across adjacent tomogram slices
+- Define and configure propagation stopping criteria using centroid shift and area overlap thresholds
+- Perform manual interactive prompt correction on poorly-segmented slices to refine the final 3D reconstruction
+- Extract quantitative properties (volume, centroid coordinates, bounding box) from a segmented 3D mask
 
 ---
 
@@ -107,15 +121,16 @@ After finishing this phase you will be able to:
 | 02 — 3-D Reconstruction | CPU (most sections), GPU optional | The NeRF section benefits from GPU but falls back to CPU |
 | 03 — Tomogram Practical | Local machine with IMOD | Colab-incompatible; Linux or macOS required (WSL2 on Windows) |
 | 04 — Sub-tomogram Averaging | CPU only | All NumPy/SciPy/scikit-image; Colab free tier is sufficient |
+| 05 — Tomogram Segmentation | CPU/GPU | Colab T4 GPU recommended for foundation model inference |
 
 ---
 
 ## Setup
 
 ```bash
-# Modules 01 and 02 — Python dependencies
+# Modules 01, 02, and 05 — Python dependencies
 # Each notebook also installs its own requirements in the first cell
-pip install numpy scipy matplotlib scikit-image torch tqdm
+pip install numpy scipy matplotlib scikit-image torch torchvision tqdm
 
 # Module 03 — IMOD (Linux, Ubuntu 20.04+)
 # Download the installer from https://bio3d.colorado.edu/imod/download.html
@@ -141,6 +156,8 @@ LowSNRNoiseProcessing
 TomogramDiagnosisBuild
          ↓
 SubtomogramAveraging
+         ↓
+TomogramSegmentation
 ```
 
 The order is strict. Module 03 exposes you to real data and production software; every Etomo setting and every result it produces maps directly to a concept introduced computationally in Modules 01 and 02. Starting Module 03 without that background makes the software difficult to interpret and the diagnostic questions impossible to answer from principle.
