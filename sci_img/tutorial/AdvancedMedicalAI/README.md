@@ -29,6 +29,7 @@ Case Study (Module 05 — clinical diagnostic assistant)
 | 5 | [`ClinicalDiagnosticAssistant`](ClinicalDiagnosticAssistant/) | Simulated Transformer patch embedding and reasoning case study | `AI-Driven Clinical Diagnostic Assistant.ipynb` | No |
 | 6 | [`MultimodalDeepLearning`](MultimodalDeepLearning/) | Image + clinical/tabular early, late, and cross-attention fusion baselines | `Multimodal_Deep_Learning_Medical_Imaging_Tutorial.ipynb` | No |
 | 7 | [`PromptableSegmentation`](PromptableSegmentation/) | Coordinate point/box prompt representation and MedSAM-guided lesion segmentation | `promptable_biomedical_lesion_segmentation.ipynb` | No |
+| 8 | [`MedicalImageClassification`](MedicalImageClassification/) | Grayscale 2D medical image classification with MONAI on MedNIST | `medical_image_classification_mednist.ipynb` | Yes (training) |
 
 ---
 
@@ -134,6 +135,14 @@ This module introduces promptable foundation models for medical image segmentati
 
 ---
 
+### Module 08 — Medical Image Classification
+
+This module serves as a 2D beginner-friendly introduction to medical image classification using deep learning. You will use MONAI and PyTorch to classify 2D grayscale medical images (X-rays, CT scans, MRIs, hands) using the MedNIST dataset and a DenseNet121 convolutional neural network.
+
+**Key skills:** `MedNISTDataset`, custom transforms (`Compose`, `LoadImage`, `ScaleIntensity`, `Resize`, `RandRotate90`, `RandFlip`), DenseNet121, accuracy/F1-score classification report, ROC curves, confusion matrix.
+
+---
+
 ## Learning Goals
 
 After completing Phase 03 you will be able to:
@@ -145,6 +154,7 @@ After completing Phase 03 you will be able to:
 - Run BiomedCLIP zero-shot classification, BLIP-2 captioning, and LLaVA VQA on medical images; evaluate generated text quantitatively; and manage multiple large models within a 16 GB VRAM budget
 - Explain early, late, and cross-attention fusion strategies for multi-modal medical datasets
 - Implement and train a promptable, MedSAM-inspired 2-D lesion segmentation model conditioned on box and point prompts
+- Build a medical image classification model using MONAI and evaluate performance with ROC curves and confusion matrices
 
 ---
 
@@ -169,6 +179,7 @@ All notebooks target **Google Colab with a T4 GPU (16 GB VRAM)**.
 | 05 — Clinical Assistant | CPU | Runs fully on CPU |
 | 06 — Multimodal Fusion | CPU / GPU | Fast, runnable on CPU or Google Colab free tier |
 | 07 — Promptable Seg | CPU / GPU | Fast, runnable on CPU or Google Colab free tier |
+| 08 — Classification | ~4 GB | Fast, training is runnable on GPU in Colab free tier |
 
 **Module 04 teardown pattern (mandatory):**
 
@@ -197,6 +208,8 @@ pip install "monai[nibabel,tqdm]" SimpleITK antspyx torchcfm nibabel \
 ## Suggested Order
 
 ```
+MedicalImageClassification
+         ↓
 Volume3DSegmentation
          ↓
 MultimodalRegistration
@@ -208,7 +221,7 @@ MultimodalDeepLearning    ←→    PromptableSegmentation
                                ClinicalDiagnosticAssistant
 ```
 
-Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Similarly, Modules 06 and 07 cover multi-modal fusion and promptable foundation concepts, which prepare you for the sequence representation logic in Module 05.
+Module 08 serves as a 2D beginner-friendly introduction to MONAI and PyTorch training loops, setting the stage before moving to the more complex 3D segmentation task in Module 01. Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Similarly, Modules 06 and 07 cover multi-modal fusion and promptable foundation concepts, which prepare you for the sequence representation logic in Module 05.
 
 ---
 

@@ -14,7 +14,7 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 | [`3DCryoEMReconstruction`](tutorial/3DCryoEMReconstruction/) | Forward model, CTF correction, Fourier Slice Theorem, trilinear back-projection, EM pose estimation, NeRF-style reconstruction | `cryoem_reconstruction_tutorial.ipynb` |
 | [`TomogramDiagnosisBuild`](tutorial/TomogramDiagnosisBuild/) | Hands-on cryo-ET workflow on EMPIAR-10164: tilt-series stacking, fiducial alignment, WBP and SIRT reconstruction, tomogram diagnosis | `build_and_diagnose_tomogram.md` |
 | [`SubtomogramAveraging`](tutorial/SubtomogramAveraging/) | Sub-tomogram averaging (STA) and 3D particle picking for Cryo-ET, missing wedge effects, 3-D template matching (NCC), orientation alignment, Fourier Shell Correlation (FSC), multi-reference classification | `subtomogram_averaging_tutorial.ipynb` |
-| [`TomogramSegmentation`](tutorial/TomogramSegmentation/) | Prompt-based interactive 3D tomogram segmentation, Segment Anything (SAM), CryoSAM cross-plane self-prompting propagation | `interactive_cryoet_tomogram_segmentation.ipynb` |
+| [`TomogramSegmentation`](tutorial/TomogramSegmentation/) | Prompt-based interactive 3D tomogram segmentation, Segment Anything (SAM), CryoSAM cross-plane self-prompting propagation | `interactive_cryoet_tomogram_segmentation.ipynb`, `membrane_organelle_segmentation_tutorial.ipynb` |
 
 Modules 01, 02, 04, and 05 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 03 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 

@@ -33,6 +33,7 @@ This module introduces a **human-in-the-loop prompt propagation** strategy inspi
 | File | Description |
 |------|-------------|
 | [`interactive_cryoet_tomogram_segmentation.ipynb`](interactive_cryoet_tomogram_segmentation.ipynb) | Hands-on tutorial implementing interactive 3D tomogram segmentation using point prompts and bidirectional mask propagation. Includes synthetic phantom verification, real CryoET ribosome segmentation, interactive error correction, and 3D volume/centroid measurements. |
+| [`membrane_organelle_segmentation_tutorial.ipynb`](membrane_organelle_segmentation_tutorial.ipynb) | Hands-on tutorial training 2D/3D U-Net segmentation networks to segment membranes and organelles (mitochondria) in 3D EM volumes, addressing class imbalance and evaluating prediction accuracy. |
 
 ---
 
