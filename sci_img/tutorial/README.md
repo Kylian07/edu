@@ -42,7 +42,8 @@ Phase 03 — Advanced Medical AI
   ├─ 04 Medical Vision-Language Models (BiomedCLIP, BLIP-2, LLaVA)
   ├─ 05 Clinical Diagnostic Assistant Case Study
   ├─ 06 Multimodal Deep Learning (Fusion & Contrastive Pretraining)
-  └─ 07 Promptable Biomedical Lesion Segmentation (MedSAM-inspired)
+  ├─ 07 Promptable Biomedical Lesion Segmentation (MedSAM-inspired)
+  └─ 08 Medical Image Classification with MONAI (MedNIST)
 
 Phase 04 — CryoEM & Structural Biology
   ├─ 01 Low-SNR Noise Processing & Particle Picking
@@ -86,7 +87,7 @@ Phase 02 is about understanding *where things are* and *what shape they have*. Y
 ### Phase 03 — Advanced Medical AI
 **Level: Advanced** · Requires Phases 01 and 02.
 
-The phase where individual building blocks converge into complete clinical-grade systems. You will train a 3-D U-Net on the Medical Segmentation Decathlon spleen benchmark, work through the full spectrum of multimodal registration from classical SimpleITK to deep VoxelMorph-style networks, synthesise missing imaging modalities using Schrödinger Bridge Conditional Flow Matching, and probe state-of-the-art foundation models (BiomedCLIP, BLIP-2, LLaVA-1.5) with real medical images.
+The phase where individual building blocks converge into complete clinical-grade systems. You will classify 2D medical images on MedNIST with MONAI, train a 3-D U-Net on the Medical Segmentation Decathlon spleen benchmark, work through the full spectrum of multimodal registration from classical SimpleITK to deep VoxelMorph-style networks, synthesise missing imaging modalities using Schrödinger Bridge Conditional Flow Matching, and probe state-of-the-art foundation models (BiomedCLIP, BLIP-2, LLaVA-1.5) with real medical images.
 
 ➜ [`AdvancedMedicalAI/`](AdvancedMedicalAI/)
 
@@ -187,7 +188,8 @@ tutorial/
 │   ├── MedicalVisionLanguage/
 │   ├── ClinicalDiagnosticAssistant/
 │   ├── MultimodalDeepLearning/
-│   └── PromptableSegmentation/
+│   ├── PromptableSegmentation/
+│   └── MedicalImageClassification/
 └── RoboticLabAutomation/
     ├── README.md
     ├── AutoBioBenchmark/
