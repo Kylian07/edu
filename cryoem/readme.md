@@ -12,8 +12,10 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 |-----------|-------|-------|
 | [`LowSNRNoiseProcessing`](tutorial/LowSNRNoiseProcessing/) | SNR intuition, CTF simulation, classical denoising, particle picking, 2-D class averaging, FRC, Noise2Void | `cryoem_low_snr_tutorial.ipynb`, `lowdose_em_denoising_tutorial.ipynb`, `particle_picking_tutorial.ipynb` |
 | [`3DCryoEMReconstruction`](tutorial/3DCryoEMReconstruction/) | Forward model, CTF correction, Fourier Slice Theorem, trilinear back-projection, EM pose estimation, NeRF-style reconstruction | `cryoem_reconstruction_tutorial.ipynb` |
+| [`TiltSeriesAlignment`](tutorial/TiltSeriesAlignment/) | Fiducial-less patch-tracking tilt-series alignment, synthetic misalignment generation, projection/WBP reconstruction quality validation | `tilt_series_alignment_tutorial.ipynb` |
 | [`TomogramDiagnosisBuild`](tutorial/TomogramDiagnosisBuild/) | Hands-on cryo-ET workflow on EMPIAR-10164: tilt-series stacking, fiducial alignment, WBP and SIRT reconstruction, tomogram diagnosis | `build_and_diagnose_tomogram.md` |
 | [`SubtomogramAveraging`](tutorial/SubtomogramAveraging/) | Sub-tomogram averaging (STA) and 3D particle picking for Cryo-ET, missing wedge effects, 3-D template matching (NCC), orientation alignment, Fourier Shell Correlation (FSC), multi-reference classification | `subtomogram_averaging_tutorial.ipynb` |
+| [`FewShotParticleDetection`](tutorial/FewShotParticleDetection/) | SaSi-inspired few-shot CryoET particle detection, spherical weak label generation, Volume Infill augmentation, 3D CNN detection | `Few-Shot CryoET Particle Detection with Weak Labels and Volume Infill.ipynb` |
 | [`TomogramSegmentation`](tutorial/TomogramSegmentation/) | Prompt-based interactive 3D tomogram segmentation, Segment Anything (SAM), CryoSAM cross-plane self-prompting propagation | `interactive_cryoet_tomogram_segmentation.ipynb`, `membrane_organelle_segmentation_tutorial.ipynb` |
 
 Modules 01, 02, 04, and 05 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 03 is a local software practical requiring IMOD/Etomo on Linux or macOS.
@@ -48,7 +50,17 @@ The hardest real-world problem in cryoEM — that particle orientations are comp
 
 ---
 
-### Module 03 — Build & Diagnose a Real Cryo-ET Tomogram
+### Module 03 — Tilt-Series Alignment
+
+Reconstructing a 3D tomogram from 2D projections requires precise alignment of the images collected at different tilt angles. This module covers **Fiducial-Less Patch-Tracking Tilt-Series Alignment**, simulating the alignment process and implementing cross-correlation based patch tracking in Python.
+
+You will learn to simulate a tilt series with known translational misalignments from a real 3D EM volume, implement patch tracking with cumulative cross-correlation alignment correction, validate alignment accuracy against ground-truth translations, and reconstruct the final aligned 3D volume using Weighted Back Projection (WBP).
+
+**Key skills:** Tilt-series simulation, fiducial-less patch tracking, cumulative cross-correlation alignment, alignment validation, WBP reconstruction.
+
+---
+
+### Module 04 — Build & Diagnose a Real Cryo-ET Tomogram
 
 This is a hands-on practical rather than a Jupyter notebook. You will process a real cryo-ET tilt series of *Mycoplasma pneumoniae* from the EMPIAR-10164 public archive using IMOD/Etomo — the same software stack used by structural-biology labs worldwide. The three processing steps (stack → align → reconstruct) are carried out in full, and four guided diagnostic questions connect every result back to the computational theory in Modules 01 and 02.
 
@@ -64,9 +76,9 @@ Four diagnostic questions require written answers and 3dmod screenshots: alignme
 
 ---
 
-### Module 04 — Sub-tomogram Averaging & 3D Particle Picking
+### Module 05 — Sub-tomogram Averaging & 3D Particle Picking
 
-Once a 3-D tomogram is reconstructed (using WBP or SIRT as in Module 03), the next task is to identify and extract the individual macromolecular structures contained within it to obtain high-resolution models. This module introduces the concepts and computational pipeline of **Sub-tomogram Averaging (STA)**. 
+Once a 3-D tomogram is reconstructed (using WBP or SIRT as in Module 04), the next task is to identify and extract the individual macromolecular structures contained within it to obtain high-resolution models. This module introduces the concepts and computational pipeline of **Sub-tomogram Averaging (STA)**. 
 
 You will explore the geometry and impact of the missing wedge in 3-D Fourier space, simulate a realistic multi-particle tomogram, and implement 3-D template matching using normalized cross-correlation (NCC) to pick particles. You will align and average these sub-volumes to cancel noise and combat the missing wedge, resolve conformational heterogeneity using multi-reference classification, and measure the resolution using the 3-D **Fourier Shell Correlation (FSC)**.
 
@@ -74,7 +86,17 @@ You will explore the geometry and impact of the missing wedge in 3-D Fourier spa
 
 ---
 
-### Module 05 — Interactive Tomogram Segmentation
+### Module 06 — Few-Shot CryoET Particle Detection
+
+Automatic particle picking in cryo-electron tomography (cryo-ET) is heavily bottlenecked by the scarcity of annotated data and low signal-to-noise ratios. This module introduces a deep learning pipeline for **Few-Shot Cryo-ET Particle Detection** using weak labels and Volume Infill, inspired by the SaSi framework (Adethya et al., 2025).
+
+You will generate spherical weak labels around sparse user-annotated particle centers, learn the concept of self-augmented **Volume Infill** (extracting particle subvolumes and pasting them into background locations to augment training samples), build and train a lightweight 3D convolutional network for voxel-wise particle detection, and extract 3D coordinates from predicted probability volumes.
+
+**Key skills:** Spherical weak label generation, Volume Infill data augmentation, 3D CNN detection network design, post-processing coordinates extraction, coordinate-based metric evaluation (Precision, Recall, F1, localization error).
+
+---
+
+### Module 07 — Interactive Tomogram Segmentation
 
 This module implements a human-in-the-loop 3D segmentation pipeline for Cryo-ET tomograms based on prompt propagation, drawing on the concepts from the Segment Anything Model (SAM) and CryoSAM. Slicing through noisy experimental 3D volumes is tedious, and fully automated networks often struggle with local artifacts and crowded environments. You will explore how a single 2D user-placed prompt (a point inside a ribosome or membrane) can generate a local mask that propagates slice by slice to reconstruct a full 3D object. You will design propagation stopping criteria based on bounding box shifts and area overlap, inspect the reconstructed 3D mask from XY/XZ/YZ planes, and interactively correct segmentation errors on the fly.
 
@@ -94,6 +116,10 @@ After finishing this phase you will be able to:
 - Understand how the EM algorithm jointly estimates particle orientations and the 3-D reconstruction, and implement a simplified version from scratch
 - Use IMOD/Etomo to align a real cryo-ET tilt series with gold fiducials and reconstruct both WBP and SIRT tomograms
 - Identify the missing-wedge artefact in a real tomogram and explain its origin in Fourier space
+- Simulate a tilt series with known translation offsets from a real 3D EM volume
+- Implement patch-tracking alignment using cumulative cross-correlation to estimate drift correction
+- Generate spherical weak labels from sparse 3D particle-center coordinates
+- Apply Volume Infill augmentation to address label scarcity and class imbalance in cryo-ET tomograms
 - Explain the sub-tomogram averaging pipeline and why Z-axis alignment requires handling the missing wedge in 3-D Fourier space
 - Implement 3-D template matching (NCC) and compute the 3-D Fourier Shell Correlation (FSC) for resolution estimation
 - Describe how multi-reference classification resolves conformational heterogeneity in 3-D particle datasets
@@ -153,9 +179,13 @@ LowSNRNoiseProcessing
          ↓
 3DCryoEMReconstruction
          ↓
+TiltSeriesAlignment
+         ↓
 TomogramDiagnosisBuild
          ↓
 SubtomogramAveraging
+         ↓
+FewShotParticleDetection
          ↓
 TomogramSegmentation
 ```

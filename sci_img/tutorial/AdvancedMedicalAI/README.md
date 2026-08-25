@@ -30,6 +30,7 @@ Case Study (Module 05 — clinical diagnostic assistant)
 | 6 | [`MultimodalDeepLearning`](MultimodalDeepLearning/) | Image + clinical/tabular early, late, and cross-attention fusion baselines | `Multimodal_Deep_Learning_Medical_Imaging_Tutorial.ipynb` | No |
 | 7 | [`PromptableSegmentation`](PromptableSegmentation/) | Coordinate point/box prompt representation and MedSAM-guided lesion segmentation | `promptable_biomedical_lesion_segmentation.ipynb` | No |
 | 8 | [`MedicalImageClassification`](MedicalImageClassification/) | Grayscale 2D medical image classification with MONAI on MedNIST | `medical_image_classification_mednist.ipynb` | Yes (training) |
+| 9 | [`MedicalImageSegmentation`](MedicalImageSegmentation/) | Grayscale 2D medical image segmentation with MONAI U-Net on synthetic shapes | `Simple segmentation.ipynb` | No |
 
 ---
 
@@ -143,6 +144,14 @@ This module serves as a 2D beginner-friendly introduction to medical image class
 
 ---
 
+### Module 09 — Medical Image Segmentation
+
+This module serves as a 2D beginner-friendly introduction to medical image segmentation. You will use MONAI and PyTorch to segment synthetic images containing simple shapes using a standard U-Net architecture. The module builds directly on image classification concepts but introduces pixel-level ground truth (masks), the U-Net architecture, Dice Loss, and the Dice score metric.
+
+**Key skills:** Synthetic image generation (`create_test_image_2d`), U-Net architecture, pixel-level classification (masks), Dice Loss, Dice score evaluation.
+
+---
+
 ## Learning Goals
 
 After completing Phase 03 you will be able to:
@@ -155,6 +164,8 @@ After completing Phase 03 you will be able to:
 - Explain early, late, and cross-attention fusion strategies for multi-modal medical datasets
 - Implement and train a promptable, MedSAM-inspired 2-D lesion segmentation model conditioned on box and point prompts
 - Build a medical image classification model using MONAI and evaluate performance with ROC curves and confusion matrices
+- Build and train a 2D U-Net segmentation model using MONAI on synthetic shape images
+- Explain and implement Dice Loss and Dice similarity coefficient for segmentation evaluation
 
 ---
 
@@ -210,6 +221,8 @@ pip install "monai[nibabel,tqdm]" SimpleITK antspyx torchcfm nibabel \
 ```
 MedicalImageClassification
          ↓
+MedicalImageSegmentation
+         ↓
 Volume3DSegmentation
          ↓
 MultimodalRegistration
@@ -217,11 +230,11 @@ MultimodalRegistration
 MedicalGenerativeModel    ←→    MedicalVisionLanguage
          ↓                              ↓
 MultimodalDeepLearning    ←→    PromptableSegmentation
-                                        ↓
-                               ClinicalDiagnosticAssistant
+                                         ↓
+                                ClinicalDiagnosticAssistant
 ```
 
-Module 08 serves as a 2D beginner-friendly introduction to MONAI and PyTorch training loops, setting the stage before moving to the more complex 3D segmentation task in Module 01. Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Similarly, Modules 06 and 07 cover multi-modal fusion and promptable foundation concepts, which prepare you for the sequence representation logic in Module 05.
+Module 08 serves as a 2D beginner-friendly introduction to MONAI and PyTorch training loops, setting the stage. Module 09 introduces 2D image segmentation on synthetic datasets as a transition before moving to the more complex 3D segmentation task in Module 01. Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Similarly, Modules 06 and 07 cover multi-modal fusion and promptable foundation concepts, which prepare you for the sequence representation logic in Module 05.
 
 ---
 

@@ -17,6 +17,7 @@ Phase 05 moves beyond static medical scans and image-processing pipelines to foc
 | 5 | [`CALVIN`](CALVIN/) | CALVIN simulator architecture, language-conditioned policy, unstructured play data, goal relabeling, and long-horizon chaining metric | `calvin_tutorial.ipynb`<br>`calvin_tutorial_improved.ipynb` | No |
 | 6 | [`CartPoleDQN`](CartPoleDQN/) | Deep Q-Networks from raw pixels — frame stacking, CNN Q-network, experience replay, ε-greedy exploration, and the deep Q-learning training loop | `CartPoleDQN.ipynb` | Optional (T4) |
 | 7 | [`OpentronsOT2`](OpentronsOT2/) | Computer vision-based quality control pipeline for pipette tip detection, liquid volume regression, and closed-loop control | `ot2_qc_tutorial.ipynb` | No |
+| 8 | [`BEHAVIOR-1K`](BEHAVIOR-1K/) | BEHAVIOR-1K embodied AI benchmark, human-preference survey, BDDL activity definitions, and OmniGibson simulation | `BEHAVIOR-1K_tutorial.ipynb` | No |
 
 ---
 
@@ -88,6 +89,16 @@ You will train a compact CNN to detect pipette-tip presence and liquid fill leve
 
 ---
 
+### Module 08 — BEHAVIOR-1K Embodied AI Benchmark
+
+Teaching robots everyday household activities requires high-fidelity physics simulation and diverse task environments. This module covers **BEHAVIOR-1K**, a human-centered embodied AI benchmark featuring 1,000 everyday activities (e.g. cleaning, cooking, gardening) simulated in OmniGibson.
+
+You will study the human-preference survey methodology used to select the 1,000 activities, explore how BDDL (Behavior Activity Definition Language) predicate-logic definitions specify task goals, and compare BEHAVIOR-1K's object-oriented approach to LIBERO's BDDL formats.
+
+**Key skills:** Embodied AI benchmarks, BDDL task definitions, OmniGibson simulator capabilities, human-centered activity modeling.
+
+---
+
 ## Learning Goals
 
 After completing Phase 05 you will be able to:
@@ -111,6 +122,9 @@ After completing Phase 05 you will be able to:
 - Explain client-server offloading for robot computer vision tasks
 - Implement geometric tip-localization and non-linear polynomial volume regression
 - Simulate closed-loop robot control and design self-healing recovery routines
+- Explain the human-preference survey methodology used in selecting BEHAVIOR-1K activities
+- Write and interpret task goals using Behavior Activity Definition Language (BDDL) predicate logic
+- Contrast the object-oriented task representation in BEHAVIOR-1K with LIBERO's BDDL formats
 
 ---
 
