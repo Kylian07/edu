@@ -44,7 +44,8 @@ Phase 03 — Advanced Medical AI
   ├─ 06 Multimodal Deep Learning (Fusion & Contrastive Pretraining)
   ├─ 07 Promptable Biomedical Lesion Segmentation (MedSAM-inspired)
   ├─ 08 Medical Image Classification with MONAI (MedNIST)
-  └─ 09 Medical Image Segmentation with MONAI & U-Net
+  ├─ 09 Medical Image Segmentation with MONAI & U-Net
+  └─ 10 Academic Approach to Machine Learning for Medical Imaging
 
 Phase 04 — CryoEM & Structural Biology
   ├─ 01 Low-SNR Noise Processing & Particle Picking
@@ -53,7 +54,8 @@ Phase 04 — CryoEM & Structural Biology
   ├─ 04 Build & Diagnose a Real Cryo-ET Tomogram (EMPIAR-10164)
   ├─ 05 Sub-tomogram Averaging & 3D Particle Picking (Cryo-ET)
   ├─ 06 Few-Shot CryoET Particle Detection
-  └─ 07 Tomogram Segmentation
+  ├─ 07 Tomogram Segmentation
+  └─ 08 Tomographic Reconstruction & Missing Wedge (WBP vs SIRT)
 
 Phase 05 — Robotic Lab Automation & VLA Models
   ├─ 01 AutoBio Simulator & Benchmark
@@ -194,7 +196,8 @@ tutorial/
 │   ├── MultimodalDeepLearning/
 │   ├── PromptableSegmentation/
 │   ├── MedicalImageClassification/
-│   └── MedicalImageSegmentation/
+│   ├── MedicalImageSegmentation/
+│   └── AcademicApproach/
 └── RoboticLabAutomation/
     ├── README.md
     ├── AutoBioBenchmark/
