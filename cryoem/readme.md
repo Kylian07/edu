@@ -17,8 +17,9 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 | [`SubtomogramAveraging`](tutorial/SubtomogramAveraging/) | Sub-tomogram averaging (STA) and 3D particle picking for Cryo-ET, missing wedge effects, 3-D template matching (NCC), orientation alignment, Fourier Shell Correlation (FSC), multi-reference classification | `subtomogram_averaging_tutorial.ipynb` |
 | [`FewShotParticleDetection`](tutorial/FewShotParticleDetection/) | SaSi-inspired few-shot CryoET particle detection, spherical weak label generation, Volume Infill augmentation, 3D CNN detection | `Few-Shot CryoET Particle Detection with Weak Labels and Volume Infill.ipynb` |
 | [`TomogramSegmentation`](tutorial/TomogramSegmentation/) | Prompt-based interactive 3D tomogram segmentation, Segment Anything (SAM), CryoSAM cross-plane self-prompting propagation | `interactive_cryoet_tomogram_segmentation.ipynb`, `membrane_organelle_segmentation_tutorial.ipynb` |
+| [`MissingWedgeReconstruction`](tutorial/MissingWedgeReconstruction/) | Simulating full-range vs missing-wedge tilt series, Fourier slice effects, Weighted Backprojection (WBP) vs SIRT implementations | `missing_wedge_wbp_sirt_tutorial.ipynb` |
 
-Modules 01, 02, 04, and 05 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 03 is a local software practical requiring IMOD/Etomo on Linux or macOS.
+Modules 01, 02, 03, 05, 06, 07, and 08 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 
 ---
 
@@ -104,6 +105,16 @@ This module implements a human-in-the-loop 3D segmentation pipeline for Cryo-ET 
 
 ---
 
+### Module 08 — The Missing-Wedge Artifact: WBP vs. SIRT
+
+Tomographic reconstruction in cryo-ET is physically constrained by the angular range of the specimen holder, resulting in a "missing wedge" of data in Fourier space. This module explores how the missing wedge affects 3D tomogram quality and benchmarks two classical reconstruction methods: Weighted Backprojection (WBP) and the iterative Simultaneous Reconstruction Technique (SIRT).
+
+You will simulate full-range and missing-wedge tilt series from real 3D EM density, visualize the missing-wedge effect in 3D Fourier space, implement both the WBP radial filter and the SIRT iterative update equations from scratch, and quantitatively compare the reconstructions using structural similarity (SSIM) and line-profile analysis.
+
+**Key skills:** Tomographic rotate-and-sum forward model, 3-D Fourier space missing wedge representation, WBP radial filter design, SIRT projection/backprojection iterative loop, SSIM and intensity profile evaluation.
+
+---
+
 ## Learning Goals
 
 After finishing this phase you will be able to:
@@ -128,6 +139,8 @@ After finishing this phase you will be able to:
 - Define and configure propagation stopping criteria using centroid shift and area overlap thresholds
 - Perform manual interactive prompt correction on poorly-segmented slices to refine the final 3D reconstruction
 - Extract quantitative properties (volume, centroid coordinates, bounding box) from a segmented 3D mask
+- Implement the tomographic rotate-and-sum forward model, and reconstruct tomograms using custom WBP and SIRT solvers
+- Quantify missing-wedge distortions in reconstructed volumes using structural similarity (SSIM) and line-profile analysis
 
 ---
 
@@ -145,9 +158,12 @@ After finishing this phase you will be able to:
 |--------|---------|-------|
 | 01 — Low-SNR Processing | CPU only | All NumPy/SciPy; Colab free tier is sufficient |
 | 02 — 3-D Reconstruction | CPU (most sections), GPU optional | The NeRF section benefits from GPU but falls back to CPU |
-| 03 — Tomogram Practical | Local machine with IMOD | Colab-incompatible; Linux or macOS required (WSL2 on Windows) |
-| 04 — Sub-tomogram Averaging | CPU only | All NumPy/SciPy/scikit-image; Colab free tier is sufficient |
-| 05 — Tomogram Segmentation | CPU/GPU | Colab T4 GPU recommended for foundation model inference |
+| 03 — Tilt-Series Alignment | CPU only | All NumPy/SciPy; Colab free tier is sufficient |
+| 04 — Tomogram Practical | Local machine with IMOD | Colab-incompatible; Linux or macOS required (WSL2 on Windows) |
+| 05 — Sub-tomogram Averaging | CPU only | All NumPy/SciPy/scikit-image; Colab free tier is sufficient |
+| 06 — Few-Shot Particle Detection | CPU/GPU | Google Colab free tier (T4 GPU recommended) for 3D CNN training |
+| 07 — Tomogram Segmentation | CPU/GPU | Colab T4 GPU recommended for interactive SAM foundation model inference |
+| 08 — Missing-Wedge WBP/SIRT | CPU only | All NumPy/SciPy/scikit-image; Colab free tier is sufficient |
 
 ---
 
@@ -188,9 +204,11 @@ SubtomogramAveraging
 FewShotParticleDetection
          ↓
 TomogramSegmentation
+         ↓
+MissingWedgeReconstruction
 ```
 
-The order is strict. Module 03 exposes you to real data and production software; every Etomo setting and every result it produces maps directly to a concept introduced computationally in Modules 01 and 02. Starting Module 03 without that background makes the software difficult to interpret and the diagnostic questions impossible to answer from principle.
+The order is strict. Module 04 exposes you to real data and production software; every Etomo setting and every result it produces maps directly to a concept introduced computationally in Modules 01 and 02. Starting Module 04 without that background makes the software difficult to interpret and the diagnostic questions impossible to answer from principle.
 
 ---
 
