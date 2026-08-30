@@ -31,6 +31,7 @@ Case Study (Module 05 — clinical diagnostic assistant)
 | 7 | [`PromptableSegmentation`](PromptableSegmentation/) | Coordinate point/box prompt representation and MedSAM-guided lesion segmentation | `promptable_biomedical_lesion_segmentation.ipynb` | No |
 | 8 | [`MedicalImageClassification`](MedicalImageClassification/) | Grayscale 2D medical image classification with MONAI on MedNIST | `medical_image_classification_mednist.ipynb` | Yes (training) |
 | 9 | [`MedicalImageSegmentation`](MedicalImageSegmentation/) | Grayscale 2D medical image segmentation with MONAI U-Net on synthetic shapes | `Simple segmentation.ipynb` | No |
+| 10 | [`AcademicApproach`](AcademicApproach/) | Rigorous, reproducible evaluation, dataset splitting, and baseline habits | `academic_approach_medical_imaging_ml.ipynb` | No |
 
 ---
 
@@ -152,6 +153,16 @@ This module serves as a 2D beginner-friendly introduction to medical image segme
 
 ---
 
+### Module 10 — Academic Approach to Machine Learning for Medical Imaging
+
+Building a machine learning model that works is different from building one that is academically rigorous, reproducible, and defensible as research. This notebook covers the habits and checks that separate a "working demo" from academically rigorous work — using examples from our own prior classification and segmentation notebooks where relevant.
+
+You will learn to formulate falsifiable research questions, prevent data leakage by splitting datasets at the patient level rather than scan level, implement baseline models for robust comparison, evaluate performance using multi-metric classification reports, and adopt practices for full experiment reproducibility.
+
+**Key skills:** Patient-level split logic (`GroupShuffleSplit`), data leakage detection, baseline comparisons, classification reports, reproducibility protocols.
+
+---
+
 ## Learning Goals
 
 After completing Phase 03 you will be able to:
@@ -166,6 +177,7 @@ After completing Phase 03 you will be able to:
 - Build a medical image classification model using MONAI and evaluate performance with ROC curves and confusion matrices
 - Build and train a 2D U-Net segmentation model using MONAI on synthetic shape images
 - Explain and implement Dice Loss and Dice similarity coefficient for segmentation evaluation
+- Formulate falsifiable research questions and prevent patient-level data leakage when training medical imaging models
 
 ---
 
@@ -191,6 +203,8 @@ All notebooks target **Google Colab with a T4 GPU (16 GB VRAM)**.
 | 06 — Multimodal Fusion | CPU / GPU | Fast, runnable on CPU or Google Colab free tier |
 | 07 — Promptable Seg | CPU / GPU | Fast, runnable on CPU or Google Colab free tier |
 | 08 — Classification | ~4 GB | Fast, training is runnable on GPU in Colab free tier |
+| 09 — Medical Seg | CPU | Fast, training is runnable on CPU or Google Colab free tier |
+| 10 — Academic Approach | CPU | Runs fully on CPU |
 
 **Module 04 teardown pattern (mandatory):**
 
@@ -231,10 +245,12 @@ MedicalGenerativeModel    ←→    MedicalVisionLanguage
          ↓                              ↓
 MultimodalDeepLearning    ←→    PromptableSegmentation
                                          ↓
-                                ClinicalDiagnosticAssistant
+                                 ClinicalDiagnosticAssistant
+                                              ↓
+                                       AcademicApproach
 ```
 
-Module 08 serves as a 2D beginner-friendly introduction to MONAI and PyTorch training loops, setting the stage. Module 09 introduces 2D image segmentation on synthetic datasets as a transition before moving to the more complex 3D segmentation task in Module 01. Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Similarly, Modules 06 and 07 cover multi-modal fusion and promptable foundation concepts, which prepare you for the sequence representation logic in Module 05.
+Module 08 serves as a 2D beginner-friendly introduction to MONAI and PyTorch training loops, setting the stage. Module 09 introduces 2D image segmentation on synthetic datasets as a transition before moving to the more complex 3D segmentation task in Module 01. Modules 03 and 04 are largely independent of each other. Once you have finished 01 and 02, they can be taken in either order. Similarly, Modules 06 and 07 cover multi-modal fusion and promptable foundation concepts, which prepare you for the sequence representation logic in Module 05. Finally, Module 10 covers the academic habits and methodology rules for training and validating medical imaging models.
 
 ---
 

@@ -17,7 +17,7 @@ Phase 05 moves beyond static medical scans and image-processing pipelines to foc
 | 5 | [`CALVIN`](CALVIN/) | CALVIN simulator architecture, language-conditioned policy, unstructured play data, goal relabeling, and long-horizon chaining metric | `calvin_tutorial.ipynb`<br>`calvin_tutorial_improved.ipynb` | No |
 | 6 | [`CartPoleDQN`](CartPoleDQN/) | Deep Q-Networks from raw pixels — frame stacking, CNN Q-network, experience replay, ε-greedy exploration, and the deep Q-learning training loop | `CartPoleDQN.ipynb` | Optional (T4) |
 | 7 | [`OpentronsOT2`](OpentronsOT2/) | Computer vision-based quality control pipeline for pipette tip detection, liquid volume regression, and closed-loop control | `ot2_qc_tutorial.ipynb` | No |
-| 8 | [`BEHAVIOR-1K`](BEHAVIOR-1K/) | BEHAVIOR-1K embodied AI benchmark, human-preference survey, BDDL activity definitions, and OmniGibson simulation | `BEHAVIOR-1K_tutorial.ipynb` | No |
+| 8 | [`BEHAVIOR-1K`](BEHAVIOR-1K/) | BEHAVIOR-1K embodied AI benchmark, human-preference survey, BDDL activity definitions, and OmniGibson simulation | `BEHAVIOR-1K_tutorial.ipynb`<br>`BEHAVIOR-1K_Improved.ipynb` | No |
 
 ---
 
