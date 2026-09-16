@@ -24,6 +24,8 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 
 Modules 01, 02, 03, 05, 06, 07, 08, 09, 10, and 11 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 
+Modules 01, 02, 03, 05, 06, 07, 08, and 09 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
+
 ---
 
 ## Module Summaries
