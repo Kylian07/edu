@@ -155,6 +155,8 @@ Do the cryo-EM section after the image-processing and ML foundations:
 |    26 | `subtomogram_averaging_tutorial.ipynb` | 3-D sub-tomogram averaging and particle picking for cryo-ET        |
 |    27 | `missing_wedge_wbp_sirt_tutorial.ipynb` | Weighted Backprojection vs SIRT reconstruction algorithms and missing wedge effects |
 |    28 | `motion_correction_tutorial.ipynb`     | Beam-induced whole-frame and patch-based motion correction on movie frames |
+|    29 | `local_resolution_tutorial.ipynb`      | Gold-standard FSC and sliding-window local resolution estimation (ResMap/Blocres) |
+|    30 | `CryoDRGN_tutorial.ipynb`              | Continuous conformational heterogeneity reconstruction with coordinate VAEs |
 
 The `cryoem/tutorial` folder contains these files. ([GitHub][4])
 
@@ -173,7 +175,7 @@ You should understand why cryo-EM data are difficult, why low signal-to-noise ra
 |    4 | Segmentation/detection/tracking | `segmentation_geo_modified`, `segmentation_deep`, `object_detection`, `lap_laptrack`             |
 |    5 | ML for images                   | `introduction_to_pytorch`, `dimension_reduction_reconstruction`, `geometry_based_classification` |
 |    6 | Medical AI                      | `AI-Driven Clinical Diagnostic Assistant`, `SB_CFM_Medical_Synthesis`, `diffusion models`, `academic_approach_medical_imaging_ml` |
-|    7 | Cryo-EM                         | `cryoem_low_snr_tutorial`, `lowdose_em_denoising_tutorial`, `cryoem_reconstruction_tutorial`, `build_and_diagnose_tomogram`, `subtomogram_averaging_tutorial`, `missing_wedge_wbp_sirt_tutorial`, `motion_correction_tutorial` |
+|    7 | Cryo-EM                         | `cryoem_low_snr_tutorial`, `lowdose_em_denoising_tutorial`, `cryoem_reconstruction_tutorial`, `build_and_diagnose_tomogram`, `subtomogram_averaging_tutorial`, `missing_wedge_wbp_sirt_tutorial`, `motion_correction_tutorial`, `local_resolution_tutorial`, `CryoDRGN_tutorial` |
 
 ---
 
