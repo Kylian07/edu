@@ -19,8 +19,10 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 | [`TomogramSegmentation`](tutorial/TomogramSegmentation/) | Prompt-based interactive 3D tomogram segmentation, Segment Anything (SAM), CryoSAM cross-plane self-prompting propagation | `interactive_cryoet_tomogram_segmentation.ipynb`, `membrane_organelle_segmentation_tutorial.ipynb` |
 | [`MissingWedgeReconstruction`](tutorial/MissingWedgeReconstruction/) | Simulating full-range vs missing-wedge tilt series, Fourier slice effects, Weighted Backprojection (WBP) vs SIRT implementations | `missing_wedge_wbp_sirt_tutorial.ipynb` |
 | [`MotionCorrection`](tutorial/MotionCorrection/) | Beam-induced motion correction, whole-frame and patch-based/per-particle drift tracking on dose-fractionated movies | `motion_correction_tutorial.ipynb` |
+| [`LocalResolution`](tutorial/LocalResolution/) | Global FSC vs. sliding-window 3D local resolution estimation, ResMap/Blocres, ground-truth validation | `local_resolution_tutorial.ipynb` |
+| [`HeterogeneousReconstruction`](tutorial/HeterogeneousReconstruction/) | Continuous conformational heterogeneity, CryoDRGN coordinate network (implicit neural representation), VAE latent traversal | `CryoDRGN_tutorial.ipynb` |
 
-Modules 01, 02, 03, 05, 06, 07, 08, and 09 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
+Modules 01, 02, 03, 05, 06, 07, 08, 09, 10, and 11 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 
 ---
 
@@ -126,6 +128,26 @@ You will simulate realistic dose-fractionated movies from experimental micrograp
 
 ---
 
+### Module 10 — Local Resolution Estimation in Cryo-EM 3D Maps
+
+A single global FSC resolution number is an average over the entire map. Real macromolecules are rarely uniformly ordered: rigid cores reconstruct sharply, while flexible loops, peripheral domains, or ligand-binding pockets are smeared out and have lower local resolution. Local resolution estimation recovers this spatial variation directly.
+
+This module builds two independent half-maps from real 3D EM density corrupted by a physically motivated, spatially varying blur field and noise realizations. You will calculate the global Gold-Standard FSC at the standard 0.143 threshold, implement sliding-window local FSC across the 3D volume (the foundational design of ResMap and Blocres), and quantitatively validate the recovered local resolution map against the ground-truth blur pattern.
+
+**Key skills:** Gold-standard FSC calculation (0.143 threshold), sliding-window 3D subvolume extraction and spherical masking, local Fourier Shell Correlation, per-voxel local resolution mapping, resolution map validation against ground-truth blur fields, production software tools (ResMap, Blocres, MonoRes, cryoSPARC).
+
+---
+
+### Module 11 — Heterogeneous Structure Reconstruction with Neural Networks (CryoDRGN)
+
+Classical single-particle reconstruction assumes a homogeneous, rigid macromolecule and averages all aligned particle projections into a single consensus 3D density. If the dataset contains continuous conformational motion (e.g. flexible domain hinge movements or breathing states), naive averaging smears these regions into blurred streaks.
+
+This module implements the CryoDRGN framework (Zhong et al., *Nature Methods* 2021) from first principles. You will implement the forward imaging model using Hartley-space central slice sampling and CTF modulation, construct a Variational Autoencoder (VAE) where the encoder maps particle images to continuous latent codes and the decoder is a coordinate-based Multi-Layer Perceptron (implicit neural representation), train the model end-to-end with an ELBO objective, and decode full 3D volumes along the learned latent manifold to retrace continuous conformational transitions.
+
+**Key skills:** Projection-slice theorem in Hartley space, central-slice frequency coordinate sampling, differentiable CTF modulation, coordinate-based MLP (implicit neural representation) architecture, VAE latent space representation of continuous conformational heterogeneity, latent manifold traversal, volume decoding at arbitrary coordinates.
+
+---
+
 ## Learning Goals
 
 After finishing this phase you will be able to:
@@ -153,6 +175,11 @@ After finishing this phase you will be able to:
 - Implement the tomographic rotate-and-sum forward model, and reconstruct tomograms using custom WBP and SIRT solvers
 - Quantify missing-wedge distortions in reconstructed volumes using structural similarity (SSIM) and line-profile analysis
 - Implement whole-frame rigid cross-correlation and patch-based per-particle motion correction on dose-fractionated cryo-EM movies
+- Compute global Fourier Shell Correlation (FSC) and implement sliding-window local FSC to map spatially varying resolution across 3D macromolecular density
+- Quantify the spatial resolution gradient between rigid macromolecular cores and flexible peripheral loops
+- Formulate the cryo-EM forward imaging model in Hartley space and implement central-slice frequency sampling
+- Train a coordinate-based VAE (CryoDRGN) to discover continuous conformational heterogeneity without discrete classification
+- Decode 3D electron density volumes across continuous latent coordinates to visualize conformational transitions
 
 ---
 
@@ -177,6 +204,8 @@ After finishing this phase you will be able to:
 | 07 — Tomogram Segmentation | CPU/GPU | Colab T4 GPU recommended for interactive SAM foundation model inference |
 | 08 — Missing-Wedge WBP/SIRT | CPU only | All NumPy/SciPy/scikit-image; Colab free tier is sufficient |
 | 09 — Motion Correction | CPU only | All NumPy/SciPy/matplotlib; Colab free tier is sufficient |
+| 10 — Local Resolution | CPU only | All NumPy/SciPy/matplotlib; Colab free tier is sufficient |
+| 11 — Heterogeneous Reconstruction (CryoDRGN) | CPU/GPU | Google Colab free tier (T4 GPU recommended for VAE training, CPU supported) |
 
 ---
 
@@ -221,6 +250,10 @@ TomogramSegmentation
 MissingWedgeReconstruction
          ↓
 MotionCorrection
+         ↓
+LocalResolution
+         ↓
+HeterogeneousReconstruction
 ```
 
 The order is strict. Module 04 exposes you to real data and production software; every Etomo setting and every result it produces maps directly to a concept introduced computationally in Modules 01 and 02. Starting Module 04 without that background makes the software difficult to interpret and the diagnostic questions impossible to answer from principle.
