@@ -21,8 +21,9 @@ CryoEM is computationally demanding because the experiment cannot provide clean 
 | [`MotionCorrection`](tutorial/MotionCorrection/) | Beam-induced motion correction, whole-frame and patch-based/per-particle drift tracking on dose-fractionated movies | `motion_correction_tutorial.ipynb` |
 | [`LocalResolution`](tutorial/LocalResolution/) | Global FSC vs. sliding-window 3D local resolution estimation, ResMap/Blocres, ground-truth validation | `local_resolution_tutorial.ipynb` |
 | [`HeterogeneousReconstruction`](tutorial/HeterogeneousReconstruction/) | Continuous conformational heterogeneity, CryoDRGN coordinate network (implicit neural representation), VAE latent traversal | `CryoDRGN_tutorial.ipynb` |
+| [`CTFEstimation`](tutorial/CTFEstimation/) | CTF theory, Thon rings, radial power spectrum averaging, background subtraction, grid-search defocus fitting, phase-flip correction | `ctf_estimation_tutorial.ipynb` |
 
-Modules 01, 02, 03, 05, 06, 07, 08, 09, 10, and 11 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
+Modules 01, 02, 03, 05, 06, 07, 08, 09, 10, 11, and 12 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 
 Modules 01, 02, 03, 05, 06, 07, 08, and 09 are CPU/GPU Jupyter notebooks and run on Google Colab. Module 04 is a local software practical requiring IMOD/Etomo on Linux or macOS.
 
@@ -150,6 +151,16 @@ This module implements the CryoDRGN framework (Zhong et al., *Nature Methods* 20
 
 ---
 
+### Module 12 — CTF Estimation & Correction from Real Micrographs
+
+The Contrast Transfer Function (CTF) is an optical property introduced by phase contrast imaging and defocus in the transmission electron microscope. The CTF imposes spatial frequency-dependent contrast modulations and phase reversals visible as concentric Thon rings in Fourier power spectra. Left uncorrected, phase inversions corrupt particle averaging and degrade 3D reconstructions.
+
+This module fits the CTF directly from a real experimental apoferritin micrograph (EMPIAR-10146, cisTEM tutorial dataset) using documented microscope parameters without synthetic degradation shortcuts. You will compute the 2D power spectrum, perform radial rotational averaging, subtract the inelastic background envelope, implement a grid-search cross-correlation solver to determine defocus, construct a CTFFIND-style visual split diagnostic matching experimental and theoretical rings, and apply phase-flip correction.
+
+**Key skills:** CTF formula and phase contrast physics, Thon rings interpretation, 2D FFT power spectrum calculation, 1D radial averaging, background envelope subtraction, grid-search defocus fitting, CTFFIND-style split diagnostics, Fourier phase-flip correction, comparison with production tools (CTFFIND4, Gctf, cryoSPARC Patch CTF).
+
+---
+
 ## Learning Goals
 
 After finishing this phase you will be able to:
@@ -182,6 +193,11 @@ After finishing this phase you will be able to:
 - Formulate the cryo-EM forward imaging model in Hartley space and implement central-slice frequency sampling
 - Train a coordinate-based VAE (CryoDRGN) to discover continuous conformational heterogeneity without discrete classification
 - Decode 3D electron density volumes across continuous latent coordinates to visualize conformational transitions
+- Compute 2D Fourier power spectra from experimental cryo-EM micrographs and identify Thon ring oscillations
+- Radially average power spectra and subtract smooth background noise envelopes
+- Fit defocus values using grid-search cross-correlation against theoretical CTF models
+- Generate CTFFIND-style split diagnostics comparing experimental and theoretical Thon ring patterns
+- Apply Fourier phase-flip correction to recover phase coherence in experimental micrographs
 
 ---
 
@@ -208,6 +224,7 @@ After finishing this phase you will be able to:
 | 09 — Motion Correction | CPU only | All NumPy/SciPy/matplotlib; Colab free tier is sufficient |
 | 10 — Local Resolution | CPU only | All NumPy/SciPy/matplotlib; Colab free tier is sufficient |
 | 11 — Heterogeneous Reconstruction (CryoDRGN) | CPU/GPU | Google Colab free tier (T4 GPU recommended for VAE training, CPU supported) |
+| 12 — CTF Estimation | CPU only | All NumPy/SciPy/Pillow; Colab free tier is sufficient |
 
 ---
 
@@ -256,6 +273,8 @@ MotionCorrection
 LocalResolution
          ↓
 HeterogeneousReconstruction
+         ↓
+CTFEstimation
 ```
 
 The order is strict. Module 04 exposes you to real data and production software; every Etomo setting and every result it produces maps directly to a concept introduced computationally in Modules 01 and 02. Starting Module 04 without that background makes the software difficult to interpret and the diagnostic questions impossible to answer from principle.
