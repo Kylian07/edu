@@ -166,6 +166,24 @@ You should understand why cryo-EM data are difficult, why low signal-to-noise ra
 
 ---
 
+## Phase 8 — Machine Learning for Scientists
+
+For statistical learning theory, probabilistic parameter estimation, and high-dimensional regularization:
+
+| Order | Tutorial                                            | What to learn                                                                                         |
+| ----: | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+|    32 | `fundamentals of Learning & Uncertainty.ipynb`      | Supervised vs. unsupervised paradigms, probabilistic modeling, MLE vs. MAP parameter estimation       |
+|    33 | `Linear regression methods.ipynb`                   | OLS, Ridge ($L_2$), and Lasso ($L_1$) regression methods and regularization paths                     |
+|    34 | `Ridge_and_Lasso_for_High_Dimensional_Genomics.ipynb` | Regularization, cross-validation, and coordinate descent when $p \gg n$ in genomic applications      |
+|    35 | `ridge_lasso_genomic_prediction_tutorial.ipynb`     | From-scratch genotype-to-phenotype prediction on CIMMYT wheat markers using Ridge and Lasso regression |
+
+These tutorials are in the `ml/tutorial` folder. ([GitHub][5])
+
+**Goal after Phase 8:**
+You should understand why ordinary least squares fails in high dimensions ($p \gg n$), how Gaussian and Laplace priors correspond to Ridge and Lasso penalties, and how regularized models make robust predictions on complex biological marker data.
+
+---
+
 # Suggested 7-week schedule
 
 | Week | Focus                           | Tutorials                                                                                        |
@@ -251,3 +269,4 @@ For a cryo-EM-focused project, use the low-SNR cryo-EM tutorial and vary the noi
 [2]: https://raw.githubusercontent.com/xulabs/edu/main/guide/Tutorial_Creation.md "raw.githubusercontent.com"
 [3]: https://github.com/xulabs/edu/tree/main/sci_img/tutorial "edu/sci_img/tutorial at main · xulabs/edu · GitHub"
 [4]: https://github.com/xulabs/edu/tree/main/cryoem/tutorial "edu/cryoem/tutorial at main · xulabs/edu · GitHub"
+[5]: https://github.com/xulabs/edu/tree/main/ml/tutorial "edu/ml/tutorial at main · xulabs/edu · GitHub"
