@@ -169,7 +169,7 @@ You should understand why cryo-EM data are difficult, why low signal-to-noise ra
 
 ## Phase 8 — Machine Learning for Scientists
 
-For statistical learning theory, probabilistic parameter estimation, and high-dimensional regularization:
+For statistical learning theory, probabilistic parameter estimation, high-dimensional regularization, generative/discriminative classification, tree ensembles, and trustworthy uncertainty quantification:
 
 | Order | Tutorial                                            | What to learn                                                                                         |
 | ----: | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -177,11 +177,15 @@ For statistical learning theory, probabilistic parameter estimation, and high-di
 |    34 | `Linear regression methods.ipynb`                   | OLS, Ridge ($L_2$), and Lasso ($L_1$) regression methods and regularization paths                     |
 |    35 | `Ridge_and_Lasso_for_High_Dimensional_Genomics.ipynb` | Regularization, cross-validation, and coordinate descent when $p \gg n$ in genomic applications      |
 |    36 | `ridge_lasso_genomic_prediction_tutorial.ipynb`     | From-scratch genotype-to-phenotype prediction on CIMMYT wheat markers using Ridge and Lasso regression |
+|    37 | `8. ML classification KNN & NB.ipynb`               | Instance-based $k$-NN, generative Gaussian Naive Bayes, and decision boundary geometry                |
+|    38 | `naive_bayes_vs_logreg_tutorial.ipynb`              | Generative vs. discriminative classification from scratch, calibration curves, and feature collinearity |
+|    39 | `random_forest_driver_mutation_tutorial.ipynb`      | CART decision trees, Random Forest bagging and feature decorrelation from scratch, and TCGA driver mutation classification |
+|    40 | `Conformal_Prediction_for_Trustworthy_Biomedical_Models.ipynb` | Distribution-free split conformal prediction, adaptive intervals, multiclass prediction sets, and clinical distribution shift |
 
 These tutorials are in the `ml/tutorial` folder. ([GitHub][5])
 
 **Goal after Phase 8:**
-You should understand why ordinary least squares fails in high dimensions ($p \gg n$), how Gaussian and Laplace priors correspond to Ridge and Lasso penalties, and how regularized models make robust predictions on complex biological marker data.
+You should understand why ordinary least squares fails in high dimensions ($p \gg n$), how Gaussian and Laplace priors correspond to Ridge and Lasso penalties, how generative and discriminative models handle correlated biological measurements, how tree ensembles reduce variance for non-linear genomic prediction, and how conformal prediction provides distribution-free finite-sample guarantees for trustworthy biomedical AI.
 
 ---
 

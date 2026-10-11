@@ -9,4 +9,4 @@ Welcome to the Xu Lab educational repository. This portal hosts tutorial series 
 *   **[Cryo-EM for Computer Scientists](cryoem/readme.md)**  
     An end-to-end computational curriculum for structural biology and cryo-electron microscopy.
 *   **[Machine Learning for Scientists](ml/readme.md)**  
-    Foundational statistical learning theory, parameter estimation frameworks (MLE/MAP), and high-dimensional regularized regression (Ridge, Lasso) applied to scientific and genomic prediction problems.
+    Foundational statistical learning theory, parameter estimation frameworks (MLE/MAP), high-dimensional regularized regression (Ridge, Lasso), generative/discriminative classification, tree ensembles (Random Forests), and distribution-free conformal uncertainty quantification.
