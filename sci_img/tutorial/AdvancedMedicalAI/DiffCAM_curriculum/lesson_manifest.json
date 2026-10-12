@@ -1,0 +1,299 @@
+[
+  {
+    "section": "00_orientation",
+    "slug": "01_biological_images",
+    "title": "Biological images as measurements",
+    "weeks": "1",
+    "question": "What counts as evidence in a biological image?",
+    "checkpoint": "Explain image measurement, label, and simulated ground-truth region in your own words.",
+    "reading": null
+  },
+  {
+    "section": "00_orientation",
+    "slug": "02_reference_questions",
+    "title": "The same image, different reference questions",
+    "weeks": "2",
+    "question": "Why is a comparison meaningless without a reference?",
+    "checkpoint": "Explain why no absolute saliency statement follows from a reference-relative difference.",
+    "reading": null
+  },
+  {
+    "section": "01_python",
+    "slug": "01_python_basics",
+    "title": "Python: variables, loops, and biological measurements",
+    "weeks": "3",
+    "question": "How do we express a biological calculation in code?",
+    "checkpoint": "Compute a mean and subset a list without using a library.",
+    "reading": null
+  },
+  {
+    "section": "01_python",
+    "slug": "02_numpy_images",
+    "title": "NumPy arrays and image pixels",
+    "weeks": "4",
+    "question": "How can an image be represented as a matrix?",
+    "checkpoint": "Explain the dimensions of an `[N,H,W]` image collection.",
+    "reading": null
+  },
+  {
+    "section": "01_python",
+    "slug": "03_image_processing",
+    "title": "Histograms, thresholds, and regions",
+    "weeks": "5\u20136",
+    "question": "How do numerical operations affect apparent morphology?",
+    "checkpoint": "Distinguish segmenting a bright region from explaining a classifier.",
+    "reading": null
+  },
+  {
+    "section": "02_linear_algebra",
+    "slug": "01_vectors_distances",
+    "title": "Vectors and distances for cell measurements",
+    "weeks": "7",
+    "question": "What is a biological feature vector?",
+    "checkpoint": "Calculate Euclidean distance and explain sensitivity to scaling.",
+    "reading": null
+  },
+  {
+    "section": "02_linear_algebra",
+    "slug": "02_projections",
+    "title": "Projection directions and separability",
+    "weeks": "8\u20139",
+    "question": "Which direction best distinguishes a target from a population?",
+    "checkpoint": "Explain the tradeoff between large target difference and low reference variance.",
+    "reading": null
+  },
+  {
+    "section": "02_linear_algebra",
+    "slug": "03_matrices_solves",
+    "title": "Matrices, linear systems, and stable solutions",
+    "weeks": "10",
+    "question": "How do we compute a direction without explicitly inverting a matrix?",
+    "checkpoint": "Explain in words how ridge helps in high-dimensional low-sample settings.",
+    "reading": null
+  },
+  {
+    "section": "03_statistics",
+    "slug": "01_probability_distributions",
+    "title": "Distributions and variation among cells",
+    "weeks": "11",
+    "question": "What does a reference population look like statistically?",
+    "checkpoint": "Explain why individual reference images cannot substitute automatically for a population distribution.",
+    "reading": null
+  },
+  {
+    "section": "03_statistics",
+    "slug": "02_covariance",
+    "title": "Covariance and Mahalanobis geometry",
+    "weeks": "12\u201313",
+    "question": "Why is diagonal variance not enough?",
+    "checkpoint": "Explain why scatter and covariance use different normalization.",
+    "reading": null
+  },
+  {
+    "section": "03_statistics",
+    "slug": "03_regularization",
+    "title": "Estimating covariance with few references",
+    "weeks": "14",
+    "question": "What happens when we have more features than reference samples?",
+    "checkpoint": "Explain what the sample-rank bound means for DiffCAM reference-set design.",
+    "reading": null
+  },
+  {
+    "section": "04_machine_learning",
+    "slug": "01_logistic_classification",
+    "title": "Logistic regression and decision boundaries",
+    "weeks": "15\u201316",
+    "question": "How does a classifier choose between cell populations?",
+    "checkpoint": "Describe in one paragraph why a decision boundary is not a population description.",
+    "reading": null
+  },
+  {
+    "section": "04_machine_learning",
+    "slug": "02_generalization",
+    "title": "Train/test separation, imbalance, and shortcuts",
+    "weeks": "17\u201318",
+    "question": "When does an impressive accuracy estimate mislead us?",
+    "checkpoint": "Design a defensible split for biomedical images with correlated observations.",
+    "reading": null
+  },
+  {
+    "section": "05_deep_learning",
+    "slug": "01_neural_network_numpy",
+    "title": "A tiny neural network and backpropagation",
+    "weeks": "19",
+    "question": "How do networks learn nonlinear representations?",
+    "checkpoint": "Identify forward computation, loss, and backward update in the code.",
+    "reading": null
+  },
+  {
+    "section": "05_deep_learning",
+    "slug": "02_convolutions",
+    "title": "Convolutions reveal local image structure",
+    "weeks": "20",
+    "question": "Why are convolutional filters natural for images?",
+    "checkpoint": "Explain why convolution produces a spatial feature map.",
+    "reading": null
+  },
+  {
+    "section": "05_deep_learning",
+    "slug": "03_train_cnn",
+    "title": "Train a CNN on synthetic cell images",
+    "weeks": "21\u201322",
+    "question": "Can a CNN learn to recognize a known synthetic change?",
+    "checkpoint": "Train an image classifier and report a held-out metric with its limitations.",
+    "reading": null
+  },
+  {
+    "section": "05_deep_learning",
+    "slug": "04_feature_embeddings",
+    "title": "From CNN spatial maps to feature embeddings",
+    "weeks": "23",
+    "question": "What are the channels and vectors inside a CNN?",
+    "checkpoint": "Explain why one importance weight is assigned to each spatial channel.",
+    "reading": null
+  },
+  {
+    "section": "06_explainable_ai",
+    "slug": "01_cam",
+    "title": "Class Activation Mapping from classifier weights",
+    "weeks": "24",
+    "question": "How can channel importance generate a location map?",
+    "checkpoint": "Describe where the CAM weights come from and what they explain.",
+    "reading": null
+  },
+  {
+    "section": "06_explainable_ai",
+    "slug": "02_gradcam",
+    "title": "Grad-CAM and gradient-based weights",
+    "weeks": "25",
+    "question": "How do prediction gradients decide which channels matter?",
+    "checkpoint": "Explain what a class-score gradient measures and when it differs from reference-aware comparison.",
+    "reading": null
+  },
+  {
+    "section": "06_explainable_ai",
+    "slug": "03_contrastive_explanations",
+    "title": "Contrastive explanations without a classifier",
+    "weeks": "26",
+    "question": "How does the reference group change the explanation?",
+    "checkpoint": "Describe target and reference groups explicitly before interpreting a heatmap.",
+    "reading": null
+  },
+  {
+    "section": "06_explainable_ai",
+    "slug": "04_saliency_evaluation",
+    "title": "Saliency localization, faithfulness, and sanity checks",
+    "weeks": "27",
+    "question": "How should we evaluate a heatmap?",
+    "checkpoint": "Choose the right metric for a stated explanation claim and note its limitations.",
+    "reading": null
+  },
+  {
+    "section": "07_diffcam",
+    "slug": "01_geometric_objective",
+    "title": "DiffCAM objective: distinctiveness versus reference spread",
+    "weeks": "28",
+    "question": "Which feature direction makes a target unusually different from references?",
+    "checkpoint": "Define all quantities in the objective and justify covariance-awareness.",
+    "reading": null
+  },
+  {
+    "section": "07_diffcam",
+    "slug": "02_derivation",
+    "title": "Derive DiffCAM weights from the Rayleigh quotient",
+    "weeks": "29",
+    "question": "Can we derive the reference-aware optimal direction?",
+    "checkpoint": "Derive and implement the regularized direction without using a matrix inverse.",
+    "reading": null
+  },
+  {
+    "section": "07_diffcam",
+    "slug": "03_numpy_feature_maps",
+    "title": "DiffCAM in NumPy with handcrafted spatial features",
+    "weeks": "30",
+    "question": "How does a feature-space direction become a spatial saliency map?",
+    "checkpoint": "Explain each step from `[N,C,H,W]` maps to target-relative saliency.",
+    "reading": null
+  },
+  {
+    "section": "07_diffcam",
+    "slug": "04_pytorch_diffcam",
+    "title": "End-to-end DiffCAM with a trained CNN",
+    "weeks": "31",
+    "question": "Can we implement DiffCAM using learned image features?",
+    "checkpoint": "Present a diagram of inputs, embeddings, reference scatter, solved weights, and spatial map.",
+    "reading": null
+  },
+  {
+    "section": "08_evaluation",
+    "slug": "01_reference_selection",
+    "title": "Three reference groups, three scientific questions",
+    "weeks": "32",
+    "question": "Which real examples belong in a defensible reference set?",
+    "checkpoint": "Report reference counts, inclusion criteria, and scientific question alongside each result.",
+    "reading": null
+  },
+  {
+    "section": "08_evaluation",
+    "slug": "02_ridge_and_n",
+    "title": "Reference sample size and regularization ablations",
+    "weeks": "33",
+    "question": "How stable are feature weights under reference resampling?",
+    "checkpoint": "Design a reference-count ablation without changing target examples or encoder parameters.",
+    "reading": null
+  },
+  {
+    "section": "08_evaluation",
+    "slug": "03_saliency_sanity_checks",
+    "title": "Sanity checks and confounded features",
+    "weeks": "34",
+    "question": "Can a heatmap highlight an acquisition artifact instead of biology?",
+    "checkpoint": "Document two possible failures for a seemingly meaningful visual explanation.",
+    "reading": null
+  },
+  {
+    "section": "09_biomedical_applications",
+    "slug": "01_localization_metrics",
+    "title": "Region localization on simulated medical-like images",
+    "weeks": "35",
+    "question": "How does a heatmap compare with an annotated abnormality region?",
+    "checkpoint": "Distinguish pixel localization from validated clinical explanation.",
+    "reading": null
+  },
+  {
+    "section": "09_biomedical_applications",
+    "slug": "02_self_supervised_features",
+    "title": "DiffCAM with a feature extractor and no classifier",
+    "weeks": "36",
+    "question": "Why does DiffCAM not need a classifier head?",
+    "checkpoint": "Explain why absence of a classification score is an algorithmic property, not proof of faithfulness.",
+    "reading": null
+  },
+  {
+    "section": "09_biomedical_applications",
+    "slug": "03_vit_patches",
+    "title": "Vision Transformer patches and spatial attribution",
+    "weeks": "37",
+    "question": "How can patch tokens become image-region explanations?",
+    "checkpoint": "Explain token-to-grid reshaping and the special-token pitfall.",
+    "reading": null
+  },
+  {
+    "section": "10_capstone",
+    "slug": "01_reproduction",
+    "title": "Capstone: a controlled DiffCAM versus Grad-CAM experiment",
+    "weeks": "38\u201339",
+    "question": "Can we compare two methods under defensible experimental controls?",
+    "checkpoint": "Present a result with uncertainty, a well-defined comparison question, and explicit limitations.",
+    "reading": null
+  },
+  {
+    "section": "10_capstone",
+    "slug": "02_research_report",
+    "title": "Capstone: critique the paper and design a next experiment",
+    "weeks": "40",
+    "question": "Can we distinguish empirical findings from interpretation?",
+    "checkpoint": "Defend the meaning, statistical limitations, and reproducibility of a proposed DiffCAM experiment.",
+    "reading": null
+  }
+]

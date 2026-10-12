@@ -1,0 +1,3 @@
+-r requirements.txt
+torch>=2.2,<3
+# torchvision is optional, only needed for extension work using pretrained models.
