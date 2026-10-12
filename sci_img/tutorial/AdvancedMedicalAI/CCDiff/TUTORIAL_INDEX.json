@@ -1,0 +1,170 @@
+[
+  {
+    "number": "T01",
+    "title": "From biological observations to datasets",
+    "weeks": "1",
+    "notebook": "notebooks/T01_from_biological_observations_to_datasets.ipynb",
+    "reading": "notebooks/T01_from_biological_observations_to_datasets.md"
+  },
+  {
+    "number": "T02",
+    "title": "Python for biological data analysis",
+    "weeks": "2",
+    "notebook": "notebooks/T02_python_for_biological_data_analysis.ipynb",
+    "reading": "notebooks/T02_python_for_biological_data_analysis.md"
+  },
+  {
+    "number": "T03",
+    "title": "NumPy, matrices, and visualization",
+    "weeks": "3",
+    "notebook": "notebooks/T03_numpy_matrices_and_visualization.ipynb",
+    "reading": "notebooks/T03_numpy_matrices_and_visualization.md"
+  },
+  {
+    "number": "T04",
+    "title": "Digital images as measurable biological data",
+    "weeks": "4",
+    "notebook": "notebooks/T04_digital_images_as_measurable_biological_data.ipynb",
+    "reading": "notebooks/T04_digital_images_as_measurable_biological_data.md"
+  },
+  {
+    "number": "T05",
+    "title": "Probability, sampling, and dataset distributions",
+    "weeks": "5\u20136",
+    "notebook": "notebooks/T05_probability_sampling_and_dataset_distributions.ipynb",
+    "reading": "notebooks/T05_probability_sampling_and_dataset_distributions.md"
+  },
+  {
+    "number": "T06",
+    "title": "Vectors, dot products, and projections",
+    "weeks": "7",
+    "notebook": "notebooks/T06_vectors_dot_products_and_projections.ipynb",
+    "reading": "notebooks/T06_vectors_dot_products_and_projections.md"
+  },
+  {
+    "number": "T07",
+    "title": "Cosine similarity, covariance, and correlation",
+    "weeks": "8\u20139",
+    "notebook": "notebooks/T07_cosine_similarity_covariance_and_correlation.ipynb",
+    "reading": "notebooks/T07_cosine_similarity_covariance_and_correlation.md"
+  },
+  {
+    "number": "T08",
+    "title": "Standardization, PCA, and singular value decomposition",
+    "weeks": "10",
+    "notebook": "notebooks/T08_standardization_pca_and_singular_value_decomposition.ipynb",
+    "reading": "notebooks/T08_standardization_pca_and_singular_value_decomposition.md"
+  },
+  {
+    "number": "T09",
+    "title": "Machine learning, generalization, and distribution shift",
+    "weeks": "11",
+    "notebook": "notebooks/T09_machine_learning_generalization_and_distribution_shift.ipynb",
+    "reading": "notebooks/T09_machine_learning_generalization_and_distribution_shift.md"
+  },
+  {
+    "number": "T10",
+    "title": "Neural networks and pretrained visual features",
+    "weeks": "12",
+    "notebook": "notebooks/T10_neural_networks_and_pretrained_visual_features.ipynb",
+    "reading": "notebooks/T10_neural_networks_and_pretrained_visual_features.md"
+  },
+  {
+    "number": "T11",
+    "title": "CLIP, contrastive learning, and image\u2013text embeddings",
+    "weeks": "13\u201314",
+    "notebook": "notebooks/T11_clip_contrastive_learning_and_image_text_embeddings.ipynb",
+    "reading": "notebooks/T11_clip_contrastive_learning_and_image_text_embeddings.md"
+  },
+  {
+    "number": "T12",
+    "title": "Caption generators and candidate concept banks",
+    "weeks": "15",
+    "notebook": "notebooks/T12_caption_generators_and_candidate_concept_banks.ipynb",
+    "reading": "notebooks/T12_caption_generators_and_candidate_concept_banks.md"
+  },
+  {
+    "number": "T13",
+    "title": "Paired biological views and cross-covariance",
+    "weeks": "16",
+    "notebook": "notebooks/T13_paired_biological_views_and_cross_covariance.ipynb",
+    "reading": "notebooks/T13_paired_biological_views_and_cross_covariance.md"
+  },
+  {
+    "number": "T14",
+    "title": "Canonical correlation analysis: geometry and objective",
+    "weeks": "17\u201318",
+    "notebook": "notebooks/T14_canonical_correlation_analysis_geometry_and_objective.ipynb",
+    "reading": "notebooks/T14_canonical_correlation_analysis_geometry_and_objective.md"
+  },
+  {
+    "number": "T15",
+    "title": "CCA computation, rank, regularization, and stability",
+    "weeks": "19\u201320",
+    "notebook": "notebooks/T15_cca_computation_rank_regularization_and_stability.ipynb",
+    "reading": "notebooks/T15_cca_computation_rank_regularization_and_stability.md"
+  },
+  {
+    "number": "T16",
+    "title": "Low-correlation components and inverse CCA",
+    "weeks": "21",
+    "notebook": "notebooks/T16_low_correlation_components_and_inverse_cca.ipynb",
+    "reading": "notebooks/T16_low_correlation_components_and_inverse_cca.md"
+  },
+  {
+    "number": "T17",
+    "title": "Candidate selection from average image\u2013text similarity",
+    "weeks": "22",
+    "notebook": "notebooks/T17_candidate_selection_from_average_image_text_similarity.ipynb",
+    "reading": "notebooks/T17_candidate_selection_from_average_image_text_similarity.md"
+  },
+  {
+    "number": "T18",
+    "title": "Cross-set pairing, inverse-CCA components, and concept matching",
+    "weeks": "23",
+    "notebook": "notebooks/T18_cross_set_pairing_inverse_cca_components_and_concept_matching.ipynb",
+    "reading": "notebooks/T18_cross_set_pairing_inverse_cca_components_and_concept_matching.md"
+  },
+  {
+    "number": "T19",
+    "title": "Combining inverse correlation and within-set relevance",
+    "weeks": "24",
+    "notebook": "notebooks/T19_combining_inverse_correlation_and_within_set_relevance.ipynb",
+    "reading": "notebooks/T19_combining_inverse_correlation_and_within_set_relevance.md"
+  },
+  {
+    "number": "T20",
+    "title": "Build the complete pedagogical CCDiff pipeline",
+    "weeks": "25\u201326",
+    "notebook": "notebooks/T20_build_the_complete_pedagogical_ccdiff_pipeline.ipynb",
+    "reading": "notebooks/T20_build_the_complete_pedagogical_ccdiff_pipeline.md"
+  },
+  {
+    "number": "T21",
+    "title": "Benchmark metrics, baselines, and reproducibility",
+    "weeks": "27",
+    "notebook": "notebooks/T21_benchmark_metrics_baselines_and_reproducibility.ipynb",
+    "reading": "notebooks/T21_benchmark_metrics_baselines_and_reproducibility.md"
+  },
+  {
+    "number": "T22",
+    "title": "Ablations, pairing stability, and scientifically meaningful controls",
+    "weeks": "28",
+    "notebook": "notebooks/T22_ablations_pairing_stability_and_scientifically_meaningful_controls.ipynb",
+    "reading": "notebooks/T22_ablations_pairing_stability_and_scientifically_meaningful_controls.md"
+  },
+  {
+    "number": "T23",
+    "title": "Biomedical case study: microscopy and medical claims",
+    "weeks": "29",
+    "notebook": "notebooks/T23_biomedical_case_study_microscopy_and_medical_claims.ipynb",
+    "reading": "notebooks/T23_biomedical_case_study_microscopy_and_medical_claims.md"
+  },
+  {
+    "number": "T24",
+    "title": "Read, reproduce, and critically defend the paper",
+    "weeks": "30",
+    "notebook": "notebooks/T24_read_reproduce_and_critically_defend_the_paper.ipynb",
+    "reading": "notebooks/T24_read_reproduce_and_critically_defend_the_paper.md"
+  }
+]
