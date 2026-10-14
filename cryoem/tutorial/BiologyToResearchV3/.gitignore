@@ -1,0 +1,4 @@
+# downloaded templates/maps cached by the notebooks
+course_data/
+__pycache__/
+.ipynb_checkpoints/
