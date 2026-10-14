@@ -1,5 +1,5 @@
 """
-course_toolkit.py — shared helper functions for the BiologyToResearchV3 curriculum
+course_toolkit.py — shared helper functions for the BiologyToResearch curriculum
 ==================================================================================
 
 Every notebook in ``notebooks/`` is *self-contained* (it runs alone on Google

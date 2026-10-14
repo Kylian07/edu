@@ -7,7 +7,7 @@ CPU and turns one paper's core idea into a small experiment you can change and b
 
 
 **Start here:** [00 · Welcome: from a crowded cell to molecular structures](notebooks/00_welcome_cells_to_structures.ipynb)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xulabs/edu/blob/main/cryoem/tutorial/BiologyToResearchV3/notebooks/00_welcome_cells_to_structures.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xulabs/edu/blob/main/cryoem/tutorial/BiologyToResearch/notebooks/00_welcome_cells_to_structures.ipynb)
 
 ---
 
@@ -159,7 +159,7 @@ automatically if present.
 **Locally:**
 
 ```bash
-cd cryoem/tutorial/BiologyToResearchV3
+cd cryoem/tutorial/BiologyToResearch
 python -m pip install -r requirements.txt
 jupyter lab notebooks/
 ```

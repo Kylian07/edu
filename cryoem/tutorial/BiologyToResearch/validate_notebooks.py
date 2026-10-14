@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the BiologyToResearchV3 course.
+"""Check the BiologyToResearch course.
 
     python validate_notebooks.py            # structure, outputs stripped, toolkit copies, Colab badges, relative links
     python validate_notebooks.py --execute  # ...and execute every notebook (≈ 35–45 min on a laptop CPU)
@@ -19,7 +19,7 @@ from nbformat.validator import validate
 
 ROOT = Path(__file__).resolve().parent
 NB_DIR = ROOT / "notebooks"
-COLAB = "https://colab.research.google.com/github/xulabs/edu/blob/main/cryoem/tutorial/BiologyToResearchV3/notebooks/"
+COLAB = "https://colab.research.google.com/github/xulabs/edu/blob/main/cryoem/tutorial/BiologyToResearch/notebooks/"
 EXPECTED = 27
 problems = []
 
