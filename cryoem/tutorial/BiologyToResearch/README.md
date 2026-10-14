@@ -5,10 +5,6 @@ running and critiquing **every cryo-electron tomography (cryo-ET) and cryo-elect
 Xu lab**. The course has 27 modules (00–26). Each one is an executable Jupyter notebook that runs on a free Google Colab
 CPU and turns one paper's core idea into a small experiment you can change and break.
 
-> **V3 supersedes [`BiologyToResearchV1`](../BiologyToResearchV1/) and [`BiologyToResearchV2`](../BiologyToResearchV2/).**
-> Those folders are kept unchanged for reference. V3 merges their strengths into one deeper, self-contained sequence:
-> every notebook was executed end to end before release, every lab paper has a home (see the
-> [paper atlas](PAPER_ATLAS.md)), and every claim about a paper is marked as verified, partial or unverified.
 
 **Start here:** [00 · Welcome: from a crowded cell to molecular structures](notebooks/00_welcome_cells_to_structures.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xulabs/edu/blob/main/cryoem/tutorial/BiologyToResearchV3/notebooks/00_welcome_cells_to_structures.ipynb)
