@@ -1,0 +1,5 @@
+# files downloaded and cached by the notebooks
+course_data/
+notebooks/course_data/
+__pycache__/
+.ipynb_checkpoints/

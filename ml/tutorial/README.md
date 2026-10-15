@@ -5,6 +5,8 @@
 
 This tutorial series covers the foundational mathematical and computational frameworks of machine learning tailored for scientific and biomedical applications. Rather than treating models as black-box predictors, these modules develop learning theory from first principles, connect loss functions to probabilistic priors, apply regularized algorithms to high-dimensional biological data, and establish rigorous distribution-free uncertainty quantification.
 
+> 🧬 **Starting from biology?** The **[BiologyToML](BiologyToML/README.md)** course is a complete, self-contained path for first-year biology majors: 25 notebooks (00–24) that teach the 02-620 prerequisites from scratch and then every 02-620 lecture — regression, classification, clustering, mixtures/EM, PCA, Bayesian networks, Gaussian graphical models, HMMs, Bayesian learning/MCMC, neural networks and model selection — with a [slide-by-slide map](BiologyToML/SLIDE_MAP.md), real data and a capstone project. The topic modules below are deep dives that pair with it.
+
 ---
 
 ## Curriculum Overview
@@ -16,6 +18,7 @@ This tutorial series covers the foundational mathematical and computational fram
 | 03 | [`GenerativeDiscriminativeClassification`](GenerativeDiscriminativeClassification/) | Non-parametric $k$-NN, generative Gaussian Naive Bayes ($P(X \mid Y)$ with conditional independence), discriminative Logistic Regression ($P(Y \mid X)$ via cross-entropy loss), decision boundaries, and probability calibration under correlated features | `8. ML classification KNN & NB.ipynb`<br>`naive_bayes_vs_logreg_tutorial.ipynb` |
 | 04 | [`DecisionTreesRandomForests`](DecisionTreesRandomForests/) | Non-linear tree architectures (CART, Gini impurity), variance reduction via bagging and random feature subspace sampling (Random Forests), feature importance (MDI vs. permutation), and TCGA cancer driver mutation classification | `random_forest_driver_mutation_tutorial.ipynb` |
 | 05 | [`ConformalPrediction`](ConformalPrediction/) | Distribution-free predictive uncertainty quantification, finite-sample split conformal regression intervals, locally adaptive prediction bands, conformal classification prediction sets, and clinical distribution-shift auditing | `Conformal_Prediction_for_Trustworthy_Biomedical_Models.ipynb` |
+| — | [`BiologyToML`](BiologyToML/) | Full self-study companion to every 02-620 lecture for first-year biology majors (Parts A–E: foundations, supervised, unsupervised, graphical models, Bayesian/neural/model selection) | `notebooks/00_…` – `notebooks/24_…` (25 notebooks) |
 
 ---
 
@@ -63,6 +66,10 @@ Point predictions and raw softmax probabilities fail to quantify whether a biome
 - **Calibrated Prediction Sets:** Replacing forced single-class diagnosis with Adaptive Prediction Sets (APS) of plausible disease classes.
 - **Subgroup & Distribution-Shift Auditing:** Auditing demographic subgroups for hidden undercoverage and stress-testing models against covariate and concept shifts when transferring across clinical sites.
 - **Responsible Translation:** Translating statistical coverage into safe clinical decision support without conflating prediction intervals with confidence or causal intervals.
+
+### BiologyToML — From Biology to Machine Learning (02-620 companion)
+
+A notebook course in five parts for students with only high-school algebra and introductory biology. **Part A** (00–05) builds Python/NumPy, probability, linear algebra, calculus and MLE/MAP; **Part B** (06–11) regression and GWAS, ridge/lasso, k-NN and naïve Bayes, logistic regression, decision trees and random forests, SVMs; **Part C** (12–14) clustering, mixture models and EM, PCA; **Part D** (15–20) Bayesian networks (representation, d-separation, inference and structure learning on real Sachs *et al.* signalling data), Gaussian graphical models, hidden Markov models; **Part E** (21–24) Bayesian learning and MCMC, neural networks, model selection and a capstone project. Every notebook maps its sections to the exact 02-620 slides, derives every formula, implements every algorithm from scratch and runs on a free Colab CPU. See the [course README](BiologyToML/README.md).
 
 ---
 

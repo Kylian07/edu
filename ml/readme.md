@@ -4,6 +4,8 @@ Welcome to the **Machine Learning for Scientists** educational track (CMU 02-620
 
 For the complete syllabus, roadmap, and module details, see the **[Tutorial Series Guide](tutorial/README.md)**.
 
+**New to programming and mathematics?** Start with **[From Biology to Machine Learning](tutorial/BiologyToML/README.md)** — a 25-module self-study companion to CMU 02-620 written for first-year biology majors. It builds the prerequisites from scratch (Python, probability, linear algebra, calculus, MLE/MAP) and then teaches every 02-620 lecture with step-by-step derivations, from-scratch implementations and real data; the topic tutorials below are its natural deep dives.
+
 ---
 
 ## Contents
@@ -14,6 +16,7 @@ For the complete syllabus, roadmap, and module details, see the **[Tutorial Seri
 | [`RegularizedLinearRegression`](tutorial/RegularizedLinearRegression/) | High-dimensional regression ($p \gg n$), OLS rank deficiency, Ridge regression ($L_2$ / Gaussian prior), Lasso regression ($L_1$ / Laplace prior / coordinate descent), regularization paths, and genomic phenotype prediction | `Linear regression methods.ipynb`<br>`Ridge_and_Lasso_for_High_Dimensional_Genomics.ipynb`<br>`ridge_lasso_genomic_prediction_tutorial.ipynb` |
 | [`GenerativeDiscriminativeClassification`](tutorial/GenerativeDiscriminativeClassification/) | Non-parametric $k$-NN, generative Gaussian Naive Bayes, discriminative Logistic Regression from scratch, decision boundaries, ROC/AUC, and calibration curves on diagnostic breast cancer data | `8. ML classification KNN & NB.ipynb`<br>`naive_bayes_vs_logreg_tutorial.ipynb` |
 | [`DecisionTreesRandomForests`](tutorial/DecisionTreesRandomForests/) | Recursive binary splitting (CART, Gini impurity), ensemble bagging and feature decorrelation in Random Forests, MDI vs. permutation feature importance, and cross-cancer generalization on TCGA somatic mutations | `random_forest_driver_mutation_tutorial.ipynb` |
+| [`BiologyToML`](tutorial/BiologyToML/) | Complete 25-module course for first-year biology majors following every CMU 02-620 lecture: Python/probability/linear algebra/calculus foundations, MLE/MAP, regression and GWAS, ridge/lasso, k-NN, naïve Bayes, logistic regression, trees/forests, SVMs, clustering, mixtures/EM, PCA, Bayesian networks, Gaussian graphical models, HMMs, Bayesian learning/MCMC, neural networks, model selection, capstone; slide map, glossary, study and instructor guides | `notebooks/00_welcome_ml_for_biology.ipynb` … `notebooks/24_capstone_project.ipynb` (25 notebooks) |
 | [`ConformalPrediction`](tutorial/ConformalPrediction/) | Distribution-free uncertainty quantification, finite-sample prediction intervals, adaptive heteroscedastic intervals, multiclass prediction sets, subgroup reliability audits, and biomedical distribution-shift stress testing | `Conformal_Prediction_for_Trustworthy_Biomedical_Models.ipynb` |
 
 ---
@@ -27,4 +30,7 @@ For the complete syllabus, roadmap, and module details, see the **[Tutorial Seri
 - Breiman, L. (2001). Random forests. *Machine Learning* 45(1), 5–32.
 - Carter, H. et al. (2009). Cancer-specific high-throughput annotation of somatic mutations (CHASM). *Cancer Research* 69(16), 6664–6672.
 - Angelopoulos, A. N. & Bates, S. (2022). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. *arXiv:2107.07511*.
+- Mitchell, T. M. (1997). *Machine Learning*. McGraw-Hill.
+- Golub, T. R. et al. (1999). Molecular classification of cancer: class discovery and class prediction by gene expression monitoring. *Science* 286, 531–537.
+- Sachs, K. et al. (2005). Causal protein-signaling networks derived from multiparameter single-cell data. *Science* 308, 523–529.
 - Shafer, G. & Vovk, V. (2008). A tutorial on conformal prediction. *Journal of Machine Learning Research* 9, 371–421.
