@@ -37,74 +37,95 @@ in passes 1–3. Status marks follow the atlas (✅ verified · 🟡 partial · 
 | Order | Paper | Prepare with |
 |---|---|---|
 | 1 | Xu, Zhang & Alber 2009 — rotation-invariant features 🟡 | Module 02 |
-| 2 | **Xu, Beck & Alber 2012 — Fourier-space constrained fast alignment** ✅ | Modules 03, 11 |
-| 3 | Xu & Alber 2012 — gradient-based precise alignment ✅ | Module 12 |
-| 4 | Xu & Alber 2013 — target segmentation in crowded subtomograms ✅ | Module 12 |
-| 5 | **Zhao *et al.* 2018 — FAML** ✅ | Modules 04, 13 |
-| 6 | Lü *et al.* 2019 — MPI + stochastic average gradient ✅ | Module 12 |
-| 7 | **Zeng & Xu 2020 — Gum-Net** ✅ | Module 19 |
-| 8 | Jiang *et al.* 2025 — BOE-ViT 🟡 | Module 19 |
+| 2 | **Xu, Beck & Alber 2012 — Fourier-space constrained fast alignment** ✅ | Modules 03, 12 |
+| 3 | Xu & Alber 2012 — gradient-based precise alignment ✅ | Module 13 |
+| 4 | Xu & Alber 2013 — target segmentation in crowded subtomograms ✅ | Module 13 |
+| 5 | **Zhao *et al.* 2018 — FAML** ✅ | Modules 04, 14 |
+| 6 | Lü *et al.* 2019 — MPI + stochastic average gradient ✅ | Module 13 |
+| 7 | **Zeng & Xu 2020 — Gum-Net** ✅ | Module 21 |
+| 8 | Jiang *et al.* 2025 — BOE-ViT 🟡 | Module 21 |
 
 ### Path 2 · Discovering what is in a cell (template-free and unsupervised)
 
 | Order | Paper | Prepare with |
 |---|---|---|
-| 1 | Beck *et al.* 2011 — the proteome in space and time (review) ✅ | Modules 00, 25 |
-| 2 | Xu, Beck & Alber 2011 — template-free detection 🟡 | Module 14 |
-| 3 | **Xu *et al.* 2019 — de novo structural pattern mining (MPP)** ✅ | Module 14 |
-| 4 | Zeng, Howe & Xu 2021 — Jim-Net ✅ | Module 20 |
-| 5 | **Zeng *et al.* 2023 — DISCA** ✅ | Modules 20, 26 |
-| 6 | **Uddin *et al.* 2022 — Harmony** ✅ | Module 21 |
-| 7 | Nair *et al.* 2025 — class discovery with semantic prototypes ✅ | Module 20 |
-| 8 | Kim *et al.* 2023 — review of unbiased pattern mining 🟡 | Modules 13, 26 |
+| 1 | Beck *et al.* 2011 — the proteome in space and time (review) ✅ | Modules 00, 33 |
+| 2 | Xu, Beck & Alber 2011 — template-free detection 🟡 | Module 15 |
+| 3 | **Xu *et al.* 2019 — de novo structural pattern mining (MPP)** ✅ | Module 15 |
+| 4 | Zeng, Howe & Xu 2021 — Jim-Net ✅ | Module 22 |
+| 5 | **Zeng *et al.* 2023 — DISCA** ✅ | Modules 22, 34 |
+| 6 | **Uddin *et al.* 2022 — Harmony** ✅ | Module 23 |
+| 7 | Nair *et al.* 2025 — class discovery with semantic prototypes ✅ | Module 22 |
+| 8 | Kim *et al.* 2023 — review of unbiased pattern mining 🟡 | Modules 14, 34 |
 
 ### Path 3 · Finding particles
 
 | Order | Paper | Prepare with |
 |---|---|---|
-| 1 | **Pei *et al.* 2016 — crowded-cell simulation and picking assessment** ✅ | Modules 08, 10 |
-| 2 | Wang *et al.* 2018 — pseudo-structures for template-matching statistics ✅ | Module 10 |
-| 3 | Zhou *et al.* 2018 — feature-decomposition saliency ✅ | Module 10 |
-| 4 | Li R *et al.* 2019 — Faster R-CNN for mitochondria ✅ | Module 16 |
-| 5 | **Uddin *et al.* 2025 — TomoPicker (sparse labels)** ✅ | Module 23 |
-| 6 | **Xu, Zhan & Xu 2025 — CryoMAE** ✅ | Module 23 |
-| 7 | RobPicker ⚠️ (read when available) | Module 23 |
+| 1 | **Pei *et al.* 2016 — crowded-cell simulation and picking assessment** ✅ | Modules 09, 11 |
+| 2 | Wang *et al.* 2018 — pseudo-structures for template-matching statistics ✅ | Module 11 |
+| 3 | Zhou *et al.* 2018 — feature-decomposition saliency ✅ | Module 11 |
+| 4 | Li R *et al.* 2019 — Faster R-CNN for mitochondria ✅ | Module 17 |
+| 5 | **Uddin *et al.* 2025 — TomoPicker (sparse labels)** ✅ | Module 31 |
+| 6 | **Xu, Zhan & Xu 2025 — CryoMAE** ✅ | Module 31 |
+| 7 | RobPicker ⚠️ (read when available) | Module 31 |
 
 ### Path 4 · Deep learning with real-world constraints (labels, domains, robustness)
 
 | Order | Paper | Prepare with |
 |---|---|---|
-| 1 | **Xu *et al.* 2017 — deep subdivision** ✅ | Modules 05, 15 |
-| 2 | Che *et al.* 2018 — improved 3D CNNs ✅ | Module 15 |
-| 3 | Zhao, Zhou *et al.* 2018 — Respond-CAM ✅ | Module 16 |
-| 4 | **Li R *et al.* 2020 — few-shot ProtoNet3D** ✅ | Module 17 |
-| 5 | Du *et al.* 2021 — HAL active learning ✅ | Module 17 |
-| 6 | **Lin, Zeng *et al.* 2019 — 3D-ADA** ✅ | Module 18 |
-| 7 | Bandyopadhyay *et al.* 2022 — Cryo-Shift ✅ | Module 18 |
-| 8 | Jain, Li & Xu 2024 — transfer from video models ✅ | Module 15 |
+| 1 | **Xu *et al.* 2017 — deep subdivision** ✅ | Modules 05, 16 |
+| 2 | Che *et al.* 2018 — improved 3D CNNs ✅ | Module 16 |
+| 3 | Zhao, Zhou *et al.* 2018 — Respond-CAM ✅ | Module 17 |
+| 4 | **Li R *et al.* 2020 — few-shot ProtoNet3D** ✅ | Module 19 |
+| 5 | Du *et al.* 2021 — HAL active learning ✅ | Module 19 |
+| 6 | **Lin, Zeng *et al.* 2019 — 3D-ADA** ✅ | Module 20 |
+| 7 | Bandyopadhyay *et al.* 2022 — Cryo-Shift ✅ | Module 20 |
+| 8 | Jain, Li & Xu 2024 — transfer from video models ✅ | Module 16 |
 
 ### Path 5 · Images that need cleaning, segmenting and simulating
 
 | Order | Paper | Prepare with |
 |---|---|---|
-| 1 | Liu S *et al.* 2020 — unified packing for simulation ✅ | Module 08 |
-| 2 | Wu *et al.* 2022 — CryoETGAN ✅ | Module 18 |
-| 3 | **Liu X *et al.* 2025 — J-invariant volume shuffle** ✅ | Module 22 |
-| 4 | Zeng *et al.* 2024 — DUAL ✅ | Module 22 |
-| 5 | **Zhao *et al.* 2024 — CryoSAM** ✅ | Module 24 |
-| 6 | Uddin *et al.* 2026 — Stable Diffusion segmentation 🟡 | Module 24 |
-| 7 | Salla *et al.* 2026 — TopoFuse ✅ | Module 24 |
+| 1 | Liu S *et al.* 2020 — unified packing for simulation ✅ | Module 09 |
+| 2 | Wu *et al.* 2022 — CryoETGAN ✅ | Module 20 |
+| 3 | **Liu X *et al.* 2025 — J-invariant volume shuffle** ✅ | Module 24 |
+| 4 | Zeng *et al.* 2024 — DUAL ✅ | Module 24 |
+| 5 | **Zhao *et al.* 2024 — CryoSAM** ✅ | Module 32 |
+| 6 | Uddin *et al.* 2026 — Stable Diffusion segmentation 🟡 | Module 32 |
+| 7 | Salla *et al.* 2026 — TopoFuse ✅ | Module 32 |
 
-### Path 6 · From structures to biology
+### Path 6 · Molecules that move: Gaussian mixtures, neural fields and model series
 
 | Order | Paper | Prepare with |
 |---|---|---|
-| 1 | **Zhang *et al.* 2010 — simultaneous fitting by mathematical programming** ✅ | Module 25 |
-| 2 | Thalassinos *et al.* 2013 — conformational states (perspective) 🟡 | Modules 13, 25 |
-| 3 | **Jiang *et al.* 2025 — the fungal plasma membrane and caspofungin** ✅ | Module 25 |
-| 4 | DISCA's biological findings (Zeng *et al.* 2023) ✅ | Modules 20, 25 |
+| 1 | **Chen & Ludtke 2021 — mixed-dimensional deep GMM (e2gmm)** ✅ | Modules 25, 26 |
+| 2 | **Zhong *et al.* 2021 — cryoDRGN** ✅ | Module 27 |
+| 3 | Chen, Toader & Lederman 2023 — scalable high-resolution deep GMMs ✅ | Module 26 |
+| 4 | **Powell & Davis 2024 — tomoDRGN** ✅ | Module 28 |
+| 5 | Chen, Schmid & Chiu 2024 — improving resolution and resolvability with GMMs ✅ | Module 29 |
+| 6 | Chen 2025 — molecular model series ✅ | Module 30 |
+| 7 | Chen 2026 — GMM-based focused refinement (arXiv) ✅ | Module 29 |
 
-**Minimum set for the course goal.** If time is short, read the bold papers of paths 1–3 and 6 with the worksheet; for
+### Path 7 · New ways to image and annotate cells
+
+| Order | Paper | Prepare with |
+|---|---|---|
+| 1 | **Chen *et al.* 2017 — CNN annotation of cellular tomograms** ✅ | Module 18 |
+| 2 | Seifer *et al.* 2024 — optimizing contrast in 4D-STEM cryo-tomography 🟡 | Module 08 |
+| 3 | **Seifer, Houben & Elbaum 2026 — shadow montage and cone-beam 4D-STEM tomography** ✅ | Module 08 |
+| 4 | Kiriati, Fernández & Elbaum 2026 — *Tomo4D* and *Depth-resolved 4D-STEM by tomo4d* (abstracts) ⚠️ | Module 08 |
+
+### Path 8 · From structures to biology
+
+| Order | Paper | Prepare with |
+|---|---|---|
+| 1 | **Zhang *et al.* 2010 — simultaneous fitting by mathematical programming** ✅ | Module 33 |
+| 2 | Thalassinos *et al.* 2013 — conformational states (perspective) 🟡 | Modules 14, 33 |
+| 3 | **Jiang *et al.* 2025 — the fungal plasma membrane and caspofungin** ✅ | Module 33 |
+| 4 | DISCA's biological findings (Zeng *et al.* 2023) ✅ | Modules 22, 33 |
+
+**Minimum set for the course goal.** If time is short, read the bold papers of paths 1–3, 6 and 8 with the worksheet; for
 everything else, passes 1–3 plus the module's paper-connection box.
 
 ---
@@ -112,7 +133,7 @@ everything else, passes 1–3 plus the module's paper-connection box.
 ## 3 · The audit worksheet
 
 Copy this table for every paper you read in full. A filled-in example for DISCA is in
-[Module 26](notebooks/26_capstone_visual_proteomics.ipynb), Section 12.
+[Module 34](notebooks/34_capstone_visual_proteomics.ipynb), Section 12.
 
 | Question | Your answer |
 |---|---|
@@ -134,16 +155,20 @@ Copy this table for every paper you read in full. A filled-in example for DISCA 
 
 | Red flag | Why it matters | Module |
 |---|---|---|
-| Thresholds or hyper-parameters chosen on the test data | performance is over-estimated (data leakage) | 05, 26 |
-| Particles, not tomograms or cells, treated as independent replicates | p-values become meaningless (pseudo-replication) | 04, 25 |
-| Half-maps refined against a shared reference; no mask or criterion reported | FSC resolution is inflated | 09, 26 |
-| A structure recovered from noise by aligning to a template | reference bias / "Einstein from noise" | 13 |
-| Clusters that track orientation or the missing wedge, not structure | classification by artefact | 13, 20 |
-| Only simulated data, or simulated train and test from the same simulator | simulation-to-real gap unknown | 08, 18 |
-| A spatial "pattern" tested against a null model without excluded volume or the right region | inhomogeneity mistaken for clustering | 25, 26 |
-| Identity claimed from a low-resolution blob | similar-sized complexes look alike (e.g. RuBisCO and ClpB merge) | 20, 26 |
+| Thresholds or hyper-parameters chosen on the test data | performance is over-estimated (data leakage) | 05, 34 |
+| Particles, not tomograms or cells, treated as independent replicates | p-values become meaningless (pseudo-replication) | 04, 33 |
+| Half-maps refined against a shared reference; no mask or criterion reported | FSC resolution is inflated | 10, 34 |
+| A structure recovered from noise by aligning to a template | reference bias / "Einstein from noise" | 14 |
+| Clusters that track orientation or the missing wedge, not structure | classification by artefact | 14, 22 |
+| Only simulated data, or simulated train and test from the same simulator | simulation-to-real gap unknown | 09, 20 |
+| A spatial "pattern" tested against a null model without excluded volume or the right region | inhomogeneity mistaken for clustering | 33, 34 |
+| Identity claimed from a low-resolution blob | similar-sized complexes look alike (e.g. RuBisCO and ClpB merge) | 22, 34 |
 | Paper and released code disagree (loss, architecture, data) | results may not be reproducible as described | atlas corrections |
-| "Up to" numbers in the abstract | the best case, not the typical case (e.g. CryoMAE's 22.4 % vs ≈ 11 % average) | 23 |
+| "Up to" numbers in the abstract | the best case, not the typical case (e.g. CryoMAE's 22.4 % vs ≈ 11 % average) | 31 |
+| A motion read off a latent space without checking poses, masks or particle quality | misalignment and junk can look like conformational change | 26, 27 |
+| A sharper flexible region reported with a *lower* global FSC — or the reverse | global FSC and local quality can disagree; ask for local resolution or map–model metrics | 29 |
+| A clever method shown without a simple baseline | the baseline may do as well (e.g. a centred-density mask vs CAM pseudo-labels) | 17 |
+| Methods described only in a conference abstract | details cannot be checked; do not build on them | 08 |
 
 ---
 

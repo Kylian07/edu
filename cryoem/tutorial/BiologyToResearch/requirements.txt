@@ -1,4 +1,4 @@
-# BiologyToResearchV3 — everything is preinstalled on Google Colab; for local use:
+# BiologyToResearch — everything is preinstalled on Google Colab; for local use:
 #   python -m pip install -r requirements.txt
 numpy>=1.26
 scipy>=1.11
