@@ -184,6 +184,8 @@ For statistical learning theory, probabilistic parameter estimation, high-dimens
 
 These tutorials are in the `ml/tutorial` folder. ([GitHub][5])
 
+**Starting from zero?** If you are a biology student without programming, calculus or statistics, take the **BiologyToML** course (`ml/tutorial/BiologyToML/`) first: Level 1 (notebooks 00–23) builds the foundations and teaches every lecture of CMU 02-620, from regression to neural networks and model selection; Level 2 (24–43) takes the same ideas to current computational-biology research, and the capstone (44) is a project studio. The tutorials in the table above are its deep dives.
+
 **Goal after Phase 8:**
 You should understand why ordinary least squares fails in high dimensions ($p \gg n$), how Gaussian and Laplace priors correspond to Ridge and Lasso penalties, how generative and discriminative models handle correlated biological measurements, how tree ensembles reduce variance for non-linear genomic prediction, and how conformal prediction provides distribution-free finite-sample guarantees for trustworthy biomedical AI.
 

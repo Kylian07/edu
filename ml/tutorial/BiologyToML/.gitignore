@@ -1,5 +1,3 @@
-# files downloaded and cached by the notebooks
-course_data/
-notebooks/course_data/
+# Python and Jupyter clutter (the course stores no data files)
 __pycache__/
 .ipynb_checkpoints/
