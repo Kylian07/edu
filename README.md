@@ -4,6 +4,11 @@ Welcome to the Xu Lab educational repository. This portal hosts tutorial series 
 
 ## 🧭 Curriculums & Quick Links
 
+*   **[Mathematics and Statistics Foundations](math/readme.md)**  
+    The mathematical language of computational biology: logic, sets and graphs, linear algebra, calculus, probability and statistics (companion to CMU 02-680).
+*   **[From Biology to Mathematics — a companion to CMU 02-680](math/tutorial/BiologyToMath/README.md)**  
+    A 29-module notebook course for first-year biology majors (high-school algebra assumed; no programming, linear algebra, probability or statistics). It teaches every 02-680 topic completely inside the notebooks — logic, sets and functions, tuples and strings, asymptotics, graphs and trees, vectors and matrices, linear systems, vector spaces, rank, eigenvalues, the SVD, calculus and dynamics, probability, random variables, Bayesian networks and Markov chains, moments, the LLN and CLT, maximum likelihood and MAP, hypothesis testing, χ² tests and multiple testing, and linear regression — each connected to biology, with a capstone that ties it together. All data are simulated and all figures drawn by code.
+
 *   **[Medical & Biological Imaging AI — Unified Tutorial Series](sci_img/tutorial/README.md)**  
     A hands-on, 4-phase (suggested 7-week) curriculum spanning PyTorch tensor foundations, classical signal/image processing, 3-D volumetric deep segmentation (MONAI), generative synthesis, and vision-language models. Contains a visual roadmap, weekly schedule, and conceptual workflow.
 *   **[Cryo-EM for Computer Scientists](cryoem/tutorial/foundation/readme.md)**  

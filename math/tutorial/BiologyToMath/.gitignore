@@ -1,0 +1,3 @@
+# Python and Jupyter clutter (the course stores no data files and no pictures)
+__pycache__/
+.ipynb_checkpoints/

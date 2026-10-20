@@ -1,0 +1,13 @@
+# BiologyToMath — everything is preinstalled on Google Colab; for local use:
+#   python -m pip install -r requirements.txt
+numpy>=1.26
+scipy>=1.11
+pandas>=2.0
+matplotlib>=3.7
+sympy>=1.12          # exact (symbolic) algebra in the linear-algebra and calculus modules
+networkx>=3.0        # only to cross-check graph algorithms
+# only needed to run validate_notebooks.py / Jupyter locally
+nbformat>=5.9
+nbclient>=0.8
+ipykernel>=6.25
+jupyterlab>=4.0
