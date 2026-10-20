@@ -107,7 +107,7 @@ The phase where individual building blocks converge into complete clinical-grade
 An end-to-end computational treatment of cryo-electron microscopy. Module 01 builds the 2-D signal-processing intuition (CTF simulation, denoising, particle picking, class averaging, FRC resolution). Module 02 extends everything to 3-D: the Fourier Slice Theorem, trilinear back-projection, and expectation-maximisation pose estimation. Module 03 covers fiducial-less patch-tracking tilt-series alignment. Module 04 is a full hands-on practical using IMOD/Etomo on a real published tilt series from EMPIAR. Module 05 covers 3-D sub-tomogram averaging (STA) and particle picking for cryo-ET. Module 06 covers few-shot 3D particle detection using weak labels and Volume Infill. Module 07 covers prompt-based interactive 3-D tomogram segmentation (SAM & CryoSAM propagation). Module 08 covers tomographic reconstruction and missing-wedge effects (WBP vs SIRT). Module 09 covers beam-induced motion correction (patch-based and whole-frame drift tracking).
 
 
-➜ [`cryoem/`](../../cryoem/readme.md)
+➜ [`cryoem/`](../../cryoem/tutorial/foundation/readme.md)
 
 ---
 

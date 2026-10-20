@@ -223,14 +223,14 @@ The notebooks are stored **without outputs**, as the repository specification re
 ## Going deeper in this repository
 
 The specialist tutorials in [`cryoem/tutorial`](../) are natural next steps after the matching modules:
-[`CTFEstimation`](../CTFEstimation/) and [`MotionCorrection`](../MotionCorrection/) (after 06) ·
-[`MissingWedgeReconstruction`](../MissingWedgeReconstruction/), [`TiltSeriesAlignment`](../TiltSeriesAlignment/) and
-[`TomogramDiagnosisBuild`](../TomogramDiagnosisBuild/) (after 07) · [`3DCryoEMReconstruction`](../3DCryoEMReconstruction/) and
-[`LowSNRNoiseProcessing`](../LowSNRNoiseProcessing/) (after 06–10 and 25) · [`LocalResolution`](../LocalResolution/) (after 10) ·
-[`SubtomogramAveraging`](../SubtomogramAveraging/) (after 12–14) · [`SubtomogramClassification`](../SubtomogramClassification/)
-(after 16) · [`TomogramSegmentation`](../TomogramSegmentation/) (after 18 and 32) ·
-[`FewShotParticleDetection`](../FewShotParticleDetection/) (after 31) ·
-[`HeterogeneousReconstruction`](../HeterogeneousReconstruction/) (after 23 and 26–28). For broader imaging AI see
+[`CTFEstimation`](../foundation/CTFEstimation/) and [`MotionCorrection`](../foundation/MotionCorrection/) (after 06) ·
+[`MissingWedgeReconstruction`](../foundation/MissingWedgeReconstruction/), [`TiltSeriesAlignment`](../foundation/TiltSeriesAlignment/) and
+[`TomogramDiagnosisBuild`](../foundation/TomogramDiagnosisBuild/) (after 07) · [`3DCryoEMReconstruction`](../foundation/3DCryoEMReconstruction/) and
+[`LowSNRNoiseProcessing`](../foundation/LowSNRNoiseProcessing/) (after 06–10 and 25) · [`LocalResolution`](../foundation/LocalResolution/) (after 10) ·
+[`SubtomogramAveraging`](../foundation/SubtomogramAveraging/) (after 12–14) · [`SubtomogramClassification`](../foundation/SubtomogramClassification/)
+(after 16) · [`TomogramSegmentation`](../foundation/TomogramSegmentation/) (after 18 and 32) ·
+[`FewShotParticleDetection`](../foundation/FewShotParticleDetection/) (after 31) ·
+[`HeterogeneousReconstruction`](../foundation/HeterogeneousReconstruction/) (after 23 and 26–28). For broader imaging AI see
 [`sci_img`](../../../sci_img/tutorial/README.md); for statistics, [`ml`](../../../ml/readme.md).
 
 ## Credits
