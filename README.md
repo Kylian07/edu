@@ -1,6 +1,6 @@
-# Xu Lab Education Portal
+# [Xu Lab](https://xulabs.github.io) Education Portal
 
-Welcome to the Xu Lab educational repository. This portal hosts tutorial series covering scientific image analysis, deep learning in medical imaging, and computational structural biology.
+Welcome to the [Xu Lab](https://xulabs.github.io) educational repository. This portal hosts tutorial series covering scientific image analysis, deep learning in medical imaging, and computational structural biology.
 
 ## 🧭 Curriculums & Quick Links
 
