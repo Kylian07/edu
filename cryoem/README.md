@@ -17,7 +17,7 @@ This folder holds two notebook courses on the computational methods of the field
 
 | | [From Biology to Research](tutorial/BiologyToResearch/README.md) | [Cryo-EM for Computer Scientists](tutorial/foundation/readme.md) |
 |---|---|---|
-| **Written for** | First-year biology majors, and anyone who wants to read and critique the Xu Lab's cryo-ET and cryo-EM papers | Computer-science and engineering students, and researchers new to structural biology |
+| **Written for** | First-year biology majors, and anyone who wants to read and understand a number of cryo-ET and cryo-EM papers | Computer-science and engineering students, and researchers new to structural biology |
 | **Assumes** | High-school algebra and introductory cell biology; no programming, calculus or physics | NumPy, SciPy and Matplotlib fluency; Fourier transforms ([sci_img Phase 01, Module 02](../sci_img/tutorial/ComputationalSignalBase/FrequencyFiltering/)) |
 | **Size** | 35 notebooks (00–34) in seven parts; ≈ 75 h plus a 6–10 h capstone (two semesters) | 13 modules: 17 notebooks and one hands-on practical with IMOD |
 | **Approach** | Each notebook turns one paper's central idea into a small experiment. Biology, Python, statistics and deep learning are taught along the way | Each module builds one step of the processing pipeline from first principles, then applies it to public data |
@@ -36,9 +36,8 @@ This folder holds two notebook courses on the computational methods of the field
 
 ## Course 1 · From Biology to Research
 
-A two-semester course that takes a first-year biology major from "what is a ribosome?" to reading, running and critiquing
-the Xu Lab's cryo-ET and cryo-EM papers. It also covers closely related work on conformational heterogeneity, automated
-annotation of cellular tomograms and 4D-STEM tomography. Every notebook runs alone on a free Colab CPU and ends with
+A two-semester course that takes a first-year biology major from "what is a ribosome?" to reading, running and understanding
+a number of cryo-ET and cryo-EM papers. Every notebook runs alone on a free Colab CPU and ends with
 checkpoint questions, a "paper connection" box and a lab note.
 
 | Part | Modules | What you learn |
