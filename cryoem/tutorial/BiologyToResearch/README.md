@@ -1,7 +1,7 @@
 # From Biology to Research: Cryo-ET and Cryo-EM with the Xu Lab
 
 A two-semester, notebook-based course that takes a **first-year biology major** from "what is a ribosome?" to reading,
-running and understanding a number of cryo-electron tomography (cryo-ET) and cryo-electron microscopy (cryo-EM) papers. 
+running and understanding cryo-electron tomography (cryo-ET) and cryo-electron microscopy (cryo-EM) analysis research. 
 The course has **35 modules (00–34)**.
 Each one is an executable Jupyter notebook that runs on a free Google Colab CPU and turns one paper's core idea into a
 small experiment you can change and break.
