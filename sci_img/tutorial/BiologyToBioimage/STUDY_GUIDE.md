@@ -51,6 +51,10 @@ quickly.
   Gaussian mixture on five numbers (Module 18).
 - The Dice and IoU of two small overlapping binary masks you draw by hand (Module 19).
 - The cost matrix and the Hungarian assignment for four detections across two frames (Module 22).
+- The segment-level LAP's cost matrix for one new ("parent-less") track segment against two
+  candidate parents, including the "cost of doing nothing" reject entry (Module 22).
+- The 2×2 Lucas-Kanade normal equations for one small window of a hand-drawn toy image, and why
+  they become singular on a uniform patch (the aperture problem) (Module 22).
 - The Kabsch rotation that best superimposes three point pairs (Module 23).
 - A Wiener-filter restoration of a 1-D toy signal at two different noise-to-signal ratios, to see
   the bias–variance trade-off directly (Module 25).
@@ -86,7 +90,7 @@ These are the "can you derive or re-draw it on a blank page?" results of Level 1
 | Transposed convolution; the U-Net skip connection; the Dice loss | [19](notebooks/19_segmentation_deep.ipynb) |
 | IoU; non-maximum suppression; the anchor/RPN idea | [20](notebooks/20_object_detection.ipynb) |
 | The VAE's reconstruction + KL (ELBO) loss; the GAN minimax objective | [21](notebooks/21_image_synthesis_and_generative_models.ipynb) |
-| The Kalman-filter predict/update step; the Hungarian algorithm's assignment problem | [22](notebooks/22_object_tracking.ipynb) |
+| The Kalman-filter predict/update step; the Hungarian algorithm's assignment problem; the segment-level LAP for lineage recovery; Lucas-Kanade optical flow and the aperture problem | [22](notebooks/22_object_tracking.ipynb) |
 | Mutual information between two images; the Kabsch SVD-based rotation | [23](notebooks/23_image_registration.ipynb) |
 | PSNR/SSIM; FFT low-pass denoising; the bicubic-to-SRCNN residual-learning idea | [24](notebooks/24_denoising_and_super_resolution.ipynb) |
 | The degradation model g = h∗f + n; inverse filtering's instability; the Wiener filter | [25](notebooks/25_restoration_and_inverse_problems.ipynb) |

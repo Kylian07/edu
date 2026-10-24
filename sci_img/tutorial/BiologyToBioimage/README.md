@@ -113,7 +113,7 @@ at the moment it is first needed. Level 2 assumes Level 1.
 | | [19 · 🧫 Deep learning segmentation](notebooks/19_segmentation_deep.ipynb) | 100–130 min | FCNs; transposed convolution; U-Net; weighted loss for touching cells; Dice |
 | | [20 · 🎯 Object detection](notebooks/20_object_detection.ipynb) | 90–110 min | sliding windows, IoU, NMS; YOLO, SSD, RetinaNet; the R-CNN family |
 | | [21 · 🧬 Image synthesis and generative models](notebooks/21_image_synthesis_and_generative_models.ipynb) | 110–140 min | shape-space models; VAEs; GANs/DCGAN; CytoGAN |
-| **G · Across time and space** | [22 · 🐾 Object tracking](notebooks/22_object_tracking.ipynb) | 70–90 min | contour tracking; Kalman/particle filters; tracking-by-detection; the Hungarian algorithm |
+| **G · Across time and space** | [22 · 🐾 Object tracking](notebooks/22_object_tracking.ipynb) | 100–130 min | contour tracking; Kalman/particle filters; tracking-by-detection; the Hungarian algorithm; segment-level LAP and lineage recovery; Lucas-Kanade optical flow |
 | | [23 · 🧭 Image registration](notebooks/23_image_registration.ipynb) | 70–90 min | the registration taxonomy; mutual information; Kabsch point-set registration |
 | **H · Restoring signal** | [24 · 🧹 Denoising and super-resolution](notebooks/24_denoising_and_super_resolution.ipynb) | 80–100 min | noise models; FFT/wavelet/CNN denoising; PSNR/SSIM; SRCNN; PALM/STORM |
 | | [25 · 🛠️ Restoration and inverse problems](notebooks/25_restoration_and_inverse_problems.ipynb) | 70–90 min | the degradation model; inverse filtering's instability; Wiener filtering; CARE |
