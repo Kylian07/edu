@@ -146,6 +146,29 @@ HMMs are "mixtures threaded over time". Inside Level 2 every module names the mo
 
 ## Ways to use the course
 
+### Five threads through the whole course
+
+The Parts above group modules by when 02-620 teaches them and which biological domain they serve
+in Level 2. But a handful of ideas run underneath nearly every Part, and
+[`STUDY_GUIDE.md` §5](STUDY_GUIDE.md#5-the-ideas-that-recur-everywhere) names three of them as what
+the course is really teaching. Reading a thread end to end — instead of module by module — is a
+good way to revisit a topic once you already have the basics, to see where a Level 1 idea actually
+leads before picking a Level 2 track, or to prepare a single lecture or talk that cuts across levels.
+
+| Thread | What recurs | Modules, in the thread's own order |
+|---|---|---|
+| **The two-step recipe** | choose a probability model, then estimate it by MLE, MAP or full Bayes | 05 → 06–09 → 13 → 15–21 → 24 → 29, 35, 37 |
+| **Conditional independence buys tractability** | 3ⁿ → 2n; 31 → 10; a sparse precision matrix; a chain over time; message passing; a Potts model | 08 → 15–18 → 19–20 → 28 → 37 → 41 |
+| **Latent variables ⇒ EM** | alternate inferring the hidden variable and re-estimating the parameters | 12 → 13 → 19–20 → 21 → 25 → 31, 34 |
+| **Can this model be trusted?** | held-out evaluation, selection bias, and checking every method against a known truth | 23 → 29 → 40 → 42 → 44 |
+| **Neural representation learning** | a neuron, then a network, then attention, diffusion and message passing | 22 → 26–28 → 36, 37 → 39 |
+
+Each thread is a different path through the same 45 notebooks — nothing here is new content. The
+numbered 00→44 walk-through is still the recommended way to meet the material for the first time,
+since its order is built around just-in-time prerequisites (Module 03 previews PCA, Module 04
+previews ridge, SVM and PCA's Lagrangians, and so on); the threads are for a second pass, or for
+jumping straight to "where does this idea go next?"
+
 ### Following 02-620 week by week
 
 Work through Part A in the two weeks before the semester (or alongside weeks 1–2), then study
