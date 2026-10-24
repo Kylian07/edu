@@ -1,27 +1,31 @@
 # From Biology to Bioimage Analysis: a companion to CMU 02-740
 
-A notebook-based course that takes a **first-year biology major** from "what is a pixel?" to a
-**deep, working understanding of CMU 02-740 *Bioimage Informatics*** — and then on to the
-**bioimage-analysis research frontier**: foundation models for microscopy, virtual/label-free
-staining, image-based phenotypic profiling, spatial omics and multiplexed imaging, uncertainty
-and active learning, large-scale volumetric imaging, explainability and trustworthy AI, and AI
-agents for science.
+A notebook-based course that takes a **first-year biology major** from "what is a pixel?" through
+**the physics and instrumentation of the microscope itself** to a **deep, working understanding of
+CMU 02-740 *Bioimage Informatics*** — and then on to the **bioimage-analysis research frontier**:
+foundation models for microscopy, virtual/label-free staining, image-based phenotypic profiling,
+spatial omics and multiplexed imaging, uncertainty and active learning, large-scale volumetric
+imaging, explainability and trustworthy AI, and AI agents for science.
 
-The course has **29 executable Jupyter notebooks**, organised by theme rather than by any single
+The course has **37 executable Jupyter notebooks**, organised by theme rather than by any single
 semester's lecture order (so that a reorganised syllabus never goes out of step with this course):
 
-- **Level 1 · the course core (Modules 00–19).** Every major topic of 02-740 — image formation and
-  microscopy contrast, filtering and the frequency domain, point and edge/line features, classical
-  and deep bioimage classification, dimensionality reduction, classical and deep segmentation,
-  object detection, generative/synthesis models, object tracking, registration, denoising and
-  super-resolution, restoration as an inverse problem, colocalization and spatial statistics, and
+- **Level 1 · the course core (Modules 00–27).** Every major topic of 02-740 — image formation and
+  microscopy contrast, the geometric and physical optics of the microscope itself (ray tracing,
+  diffraction and resolution, lens aberrations), the major contrast and illumination techniques
+  (bright-field/dark-field/phase-contrast/DIC, fluorescence, confocal/multiphoton/TIRF/
+  super-resolution), the electronic detector and digital imaging pipeline, filtering and the
+  frequency domain, point and edge/line features, classical and deep bioimage classification,
+  dimensionality reduction, classical and deep segmentation, object detection,
+  generative/synthesis models, object tracking, registration, denoising and super-resolution,
+  restoration as an inverse problem, colocalization and spatial statistics, and
   attention/transformers/diffusion — taught completely inside the notebooks: definitions,
   pipelines, worked examples and the "what to remember" points, each with a 📘 *Lecture notes*
   summary.
-- **Level 2 · the research frontier (Modules 20–27).** Eight modules that reuse exactly the Level 1
+- **Level 2 · the research frontier (Modules 28–35).** Eight modules that reuse exactly the Level 1
   ideas to reach current bioimage-analysis research, each implementing a toy version of the field's
   core method and checking it against a known ground truth.
-- **Capstone (Module 28).** A complete, realistic end-to-end pipeline (simulate → restore → segment
+- **Capstone (Module 36).** A complete, realistic end-to-end pipeline (simulate → restore → segment
   → classify → track → quantify) plus a research-project studio with three extension tracks and a
   reproducibility checklist.
 
@@ -46,28 +50,37 @@ at the moment it is first needed. Level 2 assumes Level 1.
 1. Explain how a microscope turns light into a digital image, why different contrast modes
    (bright-field, phase, fluorescence) exist, and what sampling, bit depth and point-spread-function
    blur do to an image.
-2. Implement, from a few dozen lines of NumPy/SciPy, the classical bioimage-analysis toolbox:
+2. Derive the physics of the microscope itself: trace rays through a compound microscope and
+   compute its magnification from the thin-lens equation; derive the Rayleigh/Abbe resolution
+   limit from diffraction theory; relate a Zernike-polynomial aberration to its PSF signature and
+   the Strehl ratio; explain why bright-field, dark-field, phase-contrast and DIC solve the
+   weak-phase-object problem differently; design a compatible fluorophore/filter-cube pair from
+   excitation/emission spectra; explain confocal, two-photon, TIRF and single-molecule-localization
+   (STORM/PALM) optical sectioning; model a camera's shot noise, read noise, dark current and
+   bit-depth quantization; and budget photobleaching/phototoxicity against the photon budget with
+   flat-field correction.
+3. Implement, from a few dozen lines of NumPy/SciPy, the classical bioimage-analysis toolbox:
    convolution and filtering, the 2-D Fourier transform, point/particle detection, Canny edges and
    the Hough transform, GLCM texture features, PCA/MDS/t-SNE, thresholding and watershed
    segmentation, active contours, the Hungarian algorithm for tracking, Kabsch registration, Wiener
    deconvolution, and colocalization/spatial statistics.
-3. Implement, in PyTorch, the deep-learning tools that now sit beside the classical ones: a CNN
+4. Implement, in PyTorch, the deep-learning tools that now sit beside the classical ones: a CNN
    classifier, a U-Net segmenter, a sliding-window detector, a VAE and a small GAN, and a
    from-scratch self-attention/ViT block and a toy diffusion model.
-4. Check every method against a simulated ground truth, and read off when a fancy method does
+5. Check every method against a simulated ground truth, and read off when a fancy method does
    **not** beat a simple baseline.
 
 **After Level 2 you will also be able to:**
 
-5. Explain what a foundation model for microscopy (Cellpose, SAM/micro-SAM) actually buys you over
+6. Explain what a foundation model for microscopy (Cellpose, SAM/micro-SAM) actually buys you over
    a specialist U-Net, and when it does not.
-6. Explain the promise and the real risk (hallucination) of virtual/label-free staining, how
+7. Explain the promise and the real risk (hallucination) of virtual/label-free staining, how
    image-based phenotypic profiling turns a well of cells into a comparable feature vector despite
    batch effects, how spatial/multiplexed imaging turns a tissue section into a cell-typed,
    spatially aware data set, how to quantify and act on a model's uncertainty, what changes when an
    image becomes a multi-gigabyte volume, how to audit a model's trustworthiness, and how an AI
    agent can responsibly orchestrate a pipeline of bioimage-analysis tools.
-7. Read a current bioimage-analysis paper knowing which classical or deep idea it is building on,
+8. Read a current bioimage-analysis paper knowing which classical or deep idea it is building on,
    and what questions about its evaluation to ask.
 
 ---
@@ -81,55 +94,65 @@ at the moment it is first needed. Level 2 assumes Level 1.
 | **A · Foundations** | [00 · 🧬 Welcome to bioimage analysis](notebooks/00_welcome_bioimage_analysis.ipynb) | 45–60 min | the acquire → process → measure → decide pipeline; a roadmap of the whole course |
 | | [01 · 🐍 Python & NumPy for bioimages](notebooks/01_python_numpy_for_images.ipynb) | 60–75 min | images as arrays, dtypes, indexing, multichannel composites |
 | **B · Seeing like a microscope** | [02 · 🔬 What is a digital image?](notebooks/02_what_is_a_digital_image.ipynb) | 75–90 min | optics; bright-field/phase/fluorescence/electron microscopy; sampling, bit depth, calibration |
-| | [03 · 🧮 Filtering and histograms](notebooks/03_filtering_and_histograms.ipynb) | 75–90 min | convolution; mean/Gaussian smoothing; histogram equalization; stain unmixing |
-| | [04 · 🌊 The frequency domain and scale](notebooks/04_frequency_domain_and_scale.ipynb) | 60–75 min | the 2-D Fourier transform; frequency-domain filtering; image pyramids |
-| **C · Finding structure** | [05 · 📍 Keypoints and particles](notebooks/05_keypoints_and_particles.ipynb) | 90–105 min | point/particle detection; Delaunay correspondence; sub-pixel Gaussian localisation |
-| | [06 · 📐 Edges, lines and curves](notebooks/06_edges_lines_and_curves.ipynb) | 90–105 min | gradient operators; the Canny pipeline; the Hough transform; curvilinear detection |
-| **D · Classifying bioimages** | [07 · 🧵 Classical feature-based classification](notebooks/07_classical_feature_based_classification.ipynb) | 70–90 min | GLCM/Haralick texture; shape features; Mahalanobis distance; trees, k-NN, SVM |
-| | [08 · 🧠 Deep learning for bioimage classification](notebooks/08_deep_learning_classification.ipynb) | 100–120 min | neurons, backpropagation, CNNs; transfer learning; class imbalance |
-| **E · Latent structure** | [09 · 🗺️ Dimensionality reduction and reconstruction](notebooks/09_dimensionality_reduction_and_reconstruction.ipynb) | 90–110 min | PCA/eigenimages; MDS; Isomap; t-SNE; autoencoders |
-| **F · Segmenting, detecting, synthesizing** | [10 · ✂️ Classical and geometrical segmentation](notebooks/10_segmentation_classical.ipynb) | 100–120 min | thresholding; watershed; SLIC; active contours; Chan–Vese; normalized cut |
-| | [11 · 🧫 Deep learning segmentation](notebooks/11_segmentation_deep.ipynb) | 100–130 min | FCNs; transposed convolution; U-Net; weighted loss for touching cells; Dice |
-| | [12 · 🎯 Object detection](notebooks/12_object_detection.ipynb) | 90–110 min | sliding windows, IoU, NMS; YOLO, SSD, RetinaNet; the R-CNN family |
-| | [13 · 🧬 Image synthesis and generative models](notebooks/13_image_synthesis_and_generative_models.ipynb) | 110–140 min | shape-space models; VAEs; GANs/DCGAN; CytoGAN |
-| **G · Across time and space** | [14 · 🐾 Object tracking](notebooks/14_object_tracking.ipynb) | 70–90 min | contour tracking; Kalman/particle filters; tracking-by-detection; the Hungarian algorithm |
-| | [15 · 🧭 Image registration](notebooks/15_image_registration.ipynb) | 70–90 min | the registration taxonomy; mutual information; Kabsch point-set registration |
-| **H · Restoring signal** | [16 · 🧹 Denoising and super-resolution](notebooks/16_denoising_and_super_resolution.ipynb) | 80–100 min | noise models; FFT/wavelet/CNN denoising; PSNR/SSIM; SRCNN; PALM/STORM |
-| | [17 · 🛠️ Restoration and inverse problems](notebooks/17_restoration_and_inverse_problems.ipynb) | 70–90 min | the degradation model; inverse filtering's instability; Wiener filtering; CARE |
-| **I · Quantifying and modern architectures** | [18 · 📍 Colocalization and spatial statistics](notebooks/18_colocalization_and_spatial_statistics.ipynb) | 70–90 min | Pearson/Manders colocalization; Clark–Evans; Ripley's L; null-distribution taxonomy |
-| | [19 · 🔤 Attention, transformers and diffusion](notebooks/19_attention_transformers_diffusion.ipynb) | 90–110 min | self-attention and the Vision Transformer, from scratch; a DDPM-style toy diffusion model |
+| | [03 · 🔬 Geometric optics and the compound microscope](notebooks/03_geometric_optics_and_the_compound_microscope.ipynb) | 70–85 min | the thin-lens equation; paraxial ray tracing; the compound microscope and total magnification; NA and working distance; Köhler illumination |
+| | [04 · 🌊 Diffraction, resolution, and the point-spread function](notebooks/04_diffraction_resolution_and_the_point_spread_function.ipynb) | 75–90 min | Huygens–Fresnel diffraction; the PSF as a Fourier-optics calculation; the Airy pattern; the Rayleigh resolution criterion; the OTF |
+| | [05 · 🔧 Lens aberrations and objective lens design](notebooks/05_lens_aberrations_and_objective_lens_design.ipynb) | 70–85 min | Zernike polynomials and wavefront error; defocus, spherical aberration, coma, astigmatism; the Strehl ratio; chromatic aberration; field curvature |
+| | [06 · 🔦 Contrast mechanisms: bright-field, dark-field, phase contrast, and DIC](notebooks/06_contrast_mechanisms_bright_field_dark_field_phase_contrast_and_dic.ipynb) | 75–90 min | the weak-phase-object problem; dark-field imaging; Zernike phase contrast and its halo; DIC as a directional derivative |
+| | [07 · 💡 Fluorescence microscopy instrumentation](notebooks/07_fluorescence_microscopy_instrumentation.ipynb) | 70–85 min | the Jablonski diagram and Stokes shift; excitation/emission spectra; the epifluorescence filter cube; spectral bleed-through |
+| | [08 · 🔬 Confocal, multiphoton, TIRF, and super-resolution optics](notebooks/08_confocal_multiphoton_tirf_and_super_resolution_optics.ipynb) | 85–100 min | confocal pinhole sectioning; two-photon excitation; TIRF's evanescent field; single-molecule localisation microscopy (STORM/PALM) |
+| | [09 · 📷 Electronic imaging: detectors and the digital pipeline](notebooks/09_electronic_imaging_detectors_and_the_digital_pipeline.ipynb) | 75–90 min | photon shot noise and the √N SNR law; the camera detection chain (QE, dark current, read noise, gain); bit-depth quantization |
+| | [10 · 🧪 Live-cell calibration practice (stretch)](notebooks/10_live_cell_calibration_practice.ipynb) | 60–75 min | photobleaching kinetics; the photon vs. bleaching budget; flat-field correction; integrating Modules 03–09 (optional) |
+| | [11 · 🧮 Filtering and histograms](notebooks/11_filtering_and_histograms.ipynb) | 75–90 min | convolution; mean/Gaussian smoothing; histogram equalization; stain unmixing |
+| | [12 · 🌊 The frequency domain and scale](notebooks/12_frequency_domain_and_scale.ipynb) | 60–75 min | the 2-D Fourier transform; frequency-domain filtering; image pyramids |
+| **C · Finding structure** | [13 · 📍 Keypoints and particles](notebooks/13_keypoints_and_particles.ipynb) | 90–105 min | point/particle detection; Delaunay correspondence; sub-pixel Gaussian localisation |
+| | [14 · 📐 Edges, lines and curves](notebooks/14_edges_lines_and_curves.ipynb) | 90–105 min | gradient operators; the Canny pipeline; the Hough transform; curvilinear detection |
+| **D · Classifying bioimages** | [15 · 🧵 Classical feature-based classification](notebooks/15_classical_feature_based_classification.ipynb) | 70–90 min | GLCM/Haralick texture; shape features; Mahalanobis distance; trees, k-NN, SVM |
+| | [16 · 🧠 Deep learning for bioimage classification](notebooks/16_deep_learning_classification.ipynb) | 100–120 min | neurons, backpropagation, CNNs; transfer learning; class imbalance |
+| **E · Latent structure** | [17 · 🗺️ Dimensionality reduction and reconstruction](notebooks/17_dimensionality_reduction_and_reconstruction.ipynb) | 90–110 min | PCA/eigenimages; MDS; Isomap; t-SNE; autoencoders |
+| **F · Segmenting, detecting, synthesizing** | [18 · ✂️ Classical and geometrical segmentation](notebooks/18_segmentation_classical.ipynb) | 100–120 min | thresholding; watershed; SLIC; active contours; Chan–Vese; normalized cut |
+| | [19 · 🧫 Deep learning segmentation](notebooks/19_segmentation_deep.ipynb) | 100–130 min | FCNs; transposed convolution; U-Net; weighted loss for touching cells; Dice |
+| | [20 · 🎯 Object detection](notebooks/20_object_detection.ipynb) | 90–110 min | sliding windows, IoU, NMS; YOLO, SSD, RetinaNet; the R-CNN family |
+| | [21 · 🧬 Image synthesis and generative models](notebooks/21_image_synthesis_and_generative_models.ipynb) | 110–140 min | shape-space models; VAEs; GANs/DCGAN; CytoGAN |
+| **G · Across time and space** | [22 · 🐾 Object tracking](notebooks/22_object_tracking.ipynb) | 70–90 min | contour tracking; Kalman/particle filters; tracking-by-detection; the Hungarian algorithm |
+| | [23 · 🧭 Image registration](notebooks/23_image_registration.ipynb) | 70–90 min | the registration taxonomy; mutual information; Kabsch point-set registration |
+| **H · Restoring signal** | [24 · 🧹 Denoising and super-resolution](notebooks/24_denoising_and_super_resolution.ipynb) | 80–100 min | noise models; FFT/wavelet/CNN denoising; PSNR/SSIM; SRCNN; PALM/STORM |
+| | [25 · 🛠️ Restoration and inverse problems](notebooks/25_restoration_and_inverse_problems.ipynb) | 70–90 min | the degradation model; inverse filtering's instability; Wiener filtering; CARE |
+| **I · Quantifying and modern architectures** | [26 · 📍 Colocalization and spatial statistics](notebooks/26_colocalization_and_spatial_statistics.ipynb) | 70–90 min | Pearson/Manders colocalization; Clark–Evans; Ripley's L; null-distribution taxonomy |
+| | [27 · 🔤 Attention, transformers and diffusion](notebooks/27_attention_transformers_diffusion.ipynb) | 90–110 min | self-attention and the Vision Transformer, from scratch; a DDPM-style toy diffusion model |
 
 ### Level 2 · the research frontier
 
 | Part | Module | Builds on | Research frontier |
 |---|---|---|---|
-| **J · Research frontier** | [20 · 🧩 Foundation models for microscopy](notebooks/20_foundation_models_for_microscopy.ipynb) | 08, 11 | self-supervised pretraining; SAM/Cellpose/micro-SAM; specialist-vs-generalist evaluation |
-| | [21 · 🧪 Virtual staining and label-free imaging](notebooks/21_virtual_staining_label_free_imaging.ipynb) | 08, 13, 16, 17 | in-silico labeling; paired image-to-image regression; the hallucination risk |
-| | [22 · 🔬 Image-based profiling and perturbation biology](notebooks/22_image_based_profiling_and_perturbation_biology.ipynb) | 07, 08, 09, 18 | Cell-Painting-style profiling; batch effects; hit-calling |
-| | [23 · 🗺️ Spatial omics and multiplexed imaging](notebooks/23_spatial_omics_and_multiplexed_imaging.ipynb) | 09, 10, 11, 18 | multiplexed cell typing; neighbourhood enrichment; a toy graph neural network; niches |
-| | [24 · 🎛️ Uncertainty quantification & active learning](notebooks/24_uncertainty_and_active_learning.ipynb) | 08, 11 | calibration; MC-dropout/ensembles; active learning; human-in-the-loop annotation |
-| | [25 · 🧱 Volumetric & large-scale bioimage analysis](notebooks/25_volumetric_and_large_scale_imaging.ipynb) | 11, 20 | 3-D CNNs; patch-based training and stitching; chunked multiscale storage |
-| | [26 · 🔎 Explainability & trustworthy AI](notebooks/26_explainability_and_trustworthy_ai.ipynb) | 08, 11 | saliency/attribution; out-of-distribution failure; leakage; p-hacking |
-| | [27 · 🤖 AI agents & multimodal integration](notebooks/27_ai_agents_and_multimodal_pipelines.ipynb) | 20, 22, 23, 26 | model zoos; a scripted ReAct-style agent with verification; multimodal fusion |
-| **K · Capstone** | [28 · 🏁 Capstone: a complete bioimage-analysis pipeline](notebooks/28_capstone_pipeline.ipynb) | all | a full simulate→restore→segment→classify→track→quantify pipeline; a 3-track project studio |
+| **J · Research frontier** | [28 · 🧩 Foundation models for microscopy](notebooks/28_foundation_models_for_microscopy.ipynb) | 16, 19 | self-supervised pretraining; SAM/Cellpose/micro-SAM; specialist-vs-generalist evaluation |
+| | [29 · 🧪 Virtual staining and label-free imaging](notebooks/29_virtual_staining_label_free_imaging.ipynb) | 16, 21, 24, 25 | in-silico labeling; paired image-to-image regression; the hallucination risk |
+| | [30 · 🔬 Image-based profiling and perturbation biology](notebooks/30_image_based_profiling_and_perturbation_biology.ipynb) | 15, 16, 17, 26 | Cell-Painting-style profiling; batch effects; hit-calling |
+| | [31 · 🗺️ Spatial omics and multiplexed imaging](notebooks/31_spatial_omics_and_multiplexed_imaging.ipynb) | 17, 18, 19, 26 | multiplexed cell typing; neighbourhood enrichment; a toy graph neural network; niches |
+| | [32 · 🎛️ Uncertainty quantification & active learning](notebooks/32_uncertainty_and_active_learning.ipynb) | 16, 19 | calibration; MC-dropout/ensembles; active learning; human-in-the-loop annotation |
+| | [33 · 🧱 Volumetric & large-scale bioimage analysis](notebooks/33_volumetric_and_large_scale_imaging.ipynb) | 19, 28 | 3-D CNNs; patch-based training and stitching; chunked multiscale storage |
+| | [34 · 🔎 Explainability & trustworthy AI](notebooks/34_explainability_and_trustworthy_ai.ipynb) | 16, 19 | saliency/attribution; out-of-distribution failure; leakage; p-hacking |
+| | [35 · 🤖 AI agents & multimodal integration](notebooks/35_ai_agents_and_multimodal_pipelines.ipynb) | 28, 30, 31, 34 | model zoos; a scripted ReAct-style agent with verification; multimodal fusion |
+| **K · Capstone** | [36 · 🏁 Capstone: a complete bioimage-analysis pipeline](notebooks/36_capstone_pipeline.ipynb) | all | a full simulate→restore→segment→classify→track→quantify pipeline; a 3-track project studio |
 
-In total: about **30 hours** of notebook work for Level 1, **11 hours** for Level 2 and **2.5–3
-hours** for the capstone. With the exercises, plan for roughly 1.5–2× that.
+In total: about **40 hours** of notebook work for Level 1 (including the 8-module physics and
+instrumentation sequence, Modules 03–10 — Module 10 is an optional stretch module worth about an
+hour of that), **11 hours** for Level 2 and **2.5–3 hours** for the capstone. With the exercises,
+plan for roughly 1.5–2× that.
 [`FRONTIER_MAP.md`](FRONTIER_MAP.md) maps research areas, landmark methods and production tools to
 the Level 2 modules.
 
 ```text
  LEVEL 1 · the course core
- Part A  Foundations ──► Part B  Microscopy ──► Part C  Structure ──► Part D  Classifying
-                                                                           │
-                                                                           ▼
+ Part A  Foundations ──► Part B  Microscope physics ──► Part C  Structure ──► Part D  Classifying
+                          & instrumentation (02–12)                               │
+                                                                                   ▼
  Part E  Latent structure ──► Part F  Segment/detect/synthesize ──► Part G  Time & space
                                                                            │
                                                                            ▼
  Part H  Restoring signal ──► Part I  Quantifying & modern architectures
                                                                            │
  LEVEL 2 · research frontier                                              ▼
- Part J  Research frontier (20–27) ──────────────────────────────► Part K  Capstone (28)
+ Part J  Research frontier (28–35) ──────────────────────────────► Part K  Capstone (36)
 ```
 
 Inside Level 1 the order follows the dependencies of the ideas, not any particular semester's
@@ -147,18 +170,21 @@ along with Part B onward as the matching topics come up in lecture (image format
 filtering, then features, then classification, and so on); the thematic Parts track the natural
 order of the ideas however a given semester's lectures happen to be organised or renumbered.
 
-### Self-paced, full course (~10–14 weeks at 4–6 h/week)
+### Self-paced, full course (~15–19 weeks at 4–6 h/week)
 
 | Weeks | Modules | Milestone |
 |---|---|---|
 | 1–2 | 00–01 | run a notebook end to end; write small NumPy functions on a synthetic image |
-| 3–4 | 02–04 | explain bright-field vs. fluorescence contrast; compute and read a 2-D FFT |
-| 5–6 | 05–06 | implement sub-pixel particle localisation; run the Canny pipeline and the Hough transform |
-| 7–8 | 07–09 | train a classical and a CNN classifier; derive PCA as an eigenproblem |
-| 9–10 | 10–13 | run watershed and a U-Net; build a sliding-window detector; train a small VAE |
-| 11–12 | 14–17 | track cells with the Hungarian algorithm; register images; denoise and restore |
-| 13 | 18–19 | run a colocalization/spatial-statistics analysis; implement self-attention from scratch |
-| 14+ | 20–28 | one or two Level 2 tracks (below), then the capstone |
+| 3–4 | 02–05 | explain bright-field vs. fluorescence contrast; ray-trace a compound microscope; derive the Rayleigh resolution criterion |
+| 5–6 | 06–09 | compare bright-field/phase-contrast/DIC; design a fluorophore/filter pair; explain confocal/TIRF/STORM sectioning; model a camera's noise chain |
+| 7 | 10 | integrate the instrumentation sequence into one live-cell calibration workflow (optional stretch module) |
+| 8–9 | 11–12 | implement 2-D convolution and histogram equalization; compute and read a 2-D FFT |
+| 10–11 | 13–14 | implement sub-pixel particle localisation; run the Canny pipeline and the Hough transform |
+| 12–13 | 15–17 | train a classical and a CNN classifier; derive PCA as an eigenproblem |
+| 14–15 | 18–21 | run watershed and a U-Net; build a sliding-window detector; train a small VAE |
+| 16–17 | 22–25 | track cells with the Hungarian algorithm; register images; denoise and restore |
+| 18 | 26–27 | run a colocalization/spatial-statistics analysis; implement self-attention from scratch |
+| 19+ | 28–36 | one or two Level 2 tracks (below), then the capstone |
 
 ### Research tracks through Level 2
 
@@ -167,28 +193,36 @@ option:
 
 | Track | Modules |
 |---|---|
-| 🔬 Imaging foundation models & restoration | 20 → 21 → 25 |
-| 🧪 Quantitative & spatial biology | 18 → 22 → 23 |
-| 🛡️ Trustworthy, data-efficient AI | 24 → 26 → 27 |
+| 🔬 Imaging foundation models & restoration | 28 → 29 → 33 |
+| 🧪 Quantitative & spatial biology | 26 → 30 → 31 |
+| 🛡️ Trustworthy, data-efficient AI | 32 → 34 → 35 |
 
 ### A two-semester bridge for first-year students (≈ 4–5 h per week)
+
+Semester 1 now covers all of Part A and Part B — the course's foundations plus the full physics and
+instrumentation of the microscope itself — ending exactly where Part C (image-analysis algorithms)
+begins:
 
 | Weeks | Semester 1 | Milestone |
 |---|---|---|
 | 1–3 | 00, 01 | run notebooks; write small Python functions on synthetic images |
-| 4–6 | 02, 03 | simulate microscope contrast modes; implement 2-D convolution |
-| 7–9 | 04, 05 | compute an FFT magnitude spectrum; build the point-detection pipeline |
-| 10–12 | 06 | implement Canny edges and the Hough transform |
-| 13–15 | 07, 08 | train a classical classifier, then a small CNN |
+| 4–5 | 02, 03 | simulate microscope contrast modes; trace rays through a compound microscope |
+| 6–7 | 04, 05 | derive the Rayleigh resolution criterion; relate Zernike aberrations to the Strehl ratio |
+| 8–9 | 06, 07 | compare bright-field/phase-contrast/DIC; design a fluorophore/filter-cube pair |
+| 10–11 | 08, 09 | explain confocal/two-photon/TIRF/STORM sectioning; model a camera's noise chain |
+| 12 | 10 | integrate the instrumentation sequence into one live-cell calibration workflow (optional) |
+| 13–15 | 11, 12 | implement 2-D convolution; compute an FFT magnitude spectrum |
 
 | Weeks | Semester 2 | Milestone |
 |---|---|---|
-| 1–3 | 09, 10 | derive PCA; run thresholding, watershed and active contours |
-| 4–6 | 11, 12 | train a U-Net; build a from-scratch object detector |
-| 7–8 | 13, 14 | train a VAE; track simulated cells with the Hungarian algorithm |
-| 9–10 | 15, 16 | register two images; denoise with an autoencoder |
-| 11–12 | 17, 18 | deconvolve a blurred image; run a spatial-statistics analysis |
-| 13–15 | 19, 28 (Part 1) | implement self-attention; build the capstone pipeline |
+| 1–2 | 13, 14 | implement sub-pixel particle localisation; run Canny edges and the Hough transform |
+| 3–4 | 15, 16 | train a classical classifier, then a small CNN |
+| 5–6 | 17, 18 | derive PCA; run thresholding, watershed and active contours |
+| 7–8 | 19, 20 | train a U-Net; build a from-scratch object detector |
+| 9–10 | 21, 22 | train a VAE; track simulated cells with the Hungarian algorithm |
+| 11–12 | 23, 24 | register two images; denoise with an autoencoder |
+| 13 | 25, 26 | deconvolve a blurred image; run a spatial-statistics analysis |
+| 14–15 | 27, 36 (Part 1) | implement self-attention; build the capstone pipeline |
 
 A third semester (or a research rotation) covers Level 2 and the capstone's project-studio tracks.
 
@@ -265,7 +299,7 @@ stored pictures or data; add `--execute` to run every notebook):
 
 ```bash
 python validate_notebooks.py            # fast structural check
-python validate_notebooks.py --execute  # also executes all 29 notebooks (~15-25 min on a laptop CPU)
+python validate_notebooks.py --execute  # also executes all 37 notebooks (~20-30 min on a laptop CPU)
 ```
 
 The notebooks are stored **without outputs**.

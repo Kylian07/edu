@@ -20,10 +20,12 @@ from nbformat.validator import validate
 ROOT = Path(__file__).resolve().parent
 NB_DIR = ROOT / "notebooks"
 COLAB = "https://colab.research.google.com/github/xulabs/edu/blob/main/sci_img/tutorial/BiologyToBioimage/notebooks/"
-EXPECTED = 29                      # 00–19 core (02-740 + course materials), 20–27 research frontier, 28 capstone
-N_CORE = 20
+EXPECTED = 37                      # 00–27 core (02-740 + course materials, incl. 03–10 physics/instrumentation
+N_CORE = 28                        # inserted into Part B), 28–35 research frontier, 36 capstone
+INSTRUMENTATION_RANGE = range(3, 11)   # 03–10: physics/instrumentation modules (Part B deep-dive)
 KEYS = ("Hardware target", "Core frameworks", "Prerequisites", "Estimated time")
 CORE_KEYS = ("02-740 topics covered",)
+INSTRUMENTATION_KEYS = ("Instrumentation topics covered",)
 FRONTIER_KEYS = ("Builds on", "Research frontier covered")
 SECTIONS = ("Learning objectives", "Contents", "The biological question", "Environment setup",
             "Checkpoint", "Questions & discussion", "Bonus", "Lab note", "References", "Next")
@@ -92,7 +94,15 @@ for i, path in enumerate(paths):
         fail(f"{path.name}: Colab badge missing or pointing elsewhere")
     frontier = N_CORE <= i < EXPECTED - 1
     capstone = i == EXPECTED - 1
-    keys = KEYS + (FRONTIER_KEYS if frontier else CORE_KEYS + (("Builds on",) if capstone else ()))
+    instrumentation = i in INSTRUMENTATION_RANGE
+    if frontier:
+        keys = KEYS + FRONTIER_KEYS
+    elif capstone:
+        keys = KEYS + CORE_KEYS + ("Builds on",)
+    elif instrumentation:
+        keys = KEYS + INSTRUMENTATION_KEYS
+    else:
+        keys = KEYS + CORE_KEYS
     for key in keys:
         if f"**{key}**" not in first:
             fail(f"{path.name}: key-information table lacks '{key}'")

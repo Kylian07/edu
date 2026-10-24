@@ -22,10 +22,18 @@ Sections
 9. Spatial statistics and colocalization (nearest-neighbour distances, Clark–Evans index,
    Ripley's L, a CSR null, Pearson and Manders colocalization coefficients)
 10. Plotting helpers (Matplotlib only; no stored images)
+11. Optics and instrumentation (paraxial ray tracing, numerical aperture and the Rayleigh/Abbe
+    resolution limits, Zernike-polynomial wavefront aberrations, a Fourier-optics point-spread
+    function, phase-contrast and DIC contrast rendering, fluorophore/dichroic spectral models,
+    confocal optical sectioning, one- vs. two-photon excitation confinement, the TIRF evanescent
+    field, a single-molecule-localisation (STORM/PALM-style) simulator, a camera sensor noise
+    model, photobleaching kinetics, and flat-field/shading correction)
 """
 from __future__ import annotations
 
-__version__ = "1.0"
+__version__ = "1.1"
+
+import math
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -824,3 +832,305 @@ def plot_tracks(ax, tracks: dict, min_len: int = 2):
         ax.plot(arr[:, 2], arr[:, 1], marker="o", markersize=2, linewidth=1)
     ax.invert_yaxis()
     ax.set_aspect("equal")
+
+
+# ============================================================================
+# 11. Optics and instrumentation
+# ============================================================================
+
+def thin_lens_image_distance(object_distance: float, focal_length: float) -> float:
+    """The thin-lens equation solved for image distance: 1/f = 1/do + 1/di."""
+    return 1.0 / (1.0 / focal_length - 1.0 / object_distance)
+
+
+def ray_transfer_free_space(distance: float) -> np.ndarray:
+    """The paraxial (ABCD) ray-transfer matrix for propagating a distance through free space."""
+    return np.array([[1.0, distance], [0.0, 1.0]])
+
+
+def ray_transfer_thin_lens(focal_length: float) -> np.ndarray:
+    """The paraxial (ABCD) ray-transfer matrix for refraction by a thin lens of focal length f."""
+    return np.array([[1.0, 0.0], [-1.0 / focal_length, 1.0]])
+
+
+def trace_rays_through_system(rays: np.ndarray, elements: list[np.ndarray]) -> np.ndarray:
+    """Propagate paraxial rays through a sequence of ABCD elements.
+
+    ``rays`` is (n_rays, 2): each row is (height, angle_rad) at the system's entrance.
+    ``elements`` is a list of 2x2 ABCD matrices (``ray_transfer_free_space`` /
+    ``ray_transfer_thin_lens``), applied in order. Returns ``history`` of shape
+    (len(elements) + 1, n_rays, 2): the ray state at the entrance and after each element,
+    ready to plot as a ray diagram.
+    """
+    state = rays.copy()
+    history = [state.copy()]
+    for m in elements:
+        state = state @ m.T
+        history.append(state.copy())
+    return np.array(history)
+
+
+def numerical_aperture(refractive_index: float, half_angle_rad: float) -> float:
+    """Numerical aperture NA = n sin(alpha), alpha the objective's half-angle of acceptance."""
+    return refractive_index * np.sin(half_angle_rad)
+
+
+def rayleigh_resolution(wavelength_um: float, na: float) -> float:
+    """The Rayleigh resolution criterion (um): the minimum resolvable centre-to-centre distance
+    between two incoherent point sources, 0.61 * wavelength / NA."""
+    return 0.61 * wavelength_um / na
+
+
+def abbe_resolution(wavelength_um: float, na: float) -> float:
+    """Abbe's diffraction-limited resolution (um) for a periodic structure in coherent
+    transmitted light: wavelength / (2 NA)."""
+    return wavelength_um / (2.0 * na)
+
+
+def zernike_radial(n: int, m: int, rho: np.ndarray) -> np.ndarray:
+    """The radial part R_n^m(rho) of a Zernike polynomial (n >= |m| >= 0, n - |m| even)."""
+    m = abs(m)
+    R = np.zeros_like(rho)
+    for k in range((n - m) // 2 + 1):
+        c = ((-1) ** k * math.factorial(n - k) /
+             (math.factorial(k) * math.factorial((n + m) // 2 - k) * math.factorial((n - m) // 2 - k)))
+        R = R + c * rho ** (n - 2 * k)
+    return R
+
+
+def zernike(n: int, m: int, rho: np.ndarray, theta: np.ndarray) -> np.ndarray:
+    """A real Zernike polynomial Z_n^m(rho, theta) over the unit disk (rho in [0, 1]), the
+    standard basis for describing a lens's wavefront aberrations. Positive m gives the cosine
+    term, negative m the sine term, m = 0 the rotationally-symmetric radial term alone."""
+    R = zernike_radial(n, m, rho)
+    if m >= 0:
+        return R * np.cos(m * theta)
+    return R * np.sin(-m * theta)
+
+
+def simulate_psf(grid: int = 160, na: float = 0.9, wavelength_um: float = 0.55,
+                  pixel_um: float = 0.035, aberrations: dict[tuple[int, int], float] | None = None) -> np.ndarray:
+    """A diffraction-limited (or aberrated) point-spread function by Fourier optics: the
+    incoherent PSF is the squared magnitude of the Fourier transform of the pupil function
+    (Fraunhofer diffraction of a circular aperture of the given NA). ``aberrations`` optionally
+    maps (n, m) Zernike orders to a wavefront-error coefficient in WAVES, added as phase across
+    the pupil before transforming (e.g. ``{(4, 0): 0.25}`` for 0.25 waves of primary spherical
+    aberration). With no aberrations this reproduces the classic Airy pattern.
+    """
+    freq = np.fft.fftshift(np.fft.fftfreq(grid, d=pixel_um))
+    fx, fy = np.meshgrid(freq, freq)
+    rho = np.hypot(fx, fy) / (na / wavelength_um)
+    theta = np.arctan2(fy, fx)
+    pupil = (rho <= 1.0).astype(complex)
+    if aberrations:
+        rho_clipped = np.clip(rho, 0, 1)
+        phase = np.zeros_like(rho)
+        for (n, m), coeff in aberrations.items():
+            phase = phase + coeff * zernike(n, m, rho_clipped, theta)
+        pupil = pupil * np.exp(2j * np.pi * phase)
+    field = np.fft.fftshift(np.fft.fft2(np.fft.ifftshift(pupil)))
+    psf = np.abs(field) ** 2
+    return psf / psf.sum()
+
+
+def make_phase_object(size: int = 140, seed: int = 0) -> np.ndarray:
+    """A SIMULATED optical-path-length (phase) map of a thin, transparent 'cell': a smooth
+    rotationally-symmetric body plus a few organelle-like bumps and dips of differing
+    refractive index, in radians of phase shift relative to the surrounding medium."""
+    rng = np.random.default_rng(seed)
+    yy, xx = np.meshgrid(np.arange(size), np.arange(size), indexing="ij")
+    cy, cx, r = size / 2, size / 2, size * 0.32
+    phase = 0.5 * np.exp(-(((yy - cy) ** 2 + (xx - cx) ** 2) / (2 * (r * 0.6) ** 2)))
+    for _ in range(4):
+        by, bx = rng.uniform(size * 0.3, size * 0.7, size=2)
+        sign = rng.choice([-1.0, 1.0])
+        br = rng.uniform(size * 0.04, size * 0.08)
+        phase = phase + sign * 0.3 * np.exp(-(((yy - by) ** 2 + (xx - bx) ** 2) / (2 * br ** 2)))
+    return phase
+
+
+def zernike_phase_contrast(phase_map: np.ndarray, phase_shift: float = np.pi / 2,
+                            attenuation: float = 0.25) -> np.ndarray:
+    """Simulate Zernike phase-contrast imaging of a weak-phase object: the complex field
+    exp(i * phase_map) is split into its mean ('undiffracted', zero-order) and zero-mean
+    ('diffracted') parts; the phase plate advances the undiffracted part's phase by
+    ``phase_shift`` and attenuates its amplitude, approximating the physical phase ring in the
+    objective's back focal plane. Returns the resulting intensity image, including the
+    technique's characteristic halo artifact."""
+    field = np.exp(1j * phase_map)
+    undiffracted = field.mean()
+    diffracted = field - undiffracted
+    shifted = undiffracted * attenuation * np.exp(1j * phase_shift)
+    out_field = shifted + diffracted
+    return np.abs(out_field) ** 2
+
+
+def dic_shear_render(phase_map: np.ndarray, shear_px: int = 2, bias: float = 0.4) -> np.ndarray:
+    """Simulate differential interference contrast (DIC): two laterally-sheared copies of the
+    same wavefront interfere, so contrast is proportional to the directional derivative (here,
+    along the sheared axis) of the optical path length, giving the technique's characteristic
+    pseudo-3-D 'shadow-cast' relief. ``bias`` is the Nomarski prism's bias retardation."""
+    sheared = np.roll(phase_map, shear_px, axis=1)
+    path_diff = phase_map - sheared
+    return 0.5 * (1 + np.cos(bias + path_diff))
+
+
+def fluorophore_spectrum(wavelengths_nm: np.ndarray, peak_nm: float, fwhm_nm: float) -> np.ndarray:
+    """A Gaussian-shaped excitation or emission spectrum, normalised to a peak of 1.0, from a
+    published peak wavelength and full width at half maximum (both in nm) — a parametric model,
+    not a scanned or stored spectrum."""
+    sigma = fwhm_nm / (2 * np.sqrt(2 * np.log(2)))
+    return np.exp(-((wavelengths_nm - peak_nm) ** 2) / (2 * sigma ** 2))
+
+
+def dichroic_transmission(wavelengths_nm: np.ndarray, cutoff_nm: float, steepness_nm: float = 5.0) -> np.ndarray:
+    """A long-pass dichroic/emission-filter transmission curve: ~0 below ``cutoff_nm``, ~1 above,
+    with a logistic transition of width ``steepness_nm`` (a simplified filter model)."""
+    return 1.0 / (1.0 + np.exp(-(wavelengths_nm - cutoff_nm) / steepness_nm))
+
+
+def confocal_optical_section(volume: np.ndarray, z_focus: int, section_fwhm_slices: float = 2.0) -> dict:
+    """Compare a widefield projection with a confocal optical section of a SIMULATED 3-D
+    fluorescent volume (``volume``: n_z x H x W). Widefield sums every z-slice with equal weight
+    (no rejection of out-of-focus light); the confocal image weights each slice by a Gaussian
+    falloff in |z - z_focus| (a simplified model of the pinhole's axial response). Returns
+    ``widefield`` and ``confocal`` images (both H x W) and the ``weights`` used."""
+    n_z = volume.shape[0]
+    z = np.arange(n_z)
+    sigma = section_fwhm_slices / (2 * np.sqrt(2 * np.log(2)))
+    weights = np.exp(-((z - z_focus) ** 2) / (2 * sigma ** 2))
+    widefield = volume.sum(axis=0)
+    confocal = (volume * weights[:, None, None]).sum(axis=0)
+    return dict(widefield=widefield, confocal=confocal, weights=weights)
+
+
+def two_photon_vs_one_photon_profile(z_um: np.ndarray, waist0_um: float = 0.4,
+                                      wavelength_um: float = 0.9) -> dict:
+    """Normalised excitation-probability profiles vs. defocus ``z_um`` for one-photon (linear in
+    intensity) and two-photon (quadratic in intensity) absorption, given a focused Gaussian beam
+    whose radius grows with defocus (the Gaussian-beam/Rayleigh-range model). Two-photon's
+    quadratic dependence is what confines excitation to the focal volume and is why multiphoton
+    imaging needs no pinhole to reject out-of-focus background."""
+    rayleigh_range = np.pi * waist0_um ** 2 / wavelength_um
+    waist_z = waist0_um * np.sqrt(1 + (z_um / rayleigh_range) ** 2)
+    intensity = (waist0_um / waist_z) ** 2
+    one_photon = intensity / intensity.max()
+    two_photon = intensity ** 2 / (intensity ** 2).max()
+    return dict(one_photon=one_photon, two_photon=two_photon, waist_z=waist_z, rayleigh_range=rayleigh_range)
+
+
+def tirf_evanescent_intensity(z_nm: np.ndarray, penetration_depth_nm: float = 100.0) -> np.ndarray:
+    """The evanescent-wave intensity in total internal reflection fluorescence (TIRF) microscopy:
+    an exponential decay I(z) = I0 exp(-z / d) away from the coverslip, with no propagating
+    component at all — the physical basis for TIRF's extremely thin (~100 nm) optical section."""
+    return np.exp(-z_nm / penetration_depth_nm)
+
+
+def simulate_storm_acquisition(true_positions: np.ndarray, size: int = 120, n_frames: int = 400,
+                                on_prob: float = 0.02, psf_sigma: float = 2.2,
+                                noise_sigma: float = 0.02, upsample: int = 8, seed: int = 0) -> dict:
+    """A SIMULATED single-molecule-localisation (STORM/PALM-style) acquisition: at each of
+    ``n_frames`` frames, only a random ``on_prob`` fraction of ``true_positions`` fluoresce
+    ('blink on'); each ON molecule is imaged with the usual diffraction-limited PSF blur and
+    noise, then sub-pixel localised (``fit_gaussian_spot``) from its own small patch. Returns
+    ``diffraction_limited`` (the plain sum of all frames: every molecule effectively on at once,
+    severely blurred together), ``localizations`` (all recovered sub-pixel positions, pooled
+    across frames) and ``super_resolved`` (localisations rendered onto an ``upsample``x finer
+    grid) — demonstrating that super-resolution comes from many sparse, localisable snapshots,
+    not any single sharper image."""
+    rng = np.random.default_rng(seed)
+    n_mol = len(true_positions)
+    diffraction_limited = np.zeros((size, size))
+    localizations = []
+    patch_r = int(np.ceil(4 * psf_sigma))
+    psf = gaussian_psf(psf_sigma)
+    for _ in range(n_frames):
+        on = rng.random(n_mol) < on_prob
+        frame = np.zeros((size, size))
+        for (y, x) in true_positions[on]:
+            iy, ix = int(round(y)), int(round(x))
+            if 0 <= iy < size and 0 <= ix < size:
+                frame[iy, ix] += 1.0
+        frame = blur_image(frame, psf)
+        frame = add_gaussian_noise(frame, noise_sigma, rng).clip(0, None)
+        diffraction_limited += frame
+        for (y, x) in true_positions[on]:
+            iy, ix = int(round(y)), int(round(x))
+            y0, y1 = max(0, iy - patch_r), min(size, iy + patch_r + 1)
+            x0, x1 = max(0, ix - patch_r), min(size, ix + patch_r + 1)
+            patch = frame[y0:y1, x0:x1]
+            if patch.size == 0:
+                continue
+            cy, cx = fit_gaussian_spot(patch)
+            localizations.append((y0 + cy, x0 + cx))
+    localizations = np.array(localizations)
+    grid = size * upsample
+    super_resolved = np.zeros((grid, grid))
+    for (y, x) in localizations:
+        gy, gx = int(round(y * upsample)), int(round(x * upsample))
+        if 0 <= gy < grid and 0 <= gx < grid:
+            super_resolved[gy, gx] += 1.0
+    super_resolved = blur_image(super_resolved, gaussian_psf(1.0))
+    return dict(diffraction_limited=diffraction_limited, localizations=localizations,
+                super_resolved=super_resolved, source="SIMULATED")
+
+
+def sensor_noise_model(incident_photons: np.ndarray, qe: float = 0.7, read_noise_e: float = 2.0,
+                        dark_current_e: float = 0.05, gain: float = 1.0,
+                        rng: np.random.Generator | None = None) -> np.ndarray:
+    """A simplified camera detection chain: Poisson-sample the photoelectrons actually detected
+    (``incident_photons * qe``, the quantum efficiency), add Poisson dark-current electrons, add
+    Gaussian read noise (``read_noise_e``, electrons RMS, independent of signal), and apply an
+    output ``gain`` (digital counts per electron). Use a low ``read_noise_e`` (~1-2, an EMCCD or
+    sCMOS) vs. a higher one (~8-15, an older CCD) to compare sensor types."""
+    rng = rng or np.random.default_rng(0)
+    photoelectrons = rng.poisson(np.clip(incident_photons, 0, None) * qe).astype(float)
+    dark = rng.poisson(dark_current_e, size=incident_photons.shape).astype(float)
+    signal_e = photoelectrons + dark
+    read_noise = rng.normal(0.0, read_noise_e, size=incident_photons.shape)
+    return (signal_e + read_noise) * gain
+
+
+def quantize_bits(image: np.ndarray, n_bits: int) -> np.ndarray:
+    """Quantise an image in [0, 1] to ``n_bits`` of digitisation (2**n_bits grey levels)."""
+    levels = 2 ** n_bits
+    return np.floor(np.clip(image, 0, 1) * (levels - 1)) / (levels - 1)
+
+
+def photobleaching_curve(frame_times: np.ndarray, initial_intensity: float = 1.0,
+                          bleach_rate: float = 0.05, immobile_fraction: float = 0.0) -> np.ndarray:
+    """A SIMULATED photobleaching time course: fluorescence intensity decays exponentially with
+    cumulative illumination, I(t) = I0 [(1 - f) e^{-k t} + f], where ``bleach_rate`` k sets how
+    fast the bleachable fraction decays and ``immobile_fraction`` f is a non-bleaching (or very
+    slowly bleaching) population left over at long times."""
+    f = immobile_fraction
+    return initial_intensity * ((1 - f) * np.exp(-bleach_rate * frame_times) + f)
+
+
+def simulate_uneven_illumination(size: int = 160, center_bias: float = 0.35) -> np.ndarray:
+    """A SIMULATED multiplicative illumination field (vignetting / imperfect Kohler alignment):
+    1.0 at the field centre, falling smoothly to ``1 - center_bias`` at the corners — the 'flat
+    field' a real flat-fielding calibration image would record."""
+    yy, xx = np.meshgrid(np.linspace(-1, 1, size), np.linspace(-1, 1, size), indexing="ij")
+    r2 = yy ** 2 + xx ** 2
+    return 1.0 - center_bias * r2 / r2.max()
+
+
+def flat_field_correct(image: np.ndarray, flat_field: np.ndarray, dark_level: float = 0.0) -> np.ndarray:
+    """Correct uneven illumination: subtract a dark/offset level from both the image and the
+    flat-field calibration image, then divide by the (mean-normalised) flat field — the standard
+    shading-correction formula ``(raw - dark) / (flat - dark) * mean(flat - dark)``."""
+    flat = flat_field - dark_level
+    return (image - dark_level) / (flat + 1e-9) * flat.mean()
+
+
+def photon_budget_tradeoff(total_photon_budget: float, n_frames: np.ndarray) -> dict:
+    """The fundamental live-cell imaging trade-off: a fixed total photon budget (set by how much
+    bleaching/phototoxicity the sample tolerates) must be divided across ``n_frames`` time
+    points. More frames (a longer or finer-grained time-lapse) means fewer photons per frame —
+    and therefore lower signal-to-noise, since shot-noise SNR scales as sqrt(photons per frame).
+    Returns ``photons_per_frame`` and the resulting ``snr_per_frame`` for each entry of
+    ``n_frames``."""
+    photons_per_frame = total_photon_budget / n_frames
+    snr_per_frame = np.sqrt(photons_per_frame)
+    return dict(photons_per_frame=photons_per_frame, snr_per_frame=snr_per_frame)
