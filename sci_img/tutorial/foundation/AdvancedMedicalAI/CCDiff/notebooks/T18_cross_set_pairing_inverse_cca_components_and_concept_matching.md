@@ -24,11 +24,12 @@ Section 3.5, pp. 5–6; Algorithm 1 steps 13–24; Appendix E.
 ## 3. Guided lab: inspect the numbers\n\nRun the next cell. Before executing, predict one numeric or visual outcome, then explain what the output means in biological or mathematical terms. Code is designed to run offline on a CPU after installing this repository.
 
 ```python
-from ccdiff_edu import make_shared_toy_embeddings,select_concepts
+from ccdiff_edu import make_shared_toy_embeddings, select_concepts
 from ccdiff_edu.pipeline import inverse_cca_candidates
-A,B,text,labels=make_shared_toy_embeddings(n=90,seed=18)
-sel=select_concepts(A,text,labels,top_k=8)
-proposed=inverse_cca_candidates(B,sel,n_components=4)
+
+A, B, text, labels = make_shared_toy_embeddings(n=90, seed=18)
+sel = select_concepts(A, text, labels, top_k=8)
+proposed = inverse_cca_candidates(B, sel, n_components=4)
 for p in proposed:
     print(f"component={p['component']:d} rho={p['rho']:+.3f} "
           f"cos(dir,text)={p['cosine_to_direction']:.3f} {p['label']}")

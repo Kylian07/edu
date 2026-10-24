@@ -79,7 +79,7 @@ Phase 05 — Robotic Lab Automation & VLA Models
 
 The foundation everything else rests on. You will leave Phase 01 fluent in PyTorch tensors, comfortable loading DICOM and TIFF medical images, and able to design and apply filters in both the spatial and frequency domains. The final module introduces hand-crafted geometric features and classical classifiers — still the right choice whenever labelled data is scarce.
 
-➜ [`ComputationalSignalBase/`](ComputationalSignalBase/)
+➜ [`foundation/ComputationalSignalBase`](foundation/ComputationalSignalBase/)
 
 ---
 
@@ -88,7 +88,7 @@ The foundation everything else rests on. You will leave Phase 01 fluent in PyTor
 
 Phase 02 is about understanding *where things are* and *what shape they have*. You will compress high-dimensional images with PCA, train a YOLOv5 object detector on a custom dataset, track cells across 3-D time-lapse volumes, segment structures with both classical algorithms and U-Net, and align image pairs using both iterative optimisation and a conditional GAN.
 
-➜ [`SpatialPerceptionAnalysis/`](SpatialPerceptionAnalysis/)
+➜ [`foundation/SpatialPerceptionAnalysis`](foundation/SpatialPerceptionAnalysis/)
 
 ---
 
@@ -97,7 +97,7 @@ Phase 02 is about understanding *where things are* and *what shape they have*. Y
 
 The phase where individual building blocks converge into complete clinical-grade systems. You will classify 2D medical images on MedNIST with MONAI, segment 2D medical shapes with U-Net, train a 3-D U-Net on the Medical Segmentation Decathlon spleen benchmark, work through the full spectrum of multimodal registration from classical SimpleITK to deep VoxelMorph-style networks, synthesise missing imaging modalities using Schrödinger Bridge Conditional Flow Matching, and probe state-of-the-art foundation models (BiomedCLIP, BLIP-2, LLaVA-1.5) with real medical images.
 
-➜ [`AdvancedMedicalAI/`](AdvancedMedicalAI/)
+➜ [`foundation/AdvancedMedicalAI`](foundation/AdvancedMedicalAI/)
 
 ---
 

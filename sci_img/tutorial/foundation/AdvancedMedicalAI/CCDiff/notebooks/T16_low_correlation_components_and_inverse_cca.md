@@ -24,13 +24,14 @@ Section 3.5, p. 6; Algorithm 1; Appendix E pairing ablation.
 ## 3. Guided lab: inspect the numbers\n\nRun the next cell. Before executing, predict one numeric or visual outcome, then explain what the output means in biological or mathematical terms. Code is designed to run offline on a CPU after installing this repository.
 
 ```python
-from ccdiff_edu import make_shared_toy_embeddings,select_concepts
+from ccdiff_edu import make_shared_toy_embeddings, select_concepts
 from ccdiff_edu.pipeline import inverse_cca_candidates
-A,B,text,labels=make_shared_toy_embeddings(n=80,seed=16)
-selected_A=select_concepts(A,text,labels,top_k=8)
-proposals=inverse_cca_candidates(B,selected_A,n_components=3)
-for item in proposals:print(item['label'],'rho=',round(item['rho'],3),
-                             'component=',item['component'])
+
+A, B, text, labels = make_shared_toy_embeddings(n=80, seed=16)
+selected_A = select_concepts(A, text, labels, top_k=8)
+proposals = inverse_cca_candidates(B, selected_A, n_components=3)
+for item in proposals: print(item['label'], 'rho=', round(item['rho'], 3),
+                             'component=', item['component'])
 ```
 
 ## 4. Extend the example\n\nModify the prior quantities deliberately. You should always compare your modified result to the original setting and explain any difference.

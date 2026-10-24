@@ -19,7 +19,7 @@ python -m pip install -r requirements.txt
 jupyter notebook notebooks/
 ```
 
-Open `01_medical_images_and_labels.ipynb` and select **Run All Cells**, then continue in order. Start Jupyter from the `MedLIME/` directory or its `notebooks/` subdirectory to let notebooks discover `medlime_tutorials.py` automatically. No GPU, internet, downloads, authentication, or external medical datasets required *after dependencies are installed*.
+Open `01_medical_images_and_labels.ipynb` and select **Run All Cells**, then continue in order. Start Jupyter from the `MedLIME/` directory or its `notebooks` subdirectory to let notebooks discover `medlime_tutorials.py` automatically. No GPU, internet, downloads, authentication, or external medical datasets required *after dependencies are installed*.
 
 **For Google Colab:** Upload this folder to your Drive and run notebooks from the directory containing `medlime_tutorials.py`, or clone your own fork of the directory. The notebooks intentionally do not assume the source repository has already been merged upstream. A single `.ipynb` uploaded alone will not find the shared library. Local Jupyter is the easiest option.
 
@@ -71,13 +71,13 @@ The source article describes **Generative Masking (GM)**, **Supervised Test-Time
 
 ## Map to the existing Xu Lab repository
 
-Recommended connections into the existing `sci_img/tutorial/` curriculum:
+Recommended connections into the existing `../../..` curriculum:
 - `ComputationalSignalBase/PyTorchTensorBasic/` and `FrequencyFiltering/`: parallel references for Notebooks 01–03.
 - `SpatialPerceptionAnalysis/DimensionReductionLatentSpace/` and `BioimageDenoising/`: optional prerequisites for Notebooks 05–06 and 10.
 - `AdvancedMedicalAI/MedicalImageClassification/`: optional real-image classification extension.
-- `ml/`: linear regression and regularization reading for Notebooks 04 and 11.
+- `../../../../../ml`: linear regression and regularization reading for Notebooks 04 and 11.
 
-The package is an **additive folder**, so existing tutorials need not be altered or overwritten. Add a link to this folder from the parent `sci_img/tutorial/README.md` after review.
+The package is an **additive folder**, so existing tutorials need not be altered or overwritten. Add a link to this folder from the parent `../../../README.md` after review.
 
 ## Validate
 
@@ -93,7 +93,7 @@ To modify generated notebooks, edit `generate_notebooks.py`, regenerate with `py
 - `notebooks/*.ipynb` — lessons, code, visualizations, tasks and exit tickets.
 - `medlime_tutorials.py` — self-contained, documented educational functions.
 - `generate_notebooks.py` — deterministic notebook source generator.
-- `tests/` — unit tests for data, perturbation, fitting, retrieval, and adaptation.
+- `tests` — unit tests for data, perturbation, fitting, retrieval, and adaptation.
 - `validate_notebooks.py` — executable-notebook smoke test.
 - `requirements.txt` — Python dependencies.
 

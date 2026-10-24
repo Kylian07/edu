@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 from ccdiff_edu import (make_cell_table, make_cell_images, make_shared_toy_embeddings,
-                         normalize_rows,select_concepts,ccdiff_bidirectional,acc_at_k,bootstrap_ci)
+                        normalize_rows, ccdiff_bidirectional, acc_at_k, bootstrap_ci)
 from ccdiff_edu.pipeline import score_candidates
 
 def test_toy_data_shapes():

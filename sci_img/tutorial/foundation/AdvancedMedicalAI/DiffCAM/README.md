@@ -7,7 +7,7 @@ The destination is the 2025 CVPR paper **DiffCAM: Data-Driven Saliency Maps by C
 - **33 executable Jupyter tutorials** with experiments, short readings, exercises, and exit tickets.
 - **Offline-first:** no external image datasets, accounts, pretrained models, or GPU needed for the main course.
 - **Reproducible synthetic data:** toy cells and chest-like phantoms with known generated regions.
-- **Reusable teaching code:** `diffcam_edu/` contains reference-aware saliency implementations, dataset generators, model helpers, and evaluation metrics.
+- **Reusable teaching code:** `diffcam_edu` contains reference-aware saliency implementations, dataset generators, model helpers, and evaluation metrics.
 - **Assessments:** mini-projects, mathematical reasoning, and a capstone with reproducible comparison.
 
 > **Research and safety distinction:** These are educational exercises, *not* official authors' DiffCAM source code, not a reproduction of the paper's full benchmark settings, and not clinically validated software. Images and annotations are synthetic illustrations. A region highlighted by saliency is not automatically a causal feature or a diagnosis.

@@ -24,14 +24,15 @@ Section 3.6; Algorithm 1 steps 25–32; Appendix B.2.
 ## 3. Guided lab: inspect the numbers\n\nRun the next cell. Before executing, predict one numeric or visual outcome, then explain what the output means in biological or mathematical terms. Code is designed to run offline on a CPU after installing this repository.
 
 ```python
-from ccdiff_edu import make_shared_toy_embeddings,select_concepts
-from ccdiff_edu.pipeline import inverse_cca_candidates,score_candidates
-A,B,text,labels=make_shared_toy_embeddings(n=85,seed=19)
-sel=select_concepts(A,text,labels,top_k=9)
-proposed=inverse_cca_candidates(B,sel,n_components=4)
-for alpha in [0.0,.3,.7,1.0]:
-    scored=score_candidates(proposed,sel,alpha=alpha)
-    print(alpha,[(x['label'],round(x['score'],3)) for x in scored[:3]])
+from ccdiff_edu import make_shared_toy_embeddings, select_concepts
+from ccdiff_edu.pipeline import inverse_cca_candidates, score_candidates
+
+A, B, text, labels = make_shared_toy_embeddings(n=85, seed=19)
+sel = select_concepts(A, text, labels, top_k=9)
+proposed = inverse_cca_candidates(B, sel, n_components=4)
+for alpha in [0.0, .3, .7, 1.0]:
+    scored = score_candidates(proposed, sel, alpha=alpha)
+    print(alpha, [(x['label'], round(x['score'], 3)) for x in scored[:3]])
 ```
 
 ## 4. Extend the example\n\nModify the prior quantities deliberately. You should always compare your modified result to the original setting and explain any difference.
