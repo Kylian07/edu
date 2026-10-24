@@ -50,12 +50,17 @@ quickly.
 - One EM update (E-step responsibilities, M-step mean/variance/weight) for a 1-D, two-component
   Gaussian mixture on five numbers (Module 18).
 - The Dice and IoU of two small overlapping binary masks you draw by hand (Module 19).
+- Following one foreground pixel's flow vector two or three steps by hand on a tiny grid, and seeing
+  why pixels from two different objects converge toward two different sinks even when their
+  silhouettes touch (Module 19).
 - The cost matrix and the Hungarian assignment for four detections across two frames (Module 22).
 - The segment-level LAP's cost matrix for one new ("parent-less") track segment against two
   candidate parents, including the "cost of doing nothing" reject entry (Module 22).
 - The 2×2 Lucas-Kanade normal equations for one small window of a hand-drawn toy image, and why
   they become singular on a uniform patch (the aperture problem) (Module 22).
 - The Kabsch rotation that best superimposes three point pairs (Module 23).
+- One or two fixed-point iterations of `u <- -field(x + u(x))` to approximately invert a small
+  hand-drawn displacement field, by hand, on a tiny grid (Module 23).
 - A Wiener-filter restoration of a 1-D toy signal at two different noise-to-signal ratios, to see
   the bias–variance trade-off directly (Module 25).
 - Pearson's and Manders' colocalization coefficients for two tiny synthetic channels (Module 26).
@@ -87,12 +92,12 @@ These are the "can you derive or re-draw it on a blank page?" results of Level 1
 | Forward propagation; the softmax + cross-entropy loss; backpropagation by the chain rule | [16](notebooks/16_deep_learning_classification.ipynb) |
 | PCA as an eigenproblem of the covariance matrix; the autoencoder bottleneck | [17](notebooks/17_dimensionality_reduction_and_reconstruction.ipynb) |
 | 1-D EM for a Gaussian mixture; marker-controlled watershed; the Chan–Vese energy | [18](notebooks/18_segmentation_classical.ipynb) |
-| Transposed convolution; the U-Net skip connection; the Dice loss | [19](notebooks/19_segmentation_deep.ipynb) |
+| Transposed convolution; the U-Net skip connection; the Dice loss; flow-based (Cellpose-style) instance decoding | [19](notebooks/19_segmentation_deep.ipynb) |
 | IoU; non-maximum suppression; the anchor/RPN idea | [20](notebooks/20_object_detection.ipynb) |
 | The VAE's reconstruction + KL (ELBO) loss; the GAN minimax objective | [21](notebooks/21_image_synthesis_and_generative_models.ipynb) |
 | The Kalman-filter predict/update step; the Hungarian algorithm's assignment problem; the segment-level LAP for lineage recovery; Lucas-Kanade optical flow and the aperture problem | [22](notebooks/22_object_tracking.ipynb) |
-| Mutual information between two images; the Kabsch SVD-based rotation | [23](notebooks/23_image_registration.ipynb) |
-| PSNR/SSIM; FFT low-pass denoising; the bicubic-to-SRCNN residual-learning idea | [24](notebooks/24_denoising_and_super_resolution.ipynb) |
+| Mutual information between two images; the Kabsch SVD-based rotation; a VoxelMorph-style unsupervised similarity + smoothness loss | [23](notebooks/23_image_registration.ipynb) |
+| PSNR/SSIM; FFT low-pass denoising; the bicubic-to-SRCNN residual-learning idea; the Noise2Noise squared-error argument | [24](notebooks/24_denoising_and_super_resolution.ipynb) |
 | The degradation model g = h∗f + n; inverse filtering's instability; the Wiener filter | [25](notebooks/25_restoration_and_inverse_problems.ipynb) |
 | Pearson/Manders colocalization; the Clark–Evans index; Ripley's L and its CSR envelope | [26](notebooks/26_colocalization_and_spatial_statistics.ipynb) |
 | Scaled dot-product self-attention; the ViT patch-embedding pipeline; the DDPM forward process | [27](notebooks/27_attention_transformers_diffusion.ipynb) |

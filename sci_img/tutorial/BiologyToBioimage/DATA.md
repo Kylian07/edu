@@ -71,7 +71,9 @@ rule in *Rules for contributors* below explains why):
 
 | Local simulator (where it is defined) | Mimics | Hidden truth |
 |---|---|---|
+| A per-pixel instance-pointing flow field derived from `simulate_nuclei_image`'s instance mask and centroids (Module 19) | the Cellpose-style training target that lets a network separate touching objects without thresholding a mask | **the true unit vector at every foreground pixel, pointing toward its own object's centroid** |
 | A textured "speckle" image pair under a known flow field (Module 22) | a speckled/textured tissue or bead-seeded gel sheared or flowing between two frames, for validating Lucas-Kanade optical flow | **the true analytic flow field `(v_y, v_x)` applied to warp frame 0 into frame 1** |
+| A smooth random displacement field and its (nearly) exact fixed-point-iterated inverse (Module 23) | a non-rigid tissue deformation between a moving and a fixed image, for training and checking a learned deformable-registration network | **the displacement field that warps the moving image back onto the fixed image** |
 | In-/out-of-distribution shape-mix evaluation sets (Module 28) | a held-out shape mixture the model was not tuned on, to compare a specialist U-Net against a training-free generalist segmenter | **which shapes are in- vs. out-of-distribution** |
 | Paired label-free/"stained" channel pairs (Module 29) | a low-contrast, blurred "label-free" view paired with a crisp "ground-truth stain" view of the same cells | **the true stain intensity the model must predict, and when it is forced to hallucinate** |
 | Per-treatment cell populations with an injected batch effect (Module 30) | a high-content screen across simulated treatments and plates/batches | **the true treatment effect**, separated from **the injected, purely technical batch effect** |
