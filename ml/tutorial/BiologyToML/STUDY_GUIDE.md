@@ -69,8 +69,8 @@ These are the "can you derive it on a blank page?" results of Level 1. Tick them
 | Bias–variance decomposition of the squared error | [23](notebooks/23_model_selection.ipynb) |
 
 **Level 2 additions** (derive them once each): the negative-binomial log-likelihood and the IRLS
-update (24); the ELBO and the reparameterisation gradient (25); scaled dot-product attention (26);
-the closed form of q(x_t∣x₀) and the flow-matching target (27); one GCN layer (28); the GP
+update (26); the ELBO and the reparameterisation gradient (27); scaled dot-product attention (24);
+the closed form of q(x_t∣x₀) and the flow-matching target (28); one GCN layer (25); the GP
 posterior and expected improvement (29); the steady-state RNA-velocity relation u = (γ/β)s and the
 Sinkhorn iteration (32); Moran's I (33); CCA by SVD (34); the LMM likelihood after rotation by
 the eigenvectors of K and a single-effect regression (35); the Kabsch rotation (38); the
@@ -92,21 +92,21 @@ convention they use.
 | HMM transitions | P(qₜ=sᵢ∣qₜ₋₁=sⱼ) or aᵢⱼ = P(qₜ=sⱼ∣qₜ₋₁=sᵢ) | aᵢⱼ = P(next = j ∣ current = i) |
 | Genotype coding | count of the minor or of the major allele | 0/1/2 copies of one chosen allele; 2 − G carries the same information |
 | SVM margin | full band width 2/‖w‖ or half-width 1/‖w‖ | full width 2/‖w‖ |
-| Negative binomial | dispersion α = 1/θ or inverse dispersion θ | Var = μ + μ²/θ (Modules 24, 30) |
+| Negative binomial | dispersion α = 1/θ or inverse dispersion θ | Var = μ + μ²/θ (Modules 26, 30) |
 | Labels | 0/1 or −1/+1; scikit-learn's breast-cancer coding has 0 = malignant | 1 = disease/positive throughout |
 
 ## 5. The ideas that recur everywhere
 
 1. **The two-step template** — choose a probability model, then estimate its parameters by MLE,
-   MAP or full Bayes. Seen in 05–09, 13, 15–21 and again in 24, 25, 29, 35, 37. The
+   MAP or full Bayes. Seen in 05–09, 13, 15–21 and again in 26, 27, 29, 35, 37. The
    non-probabilistic exceptions — trees (10), k-means (12), SVMs (11) — each have a probabilistic
    cousin.
 2. **Conditional independence buys tractability** — 3ⁿ → 2n (naïve Bayes, 08), 31 → 10 (alarm
    network, 15), a chain over time (HMM, 19), a sparse precision matrix (GGM, 18); later the Potts
-   model on a contact map (37) and message passing on graphs (28).
+   model on a contact map (37) and message passing on graphs (25).
 3. **Latent variables ⇒ EM, and its relatives** — mixtures (13), HMMs (20), k-means as the hard
    limit (12); Gibbs sampling as the sampling sibling (21); variational inference and VAEs as the
-   approximate version (25), used for single cells (25, 31, 34).
+   approximate version (27), used for single cells (27, 31, 34).
 4. **Evaluation is part of the method** — held-out data, cross-validation, selection bias (23),
    and in Level 2 grouped splits, leakage, shift, calibration and conformal intervals (42), plus
    the habit of checking every method against a known truth (every 🧪 box).

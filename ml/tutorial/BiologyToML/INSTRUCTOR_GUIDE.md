@@ -86,23 +86,23 @@ material that the revision compresses stays available in Level 1 for self-study.
 | Week | Topics | Modules |
 |---|---|---|
 | 1 | Biological questions and units of observation; probability, likelihood, priors; generalisation, leakage, reproducible splits | 00, 02, 05, 23, 42 (§2) |
-| 2 | Linear regression, ridge/lasso/elastic net; count GLMs and replication | 06, 07, 24 |
+| 2 | Linear regression, ridge/lasso/elastic net; count GLMs and replication | 06, 07, 26 |
 | 3 | Logistic regression, k-NN, naïve Bayes; trees, forests; margins, kernels, model comparison | 08–11 |
 | 4 | PCA and SVD; clustering and neighbour graphs; visualisation, stability, bias–variance | 12, 14, 23, 30 (§4–5) |
 | 5 | Neural networks, optimisation, CNNs | 22, 36 (§3) |
-| 6 | Mixtures and EM; graphical models and one HMM; variational inference and VAEs | 13, 15–16, 19, 25 |
+| 6 | Mixtures and EM; graphical models and one HMM; variational inference and VAEs | 13, 15–16, 19, 27 |
 | 7 | Single-cell count models and scVI; integration and reference mapping | 30, 31 |
-| 8 | Attention; self-supervision and transfer; sequence-to-function and foundation models | 26, 36, 43 (§7) |
+| 8 | Attention; self-supervision and transfer; sequence-to-function and foundation models | 24, 36, 43 (§7) |
 | 9 | Protein language models and fitness; structure and confidence; molecular property prediction | 37, 38, 40 |
-| 10 | Multi-omics; graph learning; spatial omics | 34, 28, 33 |
+| 10 | Multi-omics; graph learning; spatial omics | 34, 25, 33 |
 | 11 | Causal questions and interventions; perturbation prediction; additive baselines | 41 (and 17–18) |
 | 12 | Calibration, uncertainty, shift; interpretation; benchmark critique | 42, 21 |
-| 13 | Conditional generation and diffusion; experimental design and active learning | 27, 29, 39 |
+| 13 | Conditional generation and diffusion; experimental design and active learning | 28, 29, 39 |
 | 14 | Cell-state dynamics and trajectory assumptions; project audit | 32, 44 (Part 3) |
 | 15 | Project presentations | 44 |
 
 Electives in the revision proposals map to: statistical genetics (35), optimal transport and RNA
-velocity (32), advanced graph geometry (28), Gaussian graphical models (18), full HMM learning (20).
+velocity (32), advanced graph geometry (25), Gaussian graphical models (18), full HMM learning (20).
 
 ---
 
@@ -136,11 +136,11 @@ Each line gives the one idea to land, the most common difficulty, and a discussi
 | 21 | posterior ∝ likelihood × prior; Gibbs samples conditionals | burn-in and autocorrelation | When is a full posterior worth more than a MAP estimate? |
 | 22 | a neuron = logistic regression; back-propagation = chain rule | gradient shapes; overfitting with few samples | What did the CNN's filter learn, and how would you check it is biology? |
 | 23 | bias–variance; CV for selection, a test set for reporting | selection bias (choosing genes before CV) | Why is "100 % CV accuracy" with pre-selected genes not a result? |
-| 24 | counts need count models; offsets; the donor is the unit of replication | Poisson p-values for overdispersed data; FDR vs FWER | Why do cell-level tests "find" hundreds of genes that pseudobulk does not? |
-| 25 | the ELBO; amortised inference; a likelihood that matches the data | KL direction; posterior collapse | Is a VAE latent axis a biological programme? How would you test it? |
-| 26 | attention = learned soft neighbours; self-supervision learns co-variation | positional information; what attention maps mean | Is a protein language model "understanding" structure? |
-| 27 | learn to denoise, then reverse; straight paths in flow matching | noise schedules; memorisation vs generalisation | What would convince you a generated protein is new and functional? |
-| 28 | message passing; symmetry (permutation, rotation) as design constraint | over-smoothing; equivariance vs invariance | When does adding a graph hurt (low homophily)? |
+| 24 | attention = learned soft neighbours; self-supervision learns co-variation | positional information; what attention maps mean | Is a protein language model "understanding" structure? |
+| 25 | message passing; symmetry (permutation, rotation) as design constraint | over-smoothing; equivariance vs invariance | When does adding a graph hurt (low homophily)? |
+| 26 | counts need count models; offsets; the donor is the unit of replication | Poisson p-values for overdispersed data; FDR vs FWER | Why do cell-level tests "find" hundreds of genes that pseudobulk does not? |
+| 27 | the ELBO; amortised inference; a likelihood that matches the data | KL direction; posterior collapse | Is a VAE latent axis a biological programme? How would you test it? |
+| 28 | learn to denoise, then reverse; straight paths in flow matching | noise schedules; memorisation vs generalisation | What would convince you a generated protein is new and functional? |
 | 29 | uncertainty drives exploration; acquisition functions | kernel choice; exploiting surrogate errors | With 96 wells left, explore or exploit? |
 | 30 | QC → normalisation → graph → clusters → markers → pseudobulk | over-interpreting t-SNE/UMAP; resolution choices | Is a cluster a cell type? |
 | 31 | mixing vs conservation; integration can remove biology | confounded designs; over-correction | What should an atlas do with a cell type present in only one batch? |

@@ -17,11 +17,11 @@ questions. Statements about the state of a field are as of 2025.
 
 | Level 1 idea (module) | becomes, in Level 2 … (module) |
 |---|---|
-| Logistic regression as a likelihood model (09); MLE/MAP (05); shrinkage (07, 21) | negative-binomial GLMs, offsets, empirical-Bayes dispersion shrinkage, FDR control (24) |
-| EM with an exact E-step (13); posteriors (21) | variational inference, the ELBO, amortised inference, VAEs and a mini-scVI (25) |
-| k-NN as weighted averaging of neighbours (08) | attention as a learned soft nearest-neighbour average; transformers (26) |
-| Mixture densities (13); MCMC and Langevin-type samplers (21) | diffusion models, score matching and flow matching (27) |
-| Message passing / belief propagation on graphs (17) | graph neural networks; equivariant networks for 3-D structures (28) |
+| Logistic regression as a likelihood model (09); MLE/MAP (05); shrinkage (07, 21) | negative-binomial GLMs, offsets, empirical-Bayes dispersion shrinkage, FDR control (26) |
+| EM with an exact E-step (13); posteriors (21) | variational inference, the ELBO, amortised inference, VAEs and a mini-scVI (27) |
+| k-NN as weighted averaging of neighbours (08) | attention as a learned soft nearest-neighbour average; transformers (24) |
+| Mixture densities (13); MCMC and Langevin-type samplers (21) | diffusion models, score matching and flow matching (28) |
+| Message passing / belief propagation on graphs (17) | graph neural networks; equivariant networks for 3-D structures (25) |
 | Ridge as a Gaussian prior (07); kernels (11) | Gaussian processes, Bayesian optimisation and active learning (29) |
 | Clustering (12), mixtures (13), PCA (14) | single-cell clustering, annotation and embeddings (30); batch integration (31) |
 | Markov chains (19–20); eigenvectors (14) | diffusion pseudotime, RNA velocity, absorbing Markov chains for cell fate (32) |
@@ -42,8 +42,8 @@ questions. Statements about the state of a field are as of 2025.
 
 | Area | Module | Landmark ideas and methods | Production tools · data to try next |
 |---|---|---|---|
-| Counts, differential expression, FDR | [24](notebooks/24_glm_count_data.ipynb) | negative-binomial GLMs (Anders & Huber 2010; Robinson et al. 2010; Love et al. 2014); Benjamini–Hochberg; pseudobulk vs pseudoreplication (Squair et al. 2021) | DESeq2, edgeR, limma-voom, glmGamPoi · GTEx, TCGA, recount3 |
-| Probabilistic latent spaces of cells | [25](notebooks/25_variational_inference_vae.ipynb) | variational autoencoders (Kingma & Welling 2014); scVI (Lopez et al. 2018); scANVI, totalVI | scvi-tools · CELLxGENE |
+| Counts, differential expression, FDR | [26](notebooks/26_glm_count_data.ipynb) | negative-binomial GLMs (Anders & Huber 2010; Robinson et al. 2010; Love et al. 2014); Benjamini–Hochberg; pseudobulk vs pseudoreplication (Squair et al. 2021) | DESeq2, edgeR, limma-voom, glmGamPoi · GTEx, TCGA, recount3 |
+| Probabilistic latent spaces of cells | [27](notebooks/27_variational_inference_vae.ipynb) | variational autoencoders (Kingma & Welling 2014); scVI (Lopez et al. 2018); scANVI, totalVI | scvi-tools · CELLxGENE |
 | QC, normalisation, clustering, annotation | [30](notebooks/30_single_cell_rnaseq.ipynb) | best practices (Luecken & Theis 2019; Heumos et al. 2023); Pearson residuals; Louvain/Leiden; marker-based annotation | Scanpy, Seurat · 10x PBMC data sets, Human Cell Atlas, CELLxGENE |
 | Batch effects, atlases, reference mapping | [31](notebooks/31_batch_integration.ipynb) | ComBat (Johnson et al. 2007); MNN (Haghverdi et al. 2018); Harmony (Korsunsky et al. 2019); scIB benchmark (Luecken et al. 2022); scArches | Harmony, scVI/scANVI, Seurat, Scanorama, Azimuth |
 | Trajectories, RNA velocity, fate | [32](notebooks/32_cell_dynamics_velocity.ipynb) | diffusion pseudotime (Haghverdi et al. 2016); RNA velocity (La Manno et al. 2018; Bergen et al. 2020) and its limits (Bergen et al. 2021); Waddington-OT (Schiebinger et al. 2019); CellRank | scVelo, CellRank, moscot, Monocle, PAGA |
@@ -60,27 +60,27 @@ questions. Statements about the state of a field are as of 2025.
 | Polygenic scores and equity | [35](notebooks/35_statistical_genetics.ipynb), [42](notebooks/42_trustworthy_ml.ipynb) | clumping + thresholding, BLUP; portability across ancestries (Martin et al. 2019) | PRS-CS, LDpred2 |
 | Mendelian randomisation | [35](notebooks/35_statistical_genetics.ipynb), [41](notebooks/41_perturbation_causal_inference.ipynb) | instrumental variables; IVW, MR-Egger (Bowden et al. 2015) | TwoSampleMR |
 | Regulatory DNA, variant effects | [36](notebooks/36_regulatory_genomics_deep_learning.ipynb) | DeepBind, DeepSEA, Basset; BPNet and motif syntax; Enformer-type long-range models; attribution (in-silico mutagenesis, gradient × input); limits on personal genomes | TF-MoDISco, Kipoi · ENCODE, JASPAR |
-| Genomic language models | [26](notebooks/26_attention_transformers.ipynb), [36](notebooks/36_regulatory_genomics_deep_learning.ipynb) | DNABERT, Nucleotide Transformer, Evo (self-supervised DNA models) | Hugging Face model hubs |
+| Genomic language models | [24](notebooks/24_attention_transformers.ipynb), [36](notebooks/36_regulatory_genomics_deep_learning.ipynb) | DNABERT, Nucleotide Transformer, Evo (self-supervised DNA models) | Hugging Face model hubs |
 
 ### 🧪 Proteins and molecules
 
 | Area | Module | Landmark ideas and methods | Production tools · data to try next |
 |---|---|---|---|
 | Coevolution, contacts, variant effects | [37](notebooks/37_protein_sequences_language_models.ipynb) | direct-coupling analysis (Weigt et al. 2009; Morcos et al. 2011; Ekeberg et al. 2013); EVmutation, DeepSequence, EVE; deep mutational scanning | EVcouplings, HHblits/jackhmmer · Pfam, UniRef, ProteinGym, MaveDB |
-| Protein language models | [26](notebooks/26_attention_transformers.ipynb), [37](notebooks/37_protein_sequences_language_models.ipynb) | ESM (Rives et al. 2021; Lin et al. 2023); attention tracks contacts (Rao et al. 2021); zero-shot variant effects (Meier et al. 2021) | ESM-2, ESM-1v |
+| Protein language models | [24](notebooks/24_attention_transformers.ipynb), [37](notebooks/37_protein_sequences_language_models.ipynb) | ESM (Rives et al. 2021; Lin et al. 2023); attention tracks contacts (Rao et al. 2021); zero-shot variant effects (Meier et al. 2021) | ESM-2, ESM-1v |
 | Structure representation and prediction | [38](notebooks/38_protein_structure.ipynb) | Kabsch, TM-score, lDDT; contact-guided folding; AlphaFold 2 (Jumper et al. 2021), RoseTTAFold, ESMFold, AlphaFold 3 | ColabFold, Foldseek, ChimeraX · PDB, AlphaFold DB, CASP |
-| Generative models of structure | [27](notebooks/27_diffusion_flow_matching.ipynb), [39](notebooks/39_generative_design.ipynb) | DDPM, score-based models, flow matching; RFdiffusion, Chroma, AlphaFold 3's diffusion module | RFdiffusion, ProteinMPNN |
+| Generative models of structure | [28](notebooks/28_diffusion_flow_matching.ipynb), [39](notebooks/39_generative_design.ipynb) | DDPM, score-based models, flow matching; RFdiffusion, Chroma, AlphaFold 3's diffusion module | RFdiffusion, ProteinMPNN |
 | Protein and molecule design | [39](notebooks/39_generative_design.ipynb) | Potts-model design (Russ et al. 2020); inverse folding (ProteinMPNN); model-based optimisation pitfalls; molecular generation benchmarks; responsible design | ProteinMPNN, RFdiffusion · GuacaMol, MOSES |
 | Experiment design, protein engineering | [29](notebooks/29_gaussian_processes_bayesian_optimization.ipynb) | Gaussian processes and Bayesian optimisation; ML-guided directed evolution (Romero et al. 2013; Wu et al. 2019) | BoTorch, GPyTorch · FLIP, ProteinGym landscapes |
-| Graphs and geometry | [28](notebooks/28_graph_neural_networks.ipynb) | GCN, MPNN, GAT, GIN; equivariant networks (EGNN); GNN-driven antibiotic discovery (Stokes et al. 2020) | PyTorch Geometric, DGL |
+| Graphs and geometry | [25](notebooks/25_graph_neural_networks.ipynb) | GCN, MPNN, GAT, GIN; equivariant networks (EGNN); GNN-driven antibiotic discovery (Stokes et al. 2020) | PyTorch Geometric, DGL |
 | Molecular property prediction | [40](notebooks/40_molecular_ml_drug_discovery.ipynb) | fingerprints (ECFP), MoleculeNet, Chemprop; scaffold splits; activity cliffs; virtual screening | RDKit, Chemprop, DeepChem · ChEMBL, PubChem, ZINC, TDC, Polaris |
 
 ### 🤖 Methods for reliable, AI-driven science
 
 | Area | Module | Landmark ideas and methods | Production tools · data to try next |
 |---|---|---|---|
-| Probabilistic deep learning | [25](notebooks/25_variational_inference_vae.ipynb), [27](notebooks/27_diffusion_flow_matching.ipynb) | ELBO, reparameterisation, VAEs; diffusion and flow matching | PyTorch, Pyro |
-| Transformers and foundation models | [26](notebooks/26_attention_transformers.ipynb), [43](notebooks/43_llms_ai_agents.ipynb) | attention, masked and causal language modelling, scaling; single-cell foundation models and their evaluation against simple baselines | Hugging Face |
+| Probabilistic deep learning | [27](notebooks/27_variational_inference_vae.ipynb), [28](notebooks/28_diffusion_flow_matching.ipynb) | ELBO, reparameterisation, VAEs; diffusion and flow matching | PyTorch, Pyro |
+| Transformers and foundation models | [24](notebooks/24_attention_transformers.ipynb), [43](notebooks/43_llms_ai_agents.ipynb) | attention, masked and causal language modelling, scaling; single-cell foundation models and their evaluation against simple baselines | Hugging Face |
 | Trustworthy ML | [42](notebooks/42_trustworthy_ml.ipynb) | leakage and proper splits (Whalen et al. 2022; Kapoor & Narayanan 2023); DOME recommendations (Walsh et al. 2021); calibration; deep ensembles; conformal prediction | scikit-learn, MAPIE · [ConformalPrediction tutorial](../ConformalPrediction/) |
 | Causal inference | [41](notebooks/41_perturbation_causal_inference.ipynb) | potential outcomes, backdoor adjustment, propensity scores, IV | DoWhy, causal-learn |
 | LLMs, retrieval and agents | [43](notebooks/43_llms_ai_agents.ipynb) | retrieval-augmented generation (Lewis et al. 2020); ReAct agents (Yao et al. 2023); AI systems for chemistry and biology (Boiko et al. 2023; Bran et al. 2024; Swanson et al. 2025); responsible use and dual-use risk | LLM APIs with tool use — always with verification |
@@ -89,7 +89,7 @@ questions. Statements about the state of a field are as of 2025.
 ## 3 · Open questions you will meet (as of 2025)
 
 - Do large foundation models of cells, DNA and proteins beat simple, well-tuned baselines on the
-  tasks that matter? (26, 41, 43)
+  tasks that matter? (24, 41, 43)
 - How far does RNA velocity's steady-state logic hold, and which ground truths (lineage tracing,
   metabolic labelling) can validate trajectories? (32)
 - Can integration remove batch effects without removing disease biology? (31)

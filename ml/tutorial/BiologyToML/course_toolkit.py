@@ -508,7 +508,7 @@ def simulate_ld_genotypes(rng: np.random.Generator, n_samples: int = 2000, n_snp
     return G, positions
 
 
-# ── Simulators for cells and tissues (Modules 24–34, 41–44) ─────────────────
+# ── Simulators for cells and tissues (Modules 26–34, 41–44) ─────────────────
 # Simulated data replace real atlases so that the repository stays small and every
 # notebook runs offline in minutes.  Each simulator also returns the *ground truth*
 # (true cell types, true effects, true time, …) so that methods can be checked against it.
@@ -946,7 +946,7 @@ def simulate_perturb_seq(rng: np.random.Generator, n_genes: int = 40, n_targets:
                 true_effect=pd.DataFrame(effects, index=genes).T)
 
 
-# ── Simulators for genomes, proteins and molecules (Modules 26–29, 35–40) ───
+# ── Simulators for genomes, proteins and molecules (Modules 24–25, 28–29, 35–40) ───
 IUPAC = {"A": "A", "C": "C", "G": "G", "T": "T", "R": "AG", "Y": "CT", "S": "CG", "W": "AT", "K": "GT",
          "M": "AC", "N": "ACGT"}
 # Transcription-factor motifs (IUPAC consensus) and their effect on enhancer activity in the

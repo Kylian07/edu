@@ -101,26 +101,26 @@ for Scientists*) that the course uses, at the moment they are needed. Level 2 as
 
 | Part | Module | Builds on | Research frontier |
 |---|---|---|---|
-| **F · Modern ML building blocks** | [24 · 🧮 Generalised linear models for count data](notebooks/24_glm_count_data.ipynb) | 05, 06, 09, 21 | RNA-seq differential expression, FDR, pseudobulk |
-| | [25 · 🌀 Variational inference and variational autoencoders](notebooks/25_variational_inference_vae.ipynb) | 13, 14, 21, 22, 24 | VI, deep generative models of single cells (scVI-style) |
-| | [26 · 🔤 Attention, transformers and self-supervised learning](notebooks/26_attention_transformers.ipynb) | 08, 19, 22 | protein/genomic language models, foundation models |
-| | [27 · 🎨 Generative models: diffusion and flow matching](notebooks/27_diffusion_flow_matching.ipynb) | 13, 21, 22, 25 | diffusion, flow matching, guidance; generative structural biology |
-| | [28 · 🕸️ Graph neural networks and geometric deep learning](notebooks/28_graph_neural_networks.ipynb) | 14, 15–17, 22 | message passing, equivariance, molecules and proteins |
+| **F · Modern ML building blocks** | [24 · 🔤 Attention, transformers and self-supervised learning](notebooks/24_attention_transformers.ipynb) | 08, 19, 22 | protein/genomic language models, foundation models |
+| | [25 · 🕸️ Graph neural networks and geometric deep learning](notebooks/25_graph_neural_networks.ipynb) | 14, 15–17, 22 | message passing, equivariance, molecules and proteins |
+| | [26 · 🧮 Generalised linear models for count data](notebooks/26_glm_count_data.ipynb) | 05, 06, 09, 21 | RNA-seq differential expression, FDR, pseudobulk |
+| | [27 · 🌀 Variational inference and variational autoencoders](notebooks/27_variational_inference_vae.ipynb) | 13, 14, 21, 22, 26 | VI, deep generative models of single cells (scVI-style) |
+| | [28 · 🎨 Generative models: diffusion and flow matching](notebooks/28_diffusion_flow_matching.ipynb) | 13, 21, 22, 27 | diffusion, flow matching, guidance; generative structural biology |
 | | [29 · 🎯 Gaussian processes, Bayesian optimisation and active learning](notebooks/29_gaussian_processes_bayesian_optimization.ipynb) | 07, 11, 21, 23 | experiment design, ML-guided protein engineering |
-| **G · Cells and tissues** | [30 · 🔬 Single-cell RNA-seq: from counts to cell types](notebooks/30_single_cell_rnaseq.ipynb) | 12–14, 24 | cell atlases, QC, clustering, annotation, pseudobulk DE |
-| | [31 · 🧩 Batch effects, data integration and reference mapping](notebooks/31_batch_integration.ipynb) | 25, 30 | ComBat, MNN, Harmony, scVI; reference mapping |
+| **G · Cells and tissues** | [30 · 🔬 Single-cell RNA-seq: from counts to cell types](notebooks/30_single_cell_rnaseq.ipynb) | 12–14, 26 | cell atlases, QC, clustering, annotation, pseudobulk DE |
+| | [31 · 🧩 Batch effects, data integration and reference mapping](notebooks/31_batch_integration.ipynb) | 27, 30 | ComBat, MNN, Harmony, scVI; reference mapping |
 | | [32 · ⏳ Cell dynamics: pseudotime, RNA velocity and optimal transport](notebooks/32_cell_dynamics_velocity.ipynb) | 14, 19–20, 30 | trajectories, RNA velocity, Waddington-OT, fate mapping |
 | | [33 · 🗺️ Spatial omics: tissues as data](notebooks/33_spatial_omics.ipynb) | 12, 14, 18, 30 | spatially variable genes, domains, niches, deconvolution |
 | | [34 · 🔗 Multimodal single-cell integration: RNA, protein and chromatin](notebooks/34_multimodal_integration.ipynb) | 14, 18, 30 | CITE-seq, multiome, WNN/CCA, enhancer–gene links |
 | **H · Genomes, proteins and molecules** | [35 · 📊 Statistical genetics at scale](notebooks/35_statistical_genetics.ipynb) | 06, 07, 14, 21 | mixed models, heritability, fine-mapping, PRS, Mendelian randomisation |
 | | [36 · 🧷 Regulatory genomics: deep learning from DNA sequence to function](notebooks/36_regulatory_genomics_deep_learning.ipynb) | 19, 22, 23 | sequence-to-function CNNs, attribution, variant effects |
-| | [37 · 🧪 Protein sequences: from coevolution to protein language models](notebooks/37_protein_sequences_language_models.ipynb) | 18, 19, 26 | Potts models, DCA, contacts, zero-shot variant effects |
+| | [37 · 🧪 Protein sequences: from coevolution to protein language models](notebooks/37_protein_sequences_language_models.ipynb) | 18, 19, 24 | Potts models, DCA, contacts, zero-shot variant effects |
 | | [38 · 🏗️ Protein structure: geometry, contacts and structure prediction](notebooks/38_protein_structure.ipynb) | 03, 14, 37 | RMSD/TM-score/lDDT, distance geometry, AlphaFold concepts |
-| | [39 · ✨ Generative design of proteins and molecules](notebooks/39_generative_design.ipynb) | 27, 29, 37 | sequence design, inverse folding, model-based optimisation |
-| | [40 · 💊 Molecular machine learning for drug discovery](notebooks/40_molecular_ml_drug_discovery.ipynb) | 10, 23, 28 | fingerprints, GNNs, scaffold splits, virtual screening |
+| | [39 · ✨ Generative design of proteins and molecules](notebooks/39_generative_design.ipynb) | 28, 29, 37 | sequence design, inverse folding, model-based optimisation |
+| | [40 · 💊 Molecular machine learning for drug discovery](notebooks/40_molecular_ml_drug_discovery.ipynb) | 10, 23, 25 | fingerprints, GNNs, scaffold splits, virtual screening |
 | **I · Causality, reliability and AI-driven discovery** | [41 · ⚗️ Perturbation biology and causal inference](notebooks/41_perturbation_causal_inference.ipynb) | 15–18, 13 | causal graphs, IV, CRISPR screens, Perturb-seq |
 | | [42 · 🛡️ Trustworthy biological ML](notebooks/42_trustworthy_ml.ipynb) | 09, 10, 21, 23 | leakage, shift, calibration, conformal prediction, fairness |
-| | [43 · 🤖 Foundation models, language models and AI agents for biology](notebooks/43_llms_ai_agents.ipynb) | 19–20, 22, 26 | LLMs, retrieval-augmented generation, agents, evaluation |
+| | [43 · 🤖 Foundation models, language models and AI agents for biology](notebooks/43_llms_ai_agents.ipynb) | 19–20, 22, 24 | LLMs, retrieval-augmented generation, agents, evaluation |
 | **J · Capstone** | [44 · 🏁 Capstone: from a question to a reproducible study](notebooks/44_capstone_project.ipynb) | all | a 02-620-style project, six research tracks, reproducibility |
 
 Level 2 modules take about 3 h each. In total: about **62 hours** of notebook work for Level 1,
@@ -157,11 +157,11 @@ leads before picking a Level 2 track, or to prepare a single lecture or talk tha
 
 | Thread | What recurs | Modules, in the thread's own order |
 |---|---|---|
-| **The two-step recipe** | choose a probability model, then estimate it by MLE, MAP or full Bayes | 05 → 06–09 → 13 → 15–21 → 24 → 29, 35, 37 |
-| **Conditional independence buys tractability** | 3ⁿ → 2n; 31 → 10; a sparse precision matrix; a chain over time; message passing; a Potts model | 08 → 15–18 → 19–20 → 28 → 37 → 41 |
-| **Latent variables ⇒ EM** | alternate inferring the hidden variable and re-estimating the parameters | 12 → 13 → 19–20 → 21 → 25 → 31, 34 |
+| **The two-step recipe** | choose a probability model, then estimate it by MLE, MAP or full Bayes | 05 → 06–09 → 13 → 15–21 → 26 → 29, 35, 37 |
+| **Conditional independence buys tractability** | 3ⁿ → 2n; 31 → 10; a sparse precision matrix; a chain over time; message passing; a Potts model | 08 → 15–18 → 19–20 → 25 → 37 → 41 |
+| **Latent variables ⇒ EM** | alternate inferring the hidden variable and re-estimating the parameters | 12 → 13 → 19–20 → 21 → 27 → 31, 34 |
 | **Can this model be trusted?** | held-out evaluation, selection bias, and checking every method against a known truth | 23 → 29 → 40 → 42 → 44 |
-| **Neural representation learning** | a neuron, then a network, then attention, diffusion and message passing | 22 → 26–28 → 36, 37 → 39 |
+| **Neural representation learning** | a neuron, then a network, then attention, diffusion and message passing | 22 → 24–25, 28 → 36, 37 → 39 |
 
 Each thread is a different path through the same 45 notebooks — nothing here is new content. The
 numbered 00→44 walk-through is still the recommended way to meet the material for the first time,
@@ -198,10 +198,10 @@ capstone project track:
 
 | Track | Modules | Capstone track |
 |---|---|---|
-| 🔬 Single-cell and spatial biology | 24 → 25 → 30 → 31 → 32 → 33 → 34 → 41 | 1 (atlas + stimulation), 2 (Perturb-seq) |
-| 🧬 Genomics and genetics | 24 → 26 → 35 → 36 → 42 | 4 (regulatory variants), 5 (GWAS → fine-mapping → MR) |
-| 🧪 Proteins and drug discovery | 26 → 27 → 28 → 29 → 37 → 38 → 39 → 40 | 3 (variant effects), 6 (molecular design) |
-| 🤖 AI for science | 25 → 26 → 27 → 28 → 29 → 42 → 43 | any track |
+| 🔬 Single-cell and spatial biology | 26 → 27 → 30 → 31 → 32 → 33 → 34 → 41 | 1 (atlas + stimulation), 2 (Perturb-seq) |
+| 🧬 Genomics and genetics | 26 → 24 → 35 → 36 → 42 | 4 (regulatory variants), 5 (GWAS → fine-mapping → MR) |
+| 🧪 Proteins and drug discovery | 24 → 28 → 25 → 29 → 37 → 38 → 39 → 40 | 3 (variant effects), 6 (molecular design) |
+| 🤖 AI for science | 27 → 24 → 28 → 25 → 29 → 42 → 43 | any track |
 
 ### A two-semester bridge for first-year students (≈ 4–5 h per week)
 
