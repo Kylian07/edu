@@ -17,9 +17,9 @@ A four-phase, hands-on curriculum that takes you from first principles in signal
 | Background | Where to start |
 |------------|----------------|
 | Python user curious about medical AI | Phase 01 → Phase 02 → Phase 03 |
-| Biologist wanting to understand cryoEM computation | Phase 01 (Module 02) → Phase 04 |
+| Biologist wanting to understand cryoEM computation | BiologyToBioimage (Module 04, Fourier analysis) → Phase 04 |
 | ML practitioner new to medical imaging | Phase 02 → Phase 03 |
-| Structural biology researcher / cryo-ET newcomer | Phase 04 (after Phase 01 Module 02) |
+| Structural biology researcher / cryo-ET newcomer | Phase 04 (after BiologyToBioimage Module 04, Fourier analysis) |
 
 ---
 
@@ -28,19 +28,14 @@ A four-phase, hands-on curriculum that takes you from first principles in signal
 ```
 Phase 01 — Computational Signal Base
   ├─ 01 PyTorch Tensor Basics & Image I/O
-  ├─ 02 Frequency Filtering & Image Pyramids
-  ├─ 03 Classical Feature Extraction (Edges, Lines, Curves)
-  ├─ 04 Geometry-Based Classification of Bio-Images
-  ├─ 05 Corner Detection & Feature Descriptors
-  └─ 06 Spatial Transformations & Image Warping
+  ├─ 02 Corner Detection & Feature Descriptors
+  └─ 03 Spatial Transformations & Image Warping
 
 Phase 02 — Spatial Perception & Analysis
-  ├─ 01 Dimensionality Reduction & Latent Space (PCA)
-  ├─ 02 Object Detection & Tracking (YOLOv5 + LAP)
-  ├─ 03 Image Segmentation (Watershed → U-Net)
-  ├─ 04 Image Alignment & Registration (SimpleITK + Pix2Pix)
-  ├─ 05 Stereo Vision & Depth Estimation
-  └─ 06 Self-Supervised Bioimage Denoising (Noise2Void / Noise2Self)
+  ├─ 01 Object Detection & Tracking (YOLOv5 + LAP)
+  ├─ 02 Image Alignment & Registration (SimpleITK + Pix2Pix)
+  ├─ 03 Stereo Vision & Depth Estimation
+  └─ 04 Self-Supervised Bioimage Denoising (Noise2Void / Noise2Self)
 
 Phase 03 — Advanced Medical AI
   ├─ 01 3-D Volumetric Segmentation with MONAI
@@ -49,10 +44,9 @@ Phase 03 — Advanced Medical AI
   ├─ 04 Medical Vision-Language Models (BiomedCLIP, BLIP-2, LLaVA)
   ├─ 05 Clinical Diagnostic Assistant Case Study
   ├─ 06 Multimodal Deep Learning (Fusion & Contrastive Pretraining)
-  ├─ 07 Promptable Biomedical Lesion Segmentation (MedSAM-inspired)
-  ├─ 08 Medical Image Classification with MONAI (MedNIST)
-  ├─ 09 Medical Image Segmentation with MONAI & U-Net
-  └─ 10 Academic Approach to Machine Learning for Medical Imaging
+  ├─ 07 Medical Image Classification with MONAI (MedNIST)
+  ├─ 08 Medical Image Segmentation with MONAI & U-Net
+  └─ 09 Academic Approach to Machine Learning for Medical Imaging
 
 Phase 04 — CryoEM & Structural Biology
   ├─ 01 Low-SNR Noise Processing & Particle Picking
@@ -84,7 +78,7 @@ Phase 05 — Robotic Lab Automation & VLA Models
 ### Phase 01 — Computational Signal Base
 **Level: Beginner** · No prior PyTorch or image-processing experience required.
 
-The foundation everything else rests on. You will leave Phase 01 fluent in PyTorch tensors, comfortable loading DICOM and TIFF medical images, and able to design and apply filters in both the spatial and frequency domains. The final module introduces hand-crafted geometric features and classical classifiers — still the right choice whenever labelled data is scarce.
+The foundation everything else rests on. You will leave Phase 01 fluent in PyTorch tensors, comfortable loading DICOM and TIFF medical images, able to detect classical corners and feature descriptors, and able to apply 2-D spatial transformations and homographies to align image pairs. (Frequency-domain filtering and hand-crafted geometric classification — formerly covered here — are now taught in [BiologyToBioimage](BiologyToBioimage/README.md) Modules 04 and 07.)
 
 ➜ [`foundation/ComputationalSignalBase`](foundation/ComputationalSignalBase/)
 
@@ -93,7 +87,7 @@ The foundation everything else rests on. You will leave Phase 01 fluent in PyTor
 ### Phase 02 — Spatial Perception & Analysis
 **Level: Intermediate** · Requires Phase 01 or equivalent PyTorch familiarity.
 
-Phase 02 is about understanding *where things are* and *what shape they have*. You will compress high-dimensional images with PCA, train a YOLOv5 object detector on a custom dataset, track cells across 3-D time-lapse volumes, segment structures with both classical algorithms and U-Net, and align image pairs using both iterative optimisation and a conditional GAN.
+Phase 02 is about understanding *where things are* and *what shape they have*. You will train a YOLOv5 object detector on a custom dataset and track cells across time-lapse volumes with the linear assignment problem, align image pairs using both classical iterative optimisation (SimpleITK) and a conditional GAN (Pix2Pix), estimate depth from stereo pairs, and denoise bioimages with self-supervised networks. (Dimensionality reduction with PCA and classical-to-deep segmentation — formerly covered here — are now taught in [BiologyToBioimage](BiologyToBioimage/README.md) Modules 09, 10 and 11.)
 
 ➜ [`foundation/SpatialPerceptionAnalysis`](foundation/SpatialPerceptionAnalysis/)
 
@@ -102,14 +96,14 @@ Phase 02 is about understanding *where things are* and *what shape they have*. Y
 ### Phase 03 — Advanced Medical AI
 **Level: Advanced** · Requires Phases 01 and 02.
 
-The phase where individual building blocks converge into complete clinical-grade systems. You will classify 2D medical images on MedNIST with MONAI, segment 2D medical shapes with U-Net, train a 3-D U-Net on the Medical Segmentation Decathlon spleen benchmark, work through the full spectrum of multimodal registration from classical SimpleITK to deep VoxelMorph-style networks, synthesise missing imaging modalities using Schrödinger Bridge Conditional Flow Matching, and probe state-of-the-art foundation models (BiomedCLIP, BLIP-2, LLaVA-1.5) with real medical images.
+The phase where individual building blocks converge into complete clinical-grade systems. You will classify 2D medical images on MedNIST with MONAI, segment 2D medical shapes with U-Net, train a 3-D U-Net on the Medical Segmentation Decathlon spleen benchmark, work through the full spectrum of multimodal registration from classical SimpleITK to deep VoxelMorph-style networks, synthesise missing imaging modalities using Schrödinger Bridge Conditional Flow Matching, and probe state-of-the-art foundation models (BiomedCLIP, BLIP-2, LLaVA-1.5) with real medical images. (Promptable, prompt-guided lesion segmentation — formerly covered here — is now taught in [BiologyToBioimage](BiologyToBioimage/README.md) Module 20.)
 
 ➜ [`foundation/AdvancedMedicalAI`](foundation/AdvancedMedicalAI/)
 
 ---
 
 ### Phase 04 — CryoEM & Structural Biology
-**Level: Specialist** · Requires Phase 01 Module 02 (Fourier analysis) + NumPy/SciPy fluency.
+**Level: Specialist** · Requires NumPy/SciPy fluency and familiarity with Fourier analysis (now taught in [BiologyToBioimage](BiologyToBioimage/README.md) Module 04), plus Phase 01 Module 01 (PyTorch tensors).
 
 An end-to-end computational treatment of cryo-electron microscopy. Module 01 builds the 2-D signal-processing intuition (CTF simulation, denoising, particle picking, class averaging, FRC resolution). Module 02 extends everything to 3-D: the Fourier Slice Theorem, trilinear back-projection, and expectation-maximisation pose estimation. Module 03 covers fiducial-less patch-tracking tilt-series alignment. Module 04 is a full hands-on practical using IMOD/Etomo on a real published tilt series from EMPIAR. Module 05 covers 3-D sub-tomogram averaging (STA) and particle picking for cryo-ET. Module 06 covers few-shot 3D particle detection using weak labels and Volume Infill. Module 07 covers prompt-based interactive 3-D tomogram segmentation (SAM & CryoSAM propagation). Module 08 covers tomographic reconstruction and missing-wedge effects (WBP vs SIRT). Module 09 covers beam-induced motion correction (patch-based and whole-frame drift tracking).
 
@@ -162,16 +156,14 @@ jupyter lab
 | Concept | First introduced | Used again in |
 |---------|-----------------|--------------|
 | PyTorch tensors | Ph01-M01 | Every subsequent module |
-| Convolution / kernels | Ph01-M02 | Ph01-M03, Ph02-M03, Ph03-M01 |
-| Fourier Transform | Ph01-M02 | Ph04-M01, Ph04-M02 |
-| Edge & feature detection | Ph01-M03 | Ph02-M02, Ph02-M03 |
-| GLCM / geometric features | Ph01-M04 | Ph02-M01 (motivation for PCA) |
-| PCA / latent space | Ph02-M01 | Ph03-M03, Ph04-M02 |
-| U-Net architecture | Ph02-M03 | Ph02-M04, Ph03-M01, Ph03-M02 |
-| Similarity metrics (MI) | Ph02-M04 | Ph03-M02 |
-| Dice loss | Ph02-M03 | Ph03-M01 |
+| Similarity metrics (MI) | Ph02-M02 | Ph03-M02 |
 | CTF | Ph04-M01 | Ph04-M02, Ph04-M03 |
 | Expectation-Maximisation | Ph04-M02 | Ph04-M03 (production software) |
+
+> Convolution/kernels, the Fourier Transform, edge & feature detection, GLCM/geometric
+> features, PCA/latent space, U-Net architecture, and Dice loss were formerly introduced in
+> modules that have since moved to [BiologyToBioimage](BiologyToBioimage/README.md)
+> (Modules 04, 06, 07, 09, 10, 11 — see that course for the canonical introduction of each).
 
 ---
 
@@ -183,16 +175,11 @@ tutorial/
 ├── ComputationalSignalBase/
 │   ├── README.md
 │   ├── PyTorchTensorBasic/
-│   ├── FrequencyFiltering/
-│   ├── ClassicalFeatureExtract/
-│   ├── GeometryBasedClassification/
 │   ├── CornerDetection/
 │   └── SpatialTransformations/
 ├── SpatialPerceptionAnalysis/
 │   ├── README.md
-│   ├── DimensionReductionLatentSpace/
 │   ├── ObjectDetectTracking/
-│   ├── ImageSegmentation/
 │   ├── ImageAlignmentRegister/
 │   ├── StereoVision/
 │   └── BioimageDenoising/
@@ -204,7 +191,6 @@ tutorial/
 │   ├── MedicalVisionLanguage/
 │   ├── ClinicalDiagnosticAssistant/
 │   ├── MultimodalDeepLearning/
-│   ├── PromptableSegmentation/
 │   ├── MedicalImageClassification/
 │   ├── MedicalImageSegmentation/
 │   └── AcademicApproach/
@@ -225,13 +211,13 @@ tutorial/
 ## Suggested Learning Paths
 
 **"I want to work in medical imaging AI"**
-Phase 01 (all) → Phase 02 (M01, M03, M04) → Phase 03 (M01, M02, M04)
+Phase 01 (all) → Phase 02 (M02) → Phase 03 (M01, M02, M04)
 
 **"I want to understand generative models for medical data"**
-Phase 01 (M01, M02) → Phase 02 (M03, M04) → Phase 03 (M03)
+Phase 01 (M01) → Phase 02 (M02) → Phase 03 (M03)
 
 **"I'm joining a cryoEM lab"**
-Phase 01 (M01, M02) → Phase 04 (all, in order)
+Phase 01 (M01) + BiologyToBioimage (Module 04, Fourier analysis) → Phase 04 (all, in order)
 
 **"I want the full curriculum"**
 Phase 01 → Phase 02 → Phase 03 → Phase 04
