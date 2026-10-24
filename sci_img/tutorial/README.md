@@ -1,6 +1,13 @@
 
 # Medical & Biological Imaging AI — Tutorial Series
 
+> **New to bioimage analysis, or a first-year biology major?** Start with
+> [**BiologyToBioimage**](BiologyToBioimage/README.md) — a 29-module notebook course that assumes
+> no prior programming or imaging background, builds a deep understanding of CMU 02-740 *Bioimage
+> Informatics*, and then reaches the research frontier (foundation models, virtual staining,
+> spatial omics, trustworthy AI and more). The phases below assume PyTorch/GPU fluency and are a
+> natural next step after it.
+
 A four-phase, hands-on curriculum that takes you from first principles in signal processing all the way to clinical 3-D segmentation, generative synthesis, vision-language models, and real cryo-electron tomography. Every notebook runs on Google Colab (free T4 GPU), and each phase builds deliberately on the one before it.Besides, you are encouraged to pull a issue in this repo.
 
 ---

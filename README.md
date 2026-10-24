@@ -11,6 +11,8 @@ Welcome to the [Xu Lab](https://xulabs.github.io) educational repository. This p
 
 *   **[Medical & Biological Imaging AI — Unified Tutorial Series](sci_img/tutorial/README.md)**  
     A hands-on, 4-phase (suggested 7-week) curriculum spanning PyTorch tensor foundations, classical signal/image processing, 3-D volumetric deep segmentation (MONAI), generative synthesis, and vision-language models. Contains a visual roadmap, weekly schedule, and conceptual workflow.
+*   **[From Biology to Bioimage Analysis — a companion to CMU 02-740](sci_img/tutorial/BiologyToBioimage/README.md)**  
+    A 29-module notebook course for first-year biology majors (no programming or imaging background assumed). It teaches every core topic of 02-740 *Bioimage Informatics* completely inside the notebooks — image formation and microscopy contrast, filtering and the frequency domain, point and edge/line features, classical and deep bioimage classification, dimensionality reduction, classical and deep segmentation, object detection, generative synthesis, tracking, registration, denoising/restoration, and colocalization/spatial statistics — then carries those ideas to the research frontier: foundation models for microscopy, virtual staining, image-based profiling, spatial omics, uncertainty quantification, large-scale volumetric imaging, explainability and AI agents for bioimage analysis; a capstone ties it together. All data are simulated and all figures drawn by code.
 *   **[Cryo-EM for Computer Scientists](cryoem/tutorial/foundation/readme.md)**  
     An end-to-end computational curriculum for structural biology and cryo-electron microscopy.
 *   **[Machine Learning for Scientists](ml/readme.md)**  
